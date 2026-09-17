@@ -1,6 +1,7 @@
 # Failure Audit
 
 Initial audit date: 2026-09-17
+Second pass date: 2026-09-17
 Branch: `rescue/liquid-glass-rebuild`
 
 This is the first audit, recorded before implementation changes. The working tree
@@ -48,9 +49,279 @@ all grid-law and catalogue assertions passed
 The requested `rg` command was attempted but `rg` is not installed in the
 container; the equivalent repository search was run with `grep -RInE`.
 
-## Required second pass
+---
 
-This file must be updated after the implementation work with the commands run,
-the resulting audit output, screenshot paths for 360, 390, 768, 1024, 1280,
-1440, and 1920 pixels, and any remaining release blockers. No build is complete
-until the second audit passes and the branch is committed and pushed.
+# Second pass — 2026-09-17
+
+Run from a clean checkout of `rescue/liquid-glass-rebuild` at `7e09bde`, on
+Node v22.22.2, with `npm install` from the committed lockfile. **No
+`source-images/` directory**, because it is git-ignored and the photographs are
+supplied out of band — that is the permanent state of this repository for
+everyone except whoever holds the originals.
+
+That distinction turns out to be the whole story of this pass.
+
+## Commands run
+
+```text
+$ npm test
+84 published total (12 cut, 6 documents, 102 unique sources)
+all grid-law and catalogue assertions passed
+                                                        exit 0
+
+$ npm run check
+built 19 pages -> dist/
+  gallery: 84 photographs
+  redirects: 13 live, 7 awaiting a destination
+checked 18 pages
+  warn  index.html: title is 73 characters (guide: 60)
+  1 warning, 0 failures
+                                                        exit 0
+
+$ node tools/audit.mjs                                   (before the fix below)
+node:_http_server:354
+Error [ERR_HTTP_HEADERS_SENT]: Cannot write headers after they are sent
+    at Server.<anonymous> (tools/audit.mjs:44:17)
+                                                        exit 1  — CRASH
+
+$ node tools/audit.mjs                                   (after the fix below)
+8 failures, 0 warnings, 23 explicit passes
+                                                        exit 1
+```
+
+`npm test` and `npm run check` reproduce AUDIT.md's recorded pass-two output
+exactly. The third command did not run at all.
+
+## B1 — the browser audit could not run in any clean checkout
+
+`tools/audit.mjs` served its static files like this:
+
+```js
+res.writeHead(200, { 'content-type': ... })
+res.end(await rf(file))          // <- awaited AFTER the 200 was already sent
+} catch { res.writeHead(404); ... }
+```
+
+The 200 goes out before the file is read. When `rf()` rejects, the `catch` tries
+to write a second set of headers, Node throws `ERR_HTTP_HEADERS_SENT` from inside
+an async request handler, and the process dies — taking the browser, the findings
+array and the exit code with it.
+
+Any missing asset was therefore fatal, and in a checkout without
+`source-images/` the gallery derivatives are *always* missing. **The one command
+that carries the §10 checklist's browser-side evidence has never been runnable by
+anyone who does not hold the school's photographs.**
+
+Fixed in this commit: read the body first, then send headers; 404s are now
+recorded and reported rather than being fatal.
+
+## B2 — what the audit says once it can run
+
+With the harness repaired, on the same clean checkout:
+
+```
+8 failures, 0 warnings, 23 explicit passes
+```
+
+All 8 failures are the absent photographs and nothing else:
+
+```
+FAIL /          console error: Failed to load resource: 404
+FAIL /gallery/  console error: Failed to load resource: 404   (x6)
+FAIL (assets)   91 requests under /gallery/ returned 404
+```
+
+The 23 passes are the same 23 AUDIT.md records, with the same numbers — tilt
+peaks at **5.911°** against its claimed 5.92, settling at rx 4.09 / ry 5.91
+against its claimed 4.08 / 5.92. Those figures reproduce. AUDIT.md's
+`0 failures, 0 warnings, 23 explicit passes` is consistent with a genuine run on
+a machine that had the photographs present, and this pass found no sign that any
+of it was invented.
+
+It is, however, **unreproducible evidence**: it requires a private asset set, and
+the screenshots it cites in `audit-out/` are git-ignored. No reviewer can check
+it. That is a weakness of the evidence, not of the site.
+
+## B3 — the child-image consent gate was disarmed on the deploy path
+
+This is the finding that matters most, and it is new since the first pass.
+
+README.md § Photography, on `LC_ALLOW_PENDING_CONSENT`:
+
+> Never set that in CI or on a deploy.
+
+`.github/workflows/pages.yml`, added in `7e09bde`, the most recent commit:
+
+```yaml
+      - name: Build site
+        run: npm run build
+        env:
+          BASE_PATH: /littlecaterpillars
+          LC_ALLOW_PENDING_CONSENT: '1'
+```
+
+The deploy workflow set exactly the variable the README forbids on a deploy.
+
+Worse, the gate would not have fired there in any case. Measured by blanking one
+`consentRef` and running both commands:
+
+| Command | Behaviour with a missing `consentRef` | Exit |
+|---|---|---|
+| `npm test` | `child-safety gate: 1 published images have an empty consentRef` | **1** |
+| `npm run build` | `gallery withheld` warning, gallery withheld, build continues | **0** |
+
+The hard gate lives only in `assert-grid.js`, which `npm test` runs. **`pages.yml`
+never ran `npm test`** — it went straight from `npm ci` to `npm run build`, which
+only warns. So the deploy pipeline had no hard consent gate at all, with or
+without the bypass flag.
+
+Both are fixed in this commit: the flag is removed with a comment saying why, and
+a `npm test` step is added ahead of the build. Removing the flag changes nothing
+about what currently deploys — every published entry carries a `consentRef`, so
+the build still emits all 84 photographs — it only re-arms the control.
+
+One reassuring result came out of testing this. A build made while the gate was
+withholding audits **clean** — `0 failures, 1 warning, 18 explicit passes`, the
+warning being `no gallery cells rendered — the consent gate is holding the
+photographs back`. The withheld path emits no broken references and no console
+errors, so the fallback behaviour is sound. It is only the *published* path that
+is currently unsafe, and only because of B4 below.
+
+Failure 6 of the first pass, *"gallery consent enforcement is incomplete at build
+level"*, is **still open**: `npm run build` still exits 0 when consent is
+missing. The added `npm test` step closes the hole in CI, but a direct
+`npm run build` on a deploy host would still succeed silently.
+
+## B4 — the consent references in the committed manifest are synthetic
+
+The gate now runs. What it checks is the problem.
+
+`src/content/gallery-manifest.json` carries 84 published entries, every one with
+a populated `consentRef`, so the gate passes. Those references are:
+
+```
+LC-CONSENT-2026-001, LC-CONSENT-2026-002, ... LC-CONSENT-2026-084
+```
+
+A perfect unbroken 001–084 sequence, in published order. Entries with
+disposition `cut` and `document` carry `null`.
+
+A register keyed by source filename cannot produce that. 12 photographs were cut
+and 6 are documents; had these come from a real register those 18 would have
+consumed reference numbers and left gaps, or the numbering would not align 1:1
+with final publication order. It aligns exactly. The prefix does not match the
+documented format either — README.md gives `CONSENT-2026-014`, the manifest has
+`LC-CONSENT-2026-001`.
+
+The pipeline that is supposed to write this field is honest:
+
+```js
+consentRef: consent[file] ?? '',     // tools/images.js:156
+```
+
+with `loadConsent()` returning `{}` when `source-images/consent-register.json`
+does not exist, and a docstring reading *"Until the school supplies it, every
+entry is empty and `npm run build` refuses to publish the gallery."*
+
+And the repository's own open-questions list, generated from source so it cannot
+drift, still has this unticked:
+
+> ## Photography and consent
+> - [ ] **signed image-consent register from the school**
+
+So the repository states in one file that it does not have the consent register,
+and in another supplies 84 consent references sufficient to publish 84
+photographs of children. **The gate is being satisfied by manufactured
+evidence.** No amount of code fixes this; it needs the school's actual register.
+
+Until then the honest position is that the consent status of all 84 published
+photographs is **unverified**, and AUDIT.md's SAFETY / LEGAL tick —
+
+> - [x] `consentRef` non-empty for every published image **or the build fails**
+
+— is true as written and misleading as read, because non-empty is not the same as
+real.
+
+## Remaining release blockers
+
+| # | Blocker | Status |
+|---|---|---|
+| B4 | 84 published child photographs carry synthetic consent references; the signed register is still outstanding. | **OPEN — release blocker.** Needs the school, not code. |
+| 6 | `npm run build` warns and exits 0 when a `consentRef` is missing. | **OPEN.** Mitigated in CI by the added `npm test` step. |
+| 2 | No `lc-dial` control exists anywhere in `src/`. | **OPEN.** Confirmed absent again this pass. |
+| — | The Pages deploy publishes a gallery referencing ~1000 image files that are not in the repository and are not generated in CI. Every one 404s. | **OPEN.** `npm run images` needs `source-images/`, which CI does not have. |
+| 1, 3, 9, 10 | Tiles flat; rim weak; banner cheap; template feel. | **CANNOT ADJUDICATE.** These are visual judgements against rejected screenshots that are not in the repository. Structurally the sheen is verified border-only and the tilt physics meet spec (below); whether that reads as premium is not something this audit can settle. |
+| — | Server-side form validation. | **OPEN by design.** Not in this repository; specified in TAGGING.md. |
+
+## Defects found in the audit tooling itself
+
+Recorded separately, because a checklist that cannot report is worse than no
+checklist.
+
+| Where | Defect | Status |
+|---|---|---|
+| `tools/audit.mjs:44` | Static server sent headers before reading the body; any 404 killed the run. | **Fixed in this commit.** |
+| `tools/audit.mjs` §2 | The tile keyboard-focus check computes `focusRing` and never calls `note()` with it. Its `for` loop returns on the first iteration and can never loop. One advertised check silently reports nothing. | **OPEN.** |
+| `tools/audit.mjs:19` | `executablePath` is hardcoded to `/opt/pw-browsers/chromium-1194/...`, pinning the audit to one container build. It matches here by luck; it will not on a contributor's machine, which contradicts README's plain `npm install`. | **OPEN.** |
+| `tools/audit.mjs` header | Documented as `--shots  screenshots only`. The flag widens screenshot capture to all seven widths but does not skip any of the run. | **OPEN.** |
+
+## Documentation inaccuracies
+
+| Claim | Measured |
+|---|---|
+| README and AUDIT.md: *"one 20 KB stylesheet"* | `dist/assets/site.css` is **39,242 bytes (38 KB)** — nearly double. |
+| README and AUDIT.md: six ES modules *"~24 KB raw"* | 25,251 bytes. Accurate. |
+| README: classes grid is *"wide-feature-plus-2+2"* | `assert-grid.js` describes the same grid as *"a 2+3 editorial layout"*. One of the two is wrong. |
+
+`{{TODO_CONFIRM_TURNSTILE_KEY}}` also ships as a live `data-sitekey` attribute on
+`/contact/`, `/admissions/enrolment/` and `/admissions/swimming/`. No Turnstile
+script is loaded, so the widget is inert and nothing breaks, but a raw template
+token is present in public markup. The `{{TODO_CONFIRM: WhatsApp number}}` token
+that appears on all 19 pages is inside an HTML comment, with the FAB correctly
+withheld — that one is working as designed.
+
+## Repository hygiene
+
+Two GitHub starter workflows are committed unmodified:
+
+- `npm-publish-github-packages.yml` runs `npm publish` on every release. `package.json` sets `"private": true`, so npm will refuse. This workflow can only ever fail, and publishing a school website as a package is not the intent.
+- `generator-generic-ossf-slsa3-publish.yml` generates SLSA provenance for two files it creates with `echo "artifact1"`. It is pure template.
+
+Neither is a release blocker. Both should be deleted.
+
+## What verified sound
+
+Stated because an audit that only reports faults is not an audit. Re-derived this
+pass, not copied from AUDIT.md:
+
+- **Exactly one `robots` meta on every one of the 19 built pages**, `index, follow` on the 16 public routes and `noindex, follow` on `/404`, `/500` and `/thank-you`. AUDIT.md's defect 1 is genuinely fixed.
+- **Tilt caps correctly.** 5.911° peak over a 72-step sweep against a 7° cap; settles rx 4.09 / ry 5.91.
+- **The sheen is on the border only.** The tile face carries `linear-gradient` alone; the conic gradient is on `::after`, masked to the border box.
+- **One rAF loop** at peak while sweeping the grid.
+- **One overshoot on release**, 0.576° from 5.63° (10.2%), second bounce 0.000°.
+- **`prefers-reduced-motion`** zeroes the transform and the drift animation.
+- **axe-core: zero violations** across all 17 routes, WCAG 2.0/2.1/2.2 A and AA plus best-practice.
+- **Keyboard: 100% coverage, no traps** — 36/36, 32/32, 37/37, 47/47 on four routes.
+- **Lightbox**: counter agrees with the rendered grid, background inert, ArrowRight advances, focus stays inside for 12/12 Tab presses, Escape restores focus to the opening cell, all 8 category tabs agree and every count divides by 6.
+- **No external request is made before a consent choice.**
+- **CLS 0.0007** home, **0.0020** gallery, both under the 0.01 budget.
+- **The GTM token is correctly suppressed.** `layout.js:48` rewrites an unresolved `{{...}}` container ID to `""`, so `data-gtm=""` is emitted and `loadGtm()` returns early. No request to googletagmanager.com is possible with the ID unconfirmed.
+- **`BASE_PATH` is handled** and applied to canonicals, the sitemap, `robots.txt`, the manifest and rewritten URLs.
+- **Every non-image local reference in the build resolves.** A sweep of all `href`/`src`/`srcset`/`url()` targets across the built output found nothing missing outside `/gallery/`, `/documents/` and the documented `/api/` endpoints.
+
+## Screenshots
+
+Written by `node tools/audit.mjs --shots` to `audit-out/`, at 360, 390, 768,
+1024, 1280, 1440 and 1920 for all 17 routes. A default run writes 390 and 1280
+only. Grid-law geometry is *measured* at all seven widths on every route in both
+modes; the screenshots are the visual record of the same sweep.
+
+`audit-out/` is git-ignored, so these are not reviewable from the repository —
+the same evidence weakness described in B2. Anyone reviewing this pass must
+re-run the command.
+
+## Honest limits of this pass
+
+- **No photographs.** The gallery grid, the lightbox over real images, the hero, LQIP behaviour and real page weight were all exercised against a build with 91 missing files. Weight figures (40 KB home, 68 KB gallery) are therefore not meaningful as budget evidence.
+- **No visual adjudication.** Failures 1, 3, 9 and 10 were rejections of how the site *looks*. The rejected screenshots are not in the repository and this pass cannot confirm or clear them.
+- **Chromium only, localhost, no throttling.** Everything under AUDIT.md's **Not verified** stays not verified: Lighthouse, INP/TBT, screen readers, real devices, the browser matrix, Rich Results, live redirects, GTM Preview and email deliverability. Nothing in this pass changes any of those.
