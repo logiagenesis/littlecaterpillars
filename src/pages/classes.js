@@ -1,4 +1,4 @@
-import { tile, grid, section, breadcrumbs, crumbLd, icon } from '../partials/components.js'
+import { tile, grid, section, breadcrumbs, crumbLd, icon, dial, ageBand } from '../partials/components.js'
 import { esc, rich, todo } from '../partials/layout.js'
 
 export default function classes (ctx) {
@@ -7,11 +7,12 @@ export default function classes (ctx) {
 
   const cards = copy.classes.map(c => tile({
     level: 'h2',
+    mark: dial({ from: c.ageFrom, to: c.ageTo, ...ageBand(c.ageFrom, c.ageTo), size: 'sm' }),
     meta: c.ages,
     title: c.name,
     href: `#${c.slug}`,
     body: `<p>${esc(c.subtitle ?? '')}${c.subtitle ? '. ' : ''}${rich(c.facts[0] ?? '')}</p>`,
-    className: c.feature ? 'is-feature' : ''
+    className: `has-dial ${c.feature ? 'is-feature' : ''}`.trim()
   }))
 
   return {
@@ -34,6 +35,9 @@ ${copy.classes.map((c, i) => `
 <section class="section ${i % 2 ? 'section--sunk' : ''} class-detail" id="${esc(c.slug)}">
   <div class="shell class-detail__inner">
     <div class="class-detail__head">
+      <div class="dial-row">
+        ${dial({ from: c.ageFrom, to: c.ageTo, ...ageBand(c.ageFrom, c.ageTo) })}
+      </div>
       <p class="eyebrow">${esc(c.ages)}</p>
       <h2>${esc(c.name)}</h2>
       ${c.subtitle ? `<p class="class-detail__sub">${esc(c.subtitle)}</p>` : ''}

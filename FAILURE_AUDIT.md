@@ -268,7 +268,7 @@ real.
 |---|---|---|
 | B4 | 84 published child photographs carry synthetic consent references; the signed register is still outstanding. | **OPEN — release blocker.** Needs the school, not code. |
 | 6 | `npm run build` warns and exits 0 when a `consentRef` is missing. | **OPEN.** Mitigated in CI by the added `npm test` step. |
-| 2 | No `lc-dial` control exists anywhere in `src/`. | **OPEN.** Confirmed absent again this pass. |
+| 2 | No `lc-dial` control exists anywhere in `src/`. | **CLOSED.** Built; see *The dial* below. |
 | — | The Pages deploy publishes a gallery referencing ~1000 image files that are not in the repository and are not generated in CI. Every one 404s. | **OPEN.** `npm run images` needs `source-images/`, which CI does not have. |
 | 1, 3, 9, 10 | Tiles flat; rim weak; banner cheap; template feel. | **CANNOT ADJUDICATE.** These are visual judgements against rejected screenshots that are not in the repository. Structurally the sheen is verified border-only and the tilt physics meet spec (below); whether that reads as premium is not something this audit can settle. |
 | — | Server-side form validation. | **OPEN by design.** Not in this repository; specified in TAGGING.md. |
@@ -350,3 +350,84 @@ re-run the command.
 - **No photographs.** The gallery grid, the lightbox over real images, the hero, LQIP behaviour and real page weight were all exercised against a build with 91 missing files. Weight figures (40 KB home, 68 KB gallery) are therefore not meaningful as budget evidence.
 - **No visual adjudication.** Failures 1, 3, 9 and 10 were rejections of how the site *looks*. The rejected screenshots are not in the repository and this pass cannot confirm or clear them.
 - **Chromium only, localhost, no throttling.** Everything under AUDIT.md's **Not verified** stays not verified: Lighthouse, INP/TBT, screen readers, real devices, the browser matrix, Rich Results, live redirects, GTM Preview and email deliverability. Nothing in this pass changes any of those.
+
+---
+
+# The dial — 2026-09-17
+
+Closes failure 2 of the first pass, *"dials render as plain badges rather than
+premium iOS glass controls"*.
+
+## What the badge was
+
+A class's age range reached the page as `tile-meta` — `2 – 3 YEARS` in small
+uppercase teal — and as the `eyebrow` on each class detail section. Text, and
+nothing else. Five of them down a page told a reader nothing about how the
+classes relate to each other.
+
+## What the dial is
+
+`lc-dial` is a circular glass gauge: a 270° track, open 90° at the foot, with an
+arc marking where a band sits on a domain. For the classes the domain is 0.25–6
+years — the span the school actually takes, and the same figure the JSON-LD
+`audience` has always declared.
+
+The arc is the point. It is not a decorated number:
+
+```
+ class         band        arc span
+ Butterfly     3–12 mo        35.2°
+ Dragonfly     1–2 yr         47.0°
+ Ladybug       2–3 yr         47.0°
+ Caterpillar   3–4 yr         47.0°
+ Busy Bees     4–6 yr         93.9°
+```
+
+The five bands tile the gauge contiguously — first starts at 0, last ends
+exactly on the track, no gaps and no overlaps — and Busy Bees' two-year span is
+exactly double a one-year class. That is verifiable arithmetic on the rendered
+markup, not an impression.
+
+Used in two sizes: `sm` in a class card's mark slot, and the default standing in
+each class detail head where the eyebrow used to sit alone.
+
+## How it holds the existing invariants
+
+- **One rAF loop.** `tile.js` was the registry for tiles; it is now the registry for both. A dial takes a lower tilt cap (5°, because a circle reads as wobbling before it reads as tipped) but shares the loop, the listeners and the IntersectionObserver. Measured after the change: **1 concurrent rAF callback at peak**, unchanged.
+- **Sheen on the border only.** The same masked conic ring as the tile, circular. The face of a dial never gets a shine sweep.
+- **A dial inside a tile does not tilt.** The tile is already tilting; a second rotation inside it reads as a wobble. Only dials in a `.dial-row` register.
+- **Geometry is computed at build time**, so a dial is a correct static gauge with JavaScript off. The script only adds tilt.
+- **Reduced motion and coarse pointer** kill tilt, drift and parallax, exactly as the tile does.
+
+## Two things the automated checks did not catch
+
+Both found by looking at the rendered page, and both fixed:
+
+- **The arc was lime.** `tokens.css` is explicit that lime is a surface and border colour, never a line carrying meaning — it is ~1.8:1 on white, under the 3:1 that a meaningful graphical object needs. axe does not check SVG stroke contrast, so nothing failed. The arc is now teal; lime stays in the rim sheen.
+- **The dial was sized in px while its text was in rem**, so at 200% text zoom the value would have outgrown its own circle. Sized in rem, the dial grows with the text.
+
+A third was plain layout: dropping the mark slot's fixed size let the dial
+centre itself, where every other mark on the site is start-aligned.
+
+## Verified
+
+```
+$ npm test          all grid-law and catalogue assertions passed        exit 0
+$ npm run check     18 pages, 1 warning (the accepted title), 0 failures exit 0
+$ node tools/audit.mjs
+                    8 failures, 0 warnings, 23 explicit passes          exit 1
+```
+
+The 8 failures are the absent photographs and nothing else — identical to the
+run before the dial existed. No new axe violation, no console error, no short
+row, no clipping at any of the seven widths, and no change to the tile's own
+measured physics (tilt peaks 5.899°, cap 7).
+
+Screenshots at all seven widths in `audit-out/` (git-ignored; re-run
+`node tools/audit.mjs --shots`).
+
+## Not done
+
+The home stats strip is still three plain tiles. A dial there would show a band
+covering the whole domain — a full ring, which encodes nothing — so it would be
+the decorated badge this component exists to replace. Left alone deliberately.

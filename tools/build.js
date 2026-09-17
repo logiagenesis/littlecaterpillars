@@ -121,7 +121,7 @@ function childCareLd (site, copy, basePath) {
 
 async function bundleCss () {
   const dir = path.join(SRC, 'styles')
-  const order = ['fonts.css', 'tokens.css', 'base.css', 'tile.css', 'layout.css', 'pages.css']
+  const order = ['fonts.css', 'tokens.css', 'base.css', 'tile.css', 'dial.css', 'layout.css', 'pages.css']
   const files = await readdir(dir)
   const rest = files.filter(f => f.endsWith('.css') && !order.includes(f)).sort()
   const parts = []

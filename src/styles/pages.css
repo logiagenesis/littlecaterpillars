@@ -85,6 +85,8 @@
 .class-detail__inner { display: grid; gap: var(--sp-5); }
 @media (min-width: 64em) { .class-detail__inner { grid-template-columns: 22rem 1fr; gap: var(--sp-8); } }
 .class-detail__sub { color: var(--text-muted); margin: 0; }
+/* The age dial leads the head column, above the eyebrow it used to be. */
+.class-detail__head .dial-row { margin-bottom: var(--sp-5); }
 .ticks { list-style: none; padding: 0; display: grid; gap: var(--sp-3); }
 .ticks li { display: flex; gap: var(--sp-3); align-items: start; }
 .ticks .icon { color: var(--lc-teal); margin-top: 2px; }

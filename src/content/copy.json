@@ -11,6 +11,8 @@
       "name": "Butterfly Class",
       "subtitle": "Baby Centre",
       "ages": "3 – 12 months",
+      "ageFrom": 0.25,
+      "ageTo": 1,
       "feature": true,
       "facts": [
         "A maximum of 10 babies in the Baby Centre.",
@@ -23,6 +25,8 @@
       "slug": "dragonfly",
       "name": "Dragonfly Class",
       "ages": "1 – 2 years",
+      "ageFrom": 1,
+      "ageTo": 2,
       "facts": [
         "Gross motor focus, through play.",
         "Walking, running and stopping milestones."
@@ -33,6 +37,8 @@
       "slug": "ladybug",
       "name": "Ladybug Class",
       "ages": "2 – 3 years",
+      "ageFrom": 2,
+      "ageTo": 3,
       "facts": [],
       "body": "{{TODO_CONFIRM: the 2019 archive rendered no body copy for the Ladybug Class — request the class description from the school}}"
     },
@@ -40,6 +46,8 @@
       "slug": "caterpillar",
       "name": "Caterpillar Class",
       "ages": "3 – 4 years",
+      "ageFrom": 3,
+      "ageTo": 4,
       "facts": [
         "A detailed weekly-theme syllabus.",
         "Fine motor, gross motor and cognitive development.",
@@ -52,6 +60,8 @@
       "name": "Busy Bees Class",
       "subtitle": "Reception year",
       "ages": "4 – 6 years",
+      "ageFrom": 4,
+      "ageTo": 6,
       "facts": [
         "Grade 1 readiness.",
         "Literacy, life skills and numeracy.",

@@ -1,0 +1,204 @@
+/* ---------------------------------------------------------------------------
+   <lc-dial> — a circular glass gauge.
+
+   Same two rules that make the tile read as glass rather than as a CSS trick:
+   1. the sheen lives on the BORDER only — the face never gets a shine sweep;
+   2. the face parallaxes in Z against the ring, so depth comes from the layers
+      moving against each other rather than from the rotation angle.
+
+   A dial standing on its own tilts, driven by the same single rAF loop as the
+   tiles (see tile.js). A dial sitting inside a tile does NOT tilt — the tile is
+   already tilting and a second rotation inside it reads as a wobble, not depth.
+   --------------------------------------------------------------------------- */
+
+lc-dial {
+  --lc-rx: 0deg;
+  --lc-ry: 0deg;
+  --lc-scale: 1;
+  /* rem, not px: at 200% text zoom the circle grows with the text inside it.
+     Sized in px, the value would outgrow its own dial. */
+  --dial-size: 8.25rem;
+  --dial-stroke: 9;
+
+  position: relative;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  flex: none;
+  width: var(--dial-size);
+  height: var(--dial-size);
+  border-radius: var(--r-pill);
+  color: var(--text);
+  transform-style: preserve-3d;
+  transform: rotateX(var(--lc-rx)) rotateY(var(--lc-ry)) translateZ(0) scale(var(--lc-scale));
+
+  /* Glass fill, clipped to the padding box so it never paints over the border. */
+  background:
+    linear-gradient(
+      color-mix(in oklch, var(--lc-white) 62%, transparent),
+      color-mix(in oklch, var(--lc-white) 48%, transparent)
+    ) padding-box;
+  border: 1px solid var(--lc-mist);
+  box-shadow:
+    var(--shadow-contact),
+    var(--shadow-ambient),
+    inset 0 1px 0 rgb(255 255 255 / 0.7);
+}
+
+.dial--sm { --dial-size: 4.75rem; --dial-stroke: 11; }
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  lc-dial {
+    -webkit-backdrop-filter: blur(24px) saturate(1.6);
+    backdrop-filter: blur(24px) saturate(1.6);
+  }
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  lc-dial {
+    background:
+      linear-gradient(
+        color-mix(in oklch, var(--lc-white) 92%, var(--lc-cream)),
+        color-mix(in oklch, var(--lc-white) 84%, var(--lc-cream))
+      ) padding-box;
+  }
+}
+
+/* The ring. Geometry comes from the builder, so this is a correct picture
+   before a line of JavaScript runs. */
+.dial__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateZ(8px);
+  overflow: visible;
+}
+.dial__ring circle {
+  fill: none;
+  stroke-width: var(--dial-stroke);
+  stroke-linecap: round;
+}
+.dial__track { stroke: color-mix(in oklch, var(--lc-deep) 20%, transparent); }
+
+/* Teal, not lime. tokens.css is explicit that lime is a surface and border
+   colour only — at ~1.8:1 on white it cannot carry meaning as a line. The arc
+   encodes the age band, so it takes the colour that can be seen. Lime stays
+   where it belongs: the rim sheen. */
+.dial__arc {
+  stroke: var(--lc-teal);
+  transition: stroke 220ms var(--ease-out);
+}
+
+/* The face parallaxes further forward than the ring: that gap is the depth. */
+.dial__face {
+  position: relative;
+  display: grid;
+  place-items: center;
+  gap: 2px;
+  text-align: center;
+  padding-inline: 12%;
+  transform: translateZ(26px);
+}
+.dial__value {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--step-0);
+  line-height: 1.05;
+  color: var(--text);
+}
+.dial__label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--lc-teal);
+}
+.dial--sm .dial__value { font-size: var(--step-0); font-weight: 800; }
+.dial--sm .dial__face { transform: translateZ(14px); gap: 0; padding-inline: 6%; }
+
+/* The reflective edge — the same masked conic ring the tile uses, circular.
+   Only where @property is supported; otherwise the 1px --lc-mist border stands
+   on its own. */
+@supports (background: conic-gradient(from var(--lc-edge-angle), red, blue)) {
+  lc-dial.has-edge { border-color: color-mix(in oklch, var(--lc-mist) 70%, transparent); }
+
+  lc-dial.has-edge::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(
+      from var(--lc-edge-angle),
+      transparent 0deg,
+      color-mix(in oklch, var(--lc-lime) 90%, white) 42deg,
+      color-mix(in oklch, var(--lc-white) 80%, var(--lc-teal)) 68deg,
+      color-mix(in oklch, var(--lc-teal) 70%, white) 96deg,
+      transparent 150deg,
+      transparent 360deg
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: var(--lc-edge-opacity);
+    transition: opacity 220ms var(--ease-out);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  lc-dial.has-edge:not(.is-locked) { animation: lc-edge-drift 14s linear infinite; }
+  lc-dial.has-edge:hover { --lc-edge-opacity: 0.85; }
+}
+
+/* A dial inside a tile is the tile's ornament: it parallaxes with the tile and
+   never rotates on its own. The tile's mark slot is the usual host. */
+lc-tile lc-dial {
+  --lc-rx: 0deg !important;
+  --lc-ry: 0deg !important;
+  transform: none;
+  animation: none;
+  box-shadow: var(--shadow-contact);
+}
+/* A modifier on the tile rather than :has() on the mark, so the lime pill is
+   neutralised even where :has() is not supported. */
+lc-tile.has-dial > .tile-mark {
+  width: auto; height: auto; background: none; border-radius: 0;
+  justify-items: start; justify-content: start;
+}
+
+/* A row of dials. Flex, not grid: these are ornaments beside prose, so a short
+   final row is not the grid-law problem it would be in a tile grid. */
+.dial-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-5);
+  align-items: center;
+  perspective: 1100px;
+}
+
+/* Touch: no tilt. A press state only, like the tile. */
+@media (hover: none) {
+  lc-dial {
+    --lc-rx: 0deg !important; --lc-ry: 0deg !important;
+    transform: scale(var(--lc-scale));
+  }
+  lc-dial:active { --lc-scale: 0.985; }
+  lc-dial .dial__face, lc-dial .dial__ring { transform: none; }
+}
+
+/* Reduced motion: no tilt, no drift, no parallax. Full stop. */
+@media (prefers-reduced-motion: reduce) {
+  lc-dial {
+    --lc-rx: 0deg !important; --lc-ry: 0deg !important; --lc-scale: 1 !important;
+    transform: none !important; will-change: auto; animation: none !important;
+  }
+  lc-dial.has-edge { animation: none !important; }
+  lc-dial.has-edge::after { transition: none; opacity: 0.18; }
+  lc-dial .dial__face, lc-dial .dial__ring { transform: none !important; }
+  .dial__arc { transition: none; }
+}
+
+/* Without JS a dial is a plain, correct gauge — which is the whole point. */
+.no-js lc-dial { transform: none; }
