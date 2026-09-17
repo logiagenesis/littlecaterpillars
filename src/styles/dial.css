@@ -35,14 +35,18 @@ lc-dial {
   /* Glass fill, clipped to the padding box so it never paints over the border. */
   background:
     linear-gradient(
-      color-mix(in oklch, var(--lc-white) 62%, transparent),
-      color-mix(in oklch, var(--lc-white) 48%, transparent)
+      color-mix(in oklch, var(--lc-white) 74%, transparent),
+      color-mix(in oklch, var(--lc-white) 58%, transparent)
     ) padding-box;
   border: 1px solid var(--lc-mist);
+  /* Same elevation recipe as the tile — one system, not two. */
   box-shadow:
-    var(--shadow-contact),
-    var(--shadow-ambient),
-    inset 0 1px 0 rgb(255 255 255 / 0.7);
+    0 1px 1px oklch(from var(--lc-deep) l c h / 0.07),
+    0 3px 6px -2px oklch(from var(--lc-deep) l c h / 0.10),
+    0 12px 22px -10px oklch(from var(--lc-deep) l c h / 0.20),
+    0 28px 56px -24px oklch(from var(--lc-deep) l c h / 0.30),
+    inset 0 1px 0 rgb(255 255 255 / 0.85),
+    inset 0 -1px 0 oklch(from var(--lc-deep) l c h / 0.07);
 }
 
 .dial--sm { --dial-size: 4.75rem; --dial-stroke: 11; }
@@ -121,22 +125,25 @@ lc-dial {
    Only where @property is supported; otherwise the 1px --lc-mist border stands
    on its own. */
 @supports (background: conic-gradient(from var(--lc-edge-angle), red, blue)) {
-  lc-dial.has-edge { border-color: color-mix(in oklch, var(--lc-mist) 70%, transparent); }
+  lc-dial.has-edge { border-color: color-mix(in oklch, var(--lc-deep) 13%, transparent); }
 
   lc-dial.has-edge::after {
     content: "";
     position: absolute;
-    inset: -1px;
+    inset: -1.5px;
     border-radius: inherit;
-    padding: 1px;
+    padding: 1.5px;
     background: conic-gradient(
       from var(--lc-edge-angle),
-      transparent 0deg,
-      color-mix(in oklch, var(--lc-lime) 90%, white) 42deg,
-      color-mix(in oklch, var(--lc-white) 80%, var(--lc-teal)) 68deg,
-      color-mix(in oklch, var(--lc-teal) 70%, white) 96deg,
-      transparent 150deg,
-      transparent 360deg
+      color-mix(in oklch, var(--lc-teal) 34%, transparent) 0deg,
+      color-mix(in oklch, var(--lc-lime) 94%, white) 38deg,
+      color-mix(in oklch, var(--lc-white) 88%, var(--lc-teal)) 66deg,
+      color-mix(in oklch, var(--lc-teal) 78%, white) 96deg,
+      color-mix(in oklch, var(--lc-teal) 30%, transparent) 152deg,
+      color-mix(in oklch, var(--lc-teal) 20%, transparent) 208deg,
+      color-mix(in oklch, var(--lc-lime) 58%, white) 268deg,
+      color-mix(in oklch, var(--lc-teal) 26%, transparent) 312deg,
+      color-mix(in oklch, var(--lc-teal) 34%, transparent) 360deg
     );
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
@@ -149,7 +156,7 @@ lc-dial {
   }
 
   lc-dial.has-edge:not(.is-locked) { animation: lc-edge-drift 14s linear infinite; }
-  lc-dial.has-edge:hover { --lc-edge-opacity: 0.85; }
+  lc-dial.has-edge:hover { --lc-edge-opacity: 1; }
 }
 
 /* A dial inside a tile is the tile's ornament: it parallaxes with the tile and
@@ -175,7 +182,7 @@ lc-tile.has-dial > .tile-mark {
   flex-wrap: wrap;
   gap: var(--sp-5);
   align-items: center;
-  perspective: 1100px;
+  perspective: 900px;
 }
 
 /* Touch: no tilt. A press state only, like the tile. */
@@ -195,7 +202,7 @@ lc-tile.has-dial > .tile-mark {
     transform: none !important; will-change: auto; animation: none !important;
   }
   lc-dial.has-edge { animation: none !important; }
-  lc-dial.has-edge::after { transition: none; opacity: 0.18; }
+  lc-dial.has-edge::after { transition: none; opacity: 0.42; }
   lc-dial .dial__face, lc-dial .dial__ring { transform: none !important; }
   .dial__arc { transition: none; }
 }
