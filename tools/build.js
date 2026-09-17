@@ -12,6 +12,7 @@ import path from 'node:path'
 import sharp from 'sharp'
 
 import { layout } from '../src/partials/layout.js'
+import { stitch } from '../src/partials/components.js'
 import home from '../src/pages/home.js'
 import about from '../src/pages/about.js'
 import classes from '../src/pages/classes.js'
@@ -199,7 +200,9 @@ async function main () {
   await mkdir(path.join(DIST, 'assets', 'fonts'), { recursive: true })
 
   for (const page of pages) {
-    const html = layout(page, ctx)
+    // Ground changes get the site's curve, applied here so no page has to
+    // remember and no page can forget. See components.js stitch().
+    const html = layout({ ...page, body: stitch(page.body ?? '') }, ctx)
     const out = page.outFile
       ? path.join(DIST, page.outFile)
       : path.join(DIST, page.path.replace(/^\/|\/$/g, ''), 'index.html')
