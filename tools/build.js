@@ -32,6 +32,8 @@ const ROOT = path.resolve(import.meta.dirname, '..')
 const SRC = path.join(ROOT, 'src')
 const DIST = path.join(ROOT, 'dist')
 const CHECK = process.argv.includes('--check')
+const BASE_PATH = String(process.env.BASE_PATH ?? '').replace(/^\/+|\/+$/g, '')
+const BASE_PREFIX = BASE_PATH ? `/${BASE_PATH}` : ''
 
 const read = async p => JSON.parse(await readFile(path.join(SRC, 'content', p), 'utf8'))
 
@@ -89,11 +91,11 @@ async function buildContext () {
       .map(e => [e.use, `/documents/${e.use}-${e.n}.jpg`]))
   }
 
-  const ld = { childCare: childCareLd(site, copy) }
-  return { site, copy, programme, gallery, documents, hero, ld }
+  const ld = { childCare: childCareLd(site, copy, BASE_PREFIX) }
+  return { site, copy, programme, gallery, documents, hero, ld, basePath: BASE_PREFIX }
 }
 
-function childCareLd (site, copy) {
+function childCareLd (site, copy, basePath) {
   // No aggregateRating: there are no verifiable reviews in the source.
   // No geo and no postalCode until the address is confirmed — a LocalBusiness
   // schema with an unverified address is worse than no schema.
@@ -102,10 +104,10 @@ function childCareLd (site, copy) {
   return {
     '@context': 'https://schema.org',
     '@type': ['ChildCare', 'Organization'],
-    '@id': site.origin + '/#organisation',
+    '@id': site.origin + basePath + '/#organisation',
     name: site.name,
     legalName: site.legalName,
-    url: site.origin + '/',
+    url: site.origin + basePath + '/',
     description: site.meta.description,
     slogan: site.tagline,
     email: site.contact.email,
@@ -127,6 +129,24 @@ async function bundleCss () {
     parts.push(`/* ${f} */\n` + await readFile(path.join(dir, f), 'utf8'))
   }
   return parts.join('\n')
+}
+
+function prefixRootPaths (text) {
+  if (!BASE_PREFIX) return text
+  return text
+    .replace(/([("'=\s,])\/(?=(?:["')]|[A-Za-z0-9_.#?~-]))/g, `$1${BASE_PREFIX}/`)
+    .replace(/url\(\s*\/(?=[A-Za-z0-9_.])/g, `url(${BASE_PREFIX}/`)
+}
+
+async function rewriteGeneratedPaths () {
+  if (!BASE_PREFIX) return
+  const files = (await readdir(DIST, { recursive: true }))
+    .filter(file => /\.(?:html|css|js|json)$/.test(file))
+  for (const file of files) {
+    const target = path.join(DIST, file)
+    const source = await readFile(target, 'utf8')
+    await writeFile(target, prefixRootPaths(source))
+  }
 }
 
 const FAVICON = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
@@ -215,11 +235,11 @@ async function main () {
   const indexable = pages.filter(p => !p.noindex)
   await writeFile(path.join(DIST, 'sitemap.xml'),
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-    indexable.map(p => `  <url><loc>${ctx.site.origin}${p.path}</loc></url>`).join('\n') +
+    indexable.map(p => `  <url><loc>${ctx.site.origin}${BASE_PREFIX}${p.path}</loc></url>`).join('\n') +
     `\n</urlset>\n`)
 
   await writeFile(path.join(DIST, 'robots.txt'),
-    `User-agent: *\nAllow: /\nDisallow: /thank-you/\n\nSitemap: ${ctx.site.origin}/sitemap.xml\n`)
+    `User-agent: *\nAllow: /\nDisallow: ${BASE_PREFIX}/thank-you/\n\nSitemap: ${ctx.site.origin}${BASE_PREFIX}/sitemap.xml\n`)
 
   await writeFile(path.join(DIST, 'humans.txt'),
     `/* SITE */\nName: Little Caterpillars\nWhere: Midrand, Gauteng, South Africa\nAges: 3 months – 6 years\n\n` +
@@ -227,13 +247,15 @@ async function main () {
 
   await writeFile(path.join(DIST, 'site.webmanifest'), JSON.stringify({
     name: ctx.site.name, short_name: 'Little Caterpillars',
-    start_url: '/', display: 'standalone',
+    start_url: `${BASE_PREFIX}/`, display: 'standalone',
     background_color: ctx.site.themeColor, theme_color: ctx.site.themeColor,
     icons: [
       { src: '/assets/icon-192.png', sizes: '192x192', type: 'image/png' },
       { src: '/assets/icon-512.png', sizes: '512x512', type: 'image/png' }
     ]
   }, null, 2))
+
+  await rewriteGeneratedPaths()
 
   // Redirects, emitted for the two hosts this is most likely to land on.
   const live = REDIRECTS.filter(r => !r.to.includes('{{'))

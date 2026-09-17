@@ -38,7 +38,8 @@ const NAV = [
 
 export function layout (page, ctx) {
   const { site } = ctx
-  const url = site.origin + page.path
+  const basePath = ctx.basePath ?? ''
+  const url = site.origin + basePath + page.path
   const title = page.title
   const description = page.description
   const waNumber = /^\+\d+$/.test(site.contact.whatsappTodo) ? site.contact.whatsappTodo : null
@@ -59,7 +60,7 @@ export function layout (page, ctx) {
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${esc(url)}">
 <meta property="og:locale" content="en_ZA">
-<meta property="og:image" content="${esc(site.origin)}/assets/og${page.path.replace(/\//g, '-').replace(/^-|-$/g, '') || '-home'}.png">
+<meta property="og:image" content="${esc(site.origin)}${basePath}/assets/og${page.path.replace(/\//g, '-').replace(/^-|-$/g, '') || '-home'}.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">

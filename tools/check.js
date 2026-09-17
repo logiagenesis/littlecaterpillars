@@ -112,7 +112,8 @@ export async function check (dist, ctx, pages) {
 
   // Sitemap lists every indexable route and nothing else.
   const sitemap = await readFile(path.join(dist, 'sitemap.xml'), 'utf8')
-  const listed = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1].replace(ctx.site.origin, ''))
+  const listed = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m =>
+    m[1].replace(`${ctx.site.origin}${ctx.basePath ?? ''}`, ''))
   const expected = pages.filter(p => !p.noindex).map(p => p.path)
   for (const p of expected) if (!listed.includes(p)) failures.push(`sitemap.xml: ${p} is missing`)
   for (const p of listed) if (!expected.includes(p)) failures.push(`sitemap.xml: ${p} should not be listed`)
