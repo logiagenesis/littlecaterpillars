@@ -84,6 +84,9 @@ img, svg, video { max-width: 100%; height: auto; display: block; }
 .btn--secondary { background: var(--lc-teal); color: var(--lc-white); }
 .btn--secondary:hover { background: var(--lc-teal-dark); color: var(--lc-white); }
 .btn--ghost { border-color: currentColor; color: var(--lc-deep); }
+/* Compact: for the consent banner, where a full-size pair wraps to two rows on
+   a phone and costs ~90px of a viewport the notice has no business filling. */
+.btn--sm { padding: var(--sp-2) var(--sp-4); font-size: var(--step--1); }
 .btn--ghost:hover { background: var(--lc-white); }
 .section--invert .btn--ghost { color: var(--lc-white); }
 
