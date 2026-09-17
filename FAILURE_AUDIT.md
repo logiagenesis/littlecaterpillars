@@ -302,12 +302,17 @@ withheld — that one is working as designed.
 
 ## Repository hygiene
 
-Two GitHub starter workflows are committed unmodified:
+Two GitHub starter workflows were committed unmodified. **Both are deleted in
+this pass.**
 
-- `npm-publish-github-packages.yml` runs `npm publish` on every release. `package.json` sets `"private": true`, so npm will refuse. This workflow can only ever fail, and publishing a school website as a package is not the intent.
-- `generator-generic-ossf-slsa3-publish.yml` generates SLSA provenance for two files it creates with `echo "artifact1"`. It is pure template.
+- `npm-publish-github-packages.yml` ran `npm publish` on every release. `package.json` sets `"private": true`, so npm would refuse. It could only ever fail, and publishing a school website as a package is not the intent.
+- `generator-generic-ossf-slsa3-publish.yml` generated SLSA provenance for two files it created with `echo "artifact1"`. It was pure template — it attested to nothing this repository builds.
 
-Neither is a release blocker. Both should be deleted.
+Neither had ever run: both fired only on `release`, and the repository's entire
+Actions history is `pages.yml` and `ci.yml`. Nothing referenced either file.
+
+`ci.yml` and `pages.yml` remain, which is the whole of the intended pipeline:
+verify on a pull request, verify and deploy on a push to `main`.
 
 ## What verified sound
 
