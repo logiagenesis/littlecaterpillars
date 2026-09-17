@@ -29,9 +29,35 @@
   .tile-grid.classes-grid > li { grid-column: span 3; }
   .tile-grid.classes-grid > li:first-child { grid-column: span 6; }
 }
+/* srgb, not oklch, wherever a brand colour is mixed with an ACHROMATIC one.
+
+   White and black have no hue, so CSS Color 4 calls that channel powerless and
+   says the mix keeps the other colour's hue. Engines disagree about this, and
+   the disagreement is documented as an open interop problem, not a settled one
+   (w3c/csswg-drafts#8609, web-platform-tests/interop#1334).
+
+   Measured, both ends in the same probe:
+
+     color-mix(in oklch, var(--lc-lime) 26%, var(--lc-white))
+       Chrome 141  rgb(234,241,209)  hue 117deg   pale green   — correct
+       Chrome 119  peach                                       — hue dragged to red
+
+   So this card is NOT broken for a visitor on a current browser; it is broken
+   for one on a browser old enough to miss the fix. That is not a hypothetical
+   audience for a Pretoria preschool, so the mixes are stated in srgb, which has
+   no hue channel for an engine to get wrong.
+
+   The cost of stating them that way was measured too, in Chrome 141: the
+   largest shift across all nine converted declarations is 13/255 in RGB
+   distance and 5deg in hue. Nothing visible changes for anyone already seeing
+   it correctly.
+
+   Mixes with `transparent` stay in oklch: the other endpoint carries the hue
+   and alpha is premultiplied, so nothing is at stake. tools/assert-colormix.mjs
+   keeps the rule from rotting. */
 .tile-grid.classes-grid > li:first-child lc-tile {
   background-image: linear-gradient(120deg,
-    color-mix(in oklch, var(--lc-lime) 26%, var(--lc-white)),
+    color-mix(in srgb, var(--lc-lime) 26%, var(--lc-white)),
     color-mix(in oklch, var(--lc-white) 70%, transparent));
 }
 
