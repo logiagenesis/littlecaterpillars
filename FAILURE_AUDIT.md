@@ -180,6 +180,26 @@ a `npm test` step is added ahead of the build. Removing the flag changes nothing
 about what currently deploys — every published entry carries a `consentRef`, so
 the build still emits all 84 photographs — it only re-arms the control.
 
+### Nothing was verified before merge
+
+Found while checking the second-pass PR: **no workflow in this repository
+triggered on `pull_request`.** `pages.yml` fired on push to `main`, and the other
+two only on a release. So nothing — not the grid law, not the consent gate, not
+the build — ran until a change had already landed on `main`, which is the same
+event that deploys it. Adding `npm test` to `pages.yml` armed the gate, but only
+after review.
+
+`.github/workflows/ci.yml` now runs `npm test` and `npm run check` on every pull
+request, so both run before merge rather than after. It is a separate workflow
+rather than a `pull_request` trigger on `pages.yml` deliberately: that file's
+`deploy` job publishes to GitHub Pages, and its `concurrency: pages` group with
+`cancel-in-progress` would let a pull-request run cancel a live deploy.
+
+`tools/audit.mjs` is deliberately excluded from CI. It needs the school's
+photographs, which are never present there, so it exits 1 on absent files alone
+— as B2 above shows. It stays a local command until the image pipeline can run
+in CI.
+
 One reassuring result came out of testing this. A build made while the gate was
 withholding audits **clean** — `0 failures, 1 warning, 18 explicit passes`, the
 warning being `no gallery cells rendered — the consent gate is holding the
