@@ -1,0 +1,74 @@
+/* ---------------------------------------------------------------------------
+   Brand tokens. Palette values are the 2021/22 Vamtam theme variables; every
+   tint and shade below is derived from them in oklch rather than hand-picked.
+
+   Contrast note (§1): --lc-lime on white is ~1.8:1. It is a SURFACE and BORDER
+   colour only, never text on a light ground. Lime buttons take --lc-deep text.
+   --------------------------------------------------------------------------- */
+:root {
+  --lc-lime:  #b2c633;
+  --lc-teal:  #167287;
+  --lc-deep:  #0a303a;
+  --lc-cream: #f4f1ea;
+  --lc-mist:  #ededed;
+  --lc-white: #ffffff;
+  --lc-ink:   #0a0a0a;
+
+  /* Derived. oklch keeps the hue honest while we move lightness/chroma. */
+  --lc-lime-dark:   oklch(from var(--lc-lime) calc(l - 0.18) c h);
+  --lc-lime-tint:   oklch(from var(--lc-lime) calc(l + 0.14) calc(c * 0.45) h);
+  --lc-lime-wash:   oklch(from var(--lc-lime) 0.96 calc(c * 0.18) h);
+  --lc-teal-dark:   oklch(from var(--lc-teal) calc(l - 0.08) c h);
+  --lc-teal-tint:   oklch(from var(--lc-teal) calc(l + 0.30) calc(c * 0.35) h);
+  --lc-teal-wash:   oklch(from var(--lc-teal) 0.96 calc(c * 0.14) h);
+  --lc-deep-soft:   oklch(from var(--lc-deep) calc(l + 0.16) c h);
+  --lc-cream-deep:  oklch(from var(--lc-cream) calc(l - 0.05) c h);
+
+  /* Semantic roles. Everything in the stylesheets points at these. */
+  --ground:        var(--lc-cream);
+  --ground-raised: var(--lc-white);
+  --ground-sunk:   var(--lc-cream-deep);
+  --ground-invert: var(--lc-deep);
+  --text:          var(--lc-deep);
+  --text-muted:    oklch(from var(--lc-deep) calc(l + 0.26) calc(c * 0.6) h);
+  --text-invert:   var(--lc-white);
+  --link:          var(--lc-teal);
+  --link-hover:    var(--lc-teal-dark);
+  --accent:        var(--lc-lime);
+  --accent-text:   var(--lc-deep);
+  --rule:          var(--lc-mist);
+  --focus:         var(--lc-teal);
+
+  /* Type. Two families, fluid scale, 1.2 ratio at 360px -> 1.25 at 1280px. */
+  --font-display: "Nunito", ui-rounded, "Segoe UI Rounded", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --step--1: clamp(0.833rem, 0.80rem + 0.15vw, 0.889rem);
+  --step-0:  clamp(1rem, 0.96rem + 0.20vw, 1.125rem);
+  --step-1:  clamp(1.200rem, 1.13rem + 0.34vw, 1.406rem);
+  --step-2:  clamp(1.440rem, 1.32rem + 0.55vw, 1.758rem);
+  --step-3:  clamp(1.728rem, 1.54rem + 0.85vw, 2.197rem);
+  --step-4:  clamp(2.074rem, 1.78rem + 1.28vw, 2.746rem);
+  --step-5:  clamp(2.488rem, 2.05rem + 1.89vw, 3.433rem);
+
+  /* Spacing: 4px base, 8-point rhythm. */
+  --sp-1: 0.25rem; --sp-2: 0.5rem;  --sp-3: 0.75rem; --sp-4: 1rem;
+  --sp-5: 1.5rem;  --sp-6: 2rem;    --sp-7: 3rem;    --sp-8: 4rem;
+  --sp-9: 6rem;
+
+  /* Radii: 4 / 12 / 24 / 999 only. */
+  --r-sm: 4px; --r-md: 12px; --r-lg: 24px; --r-pill: 999px;
+
+  --measure: 62ch;
+  --shell: 1260px;
+  --header-h: 80px;
+
+  --shadow-contact: 0 1px 2px oklch(from var(--lc-deep) l c h / 0.10);
+  --shadow-ambient: 0 18px 40px -18px oklch(from var(--lc-deep) l c h / 0.28);
+
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@media (max-width: 47.99em) {
+  :root { --header-h: 64px; }
+}

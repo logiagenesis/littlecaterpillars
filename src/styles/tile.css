@@ -1,0 +1,171 @@
+/* ---------------------------------------------------------------------------
+   <lc-tile> — the one tile on this site. Class cards, teacher cards, fee tiles,
+   gallery covers, download tiles, the contact card and the stats strip are all
+   this component with different slots. One implementation.
+
+   Two things make it read as glass rather than as a CSS trick:
+   1. the sheen lives on the BORDER only — the face never gets a shine sweep;
+   2. the content parallaxes in Z while the tile rotates, so depth comes from
+      the layers moving against each other, not from the rotation angle.
+   --------------------------------------------------------------------------- */
+
+@property --lc-edge-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@property --lc-edge-opacity {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0.18;
+}
+
+/* The grid is the perspective host, so sibling tiles share one vanishing point. */
+.tile-grid {
+  perspective: 1100px;
+  display: grid;
+  gap: var(--sp-5);
+  grid-template-columns: repeat(var(--cols, 1), minmax(0, 1fr));
+  align-items: stretch;
+}
+
+lc-tile {
+  --lc-rx: 0deg;
+  --lc-ry: 0deg;
+  --lc-scale: 1;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  border-radius: var(--r-lg);
+  padding: var(--sp-5);
+  color: var(--text);
+  transform-style: preserve-3d;
+  transform: rotateX(var(--lc-rx)) rotateY(var(--lc-ry)) translateZ(0) scale(var(--lc-scale));
+
+  /* Glass fill, clipped to the padding box so it never paints over the border. */
+  background:
+    linear-gradient(
+      color-mix(in oklch, var(--lc-white) 62%, transparent),
+      color-mix(in oklch, var(--lc-white) 48%, transparent)
+    ) padding-box;
+  border: 1px solid var(--lc-mist);
+
+  box-shadow:
+    var(--shadow-contact),
+    var(--shadow-ambient),
+    inset 0 1px 0 rgb(255 255 255 / 0.7);
+}
+
+/* No backdrop-filter (older Android WebView, Firefox with the flag off):
+   fall back to an opaque tint so the tile stays legible and on-brand. */
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  lc-tile {
+    -webkit-backdrop-filter: blur(24px) saturate(1.6);
+    backdrop-filter: blur(24px) saturate(1.6);
+  }
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  lc-tile {
+    background:
+      linear-gradient(
+        color-mix(in oklch, var(--lc-white) 92%, var(--lc-cream)),
+        color-mix(in oklch, var(--lc-white) 84%, var(--lc-cream))
+      ) padding-box;
+  }
+}
+
+/* The reflective edge. Only applied where @property is supported, so the
+   fallback above (a plain 1px --lc-mist border) stands on its own. */
+@supports (background: conic-gradient(from var(--lc-edge-angle), red, blue)) {
+  /* A hairline stays under the sheen so the tile always has a defined edge. */
+  lc-tile.has-edge { border-color: color-mix(in oklch, var(--lc-mist) 70%, transparent); }
+
+  /* The sheen: a 1px conic ring, masked to the border box only. The face of
+     the tile never receives a gradient in any state. */
+  lc-tile.has-edge::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(
+      from var(--lc-edge-angle),
+      transparent 0deg,
+      color-mix(in oklch, var(--lc-lime) 90%, white) 42deg,
+      color-mix(in oklch, var(--lc-white) 80%, var(--lc-teal)) 68deg,
+      color-mix(in oklch, var(--lc-teal) 70%, white) 96deg,
+      transparent 150deg,
+      transparent 360deg
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: var(--lc-edge-opacity);
+    transition: opacity 220ms var(--ease-out);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* Idle: ~14s per turn at 18%. Hover/focus: 85%, and the angle locks to the
+     pointer bearing (set by tile.js) so the highlight sits where a real light
+     would catch the rim. */
+  lc-tile.has-edge:not(.is-locked) { animation: lc-edge-drift 14s linear infinite; }
+  lc-tile.has-edge:hover,
+  lc-tile.has-edge:focus-within { --lc-edge-opacity: 0.85; }
+}
+
+@keyframes lc-edge-drift {
+  to { --lc-edge-angle: 360deg; }
+}
+
+/* Content parallax. These are the numbers that sell the depth. */
+lc-tile > .tile-mark   { transform: translateZ(40px); }
+lc-tile > .tile-title  { transform: translateZ(24px); }
+lc-tile > .tile-body   { transform: translateZ(12px); }
+lc-tile > .tile-foot   { transform: translateZ(12px); margin-top: auto; padding-top: var(--sp-4); }
+
+.tile-mark {
+  width: 48px; height: 48px; border-radius: var(--r-pill);
+  display: grid; place-items: center;
+  background: var(--lc-lime); color: var(--lc-deep);
+  font-family: var(--font-display); font-weight: 800;
+  margin-bottom: var(--sp-4);
+}
+.tile-title { font-family: var(--font-display); font-size: var(--step-2); margin: 0 0 var(--sp-3); }
+.tile-title a { color: inherit; text-decoration: none; }
+.tile-title a::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.tile-body { color: var(--text-muted); }
+.tile-body > :last-child { margin-bottom: 0; }
+.tile-meta {
+  font-family: var(--font-display); font-weight: 700; font-size: var(--step--1);
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--lc-teal);
+}
+
+/* Keyboard parity: focus inside a tile reads like hover, without needing a pointer. */
+lc-tile:focus-within { border-color: var(--lc-teal); }
+
+/* Touch: tilt on scroll is motion sickness. Press state only. */
+@media (hover: none) {
+  lc-tile { --lc-rx: 0deg !important; --lc-ry: 0deg !important; transform: scale(var(--lc-scale)); }
+  lc-tile:active { --lc-scale: 0.985; }
+  lc-tile > .tile-mark, lc-tile > .tile-title,
+  lc-tile > .tile-body, lc-tile > .tile-foot { transform: none; }
+}
+
+/* Reduced motion: no tilt, no drift, no parallax, instant hover. Full stop. */
+@media (prefers-reduced-motion: reduce) {
+  lc-tile {
+    --lc-rx: 0deg !important; --lc-ry: 0deg !important; --lc-scale: 1 !important;
+    transform: none !important; will-change: auto; animation: none !important;
+  }
+  lc-tile.has-edge { animation: none !important; }
+  lc-tile.has-edge::after { transition: none; opacity: 0.18; }
+  lc-tile > .tile-mark, lc-tile > .tile-title,
+  lc-tile > .tile-body, lc-tile > .tile-foot { transform: none !important; }
+}
+
+/* Without JS the tiles are plain, legible cards — which is the whole point. */
+.no-js lc-tile { transform: none; }

@@ -1,0 +1,104 @@
+{
+  "about": {
+    "story": "It is said: 'If you live your passion you never work a day in your life!' — that is how the dream of Little Caterpillars emerged and became the reality it is today! Little Caterpillars is a fun and professional child day care facility run by a dynamic team who are as passionate about giving your child(ren) the best early education possible as you, the parents, are. Our centre offers a safe and secure environment located in Midrand. Children from the age of 3 months to 6 years are welcome and together with her team of competent and qualified personnel, Natalie ensures that each child is properly supervised and cared for.",
+    "mission": "The mission of Little Caterpillars is to provide a safe, stimulating and caring environment for children aged 3 months to 6 years. Our focus is to encourage an education experience promoting social, emotional, physical and cognitive development. Committed to the families we serve, we strive to give parents complete peace of mind, while being seen as a shining example of what a childcare centre should be.",
+    "vision": "The ultimate vision we have for our facility is twofold, and rooted in both the present and the future. For the present, our goal is for parents to feel good about their childcare choice, and that the children are safe, engaged, educated and smiling. And for the future, we want these children to warmly look back at their experience with us, and see it as a cherished part of their childhood.",
+    "commitment": "Our philosophy is simple. Little Caterpillars is here to offer your children the care and comfort, fun and safety they deserve. And for you, the peace of mind that comes from knowing your child is in the best of hands. Each day promises an exciting new adventure, and we make sure each child experiences the joys of a truly caring childcare facility."
+  },
+  "classes": [
+    {
+      "slug": "butterfly",
+      "name": "Butterfly Class",
+      "subtitle": "Baby Centre",
+      "ages": "3 – 12 months",
+      "feature": true,
+      "facts": [
+        "A maximum of 10 babies in the Baby Centre.",
+        "A qualified teacher and an assistant.",
+        "A daily communication book covering nappy changes, feeds and naps."
+      ],
+      "body": "Our Baby Centre takes babies from three months. The room is capped at ten babies and staffed by a qualified teacher with an assistant, so there is always a familiar pair of hands. Every baby goes home with a communication book recording nappy changes, feeds and naps — so you know how the day went before you have even put the bags down."
+    },
+    {
+      "slug": "dragonfly",
+      "name": "Dragonfly Class",
+      "ages": "1 – 2 years",
+      "facts": [
+        "Gross motor focus, through play.",
+        "Walking, running and stopping milestones."
+      ],
+      "body": "The Dragonflies are on the move. This year is about gross motor development through play — the walking, running and stopping milestones that come thick and fast between one and two."
+    },
+    {
+      "slug": "ladybug",
+      "name": "Ladybug Class",
+      "ages": "2 – 3 years",
+      "facts": [],
+      "body": "{{TODO_CONFIRM: the 2019 archive rendered no body copy for the Ladybug Class — request the class description from the school}}"
+    },
+    {
+      "slug": "caterpillar",
+      "name": "Caterpillar Class",
+      "ages": "3 – 4 years",
+      "facts": [
+        "A detailed weekly-theme syllabus.",
+        "Fine motor, gross motor and cognitive development.",
+        "Language, movement, hand and finger skills, emotional and social growth."
+      ],
+      "body": "The Caterpillars work to a weekly theme. Across the week the syllabus covers fine motor and gross motor work, cognitive development, language, movement, hand and finger skills, and the emotional and social side of being three."
+    },
+    {
+      "slug": "busy-bees",
+      "name": "Busy Bees Class",
+      "subtitle": "Reception year",
+      "ages": "4 – 6 years",
+      "facts": [
+        "Grade 1 readiness.",
+        "Literacy, life skills and numeracy.",
+        "Gross motor and kinaesthetics, music, art and science."
+      ],
+      "body": "The reception year, aimed squarely at Grade 1 readiness. Literacy, life skills and numeracy sit alongside gross motor and kinaesthetic work, music, art and science."
+    }
+  ],
+  "teachers": [
+    { "name": "Natalie", "role": "Grade 00", "bio": "{{TODO_CONFIRM: bio for Natalie}}" },
+    { "name": "Jenice", "role": "Grade 0 Teacher", "bio": "A qualified Foundation Phase teacher with five years' experience and a real passion for Grade 0." },
+    { "name": "Lina", "role": "Grade 000 Teacher", "bio": "A qualified Foundation Phase teacher with twenty-five years behind her — and, in the school's own words, \"a very soft hearted teacher\"." },
+    { "name": "Aldonia", "role": "Grade 0000", "bio": "{{TODO_CONFIRM: bio for Aldonia}}" },
+    { "name": "Memory", "role": "Baby Class Teacher", "bio": "{{TODO_CONFIRM: bio for Memory}}" },
+    { "name": "Lorraine", "role": "Cook", "bio": "{{TODO_CONFIRM: bio for Lorraine}}" }
+  ],
+  "teachersNote": "{{TODO_CONFIRM: is Natalie also the Principal? The 2019 site named Kelly Kuruc as principal; the 2022 About text names Natalie. No principal bio is published until this is confirmed.}}",
+  "fees": {
+    "asAt": "{{TODO_CONFIRM: date these rates were last reviewed}}",
+    "sourceNote": "Rates as captured from the 2021 site. Published here unchanged pending the school's confirmation.",
+    "rows": [
+      { "item": "Enrolment fee", "detail": "Once-off, non-refundable. No application is processed until proof of payment is received.", "amount": "R1 650" },
+      { "item": "Half day", "detail": "06:30 – 14:00, twelve monthly payments", "amount": "R3 200" },
+      { "item": "Full day", "detail": "06:30 – {{TODO_CONFIRM: full-day close time}}, twelve monthly payments", "amount": "R3 500" },
+      { "item": "Casual half day", "detail": "Per day", "amount": "R200" },
+      { "item": "Casual full day", "detail": "Per day", "amount": "R250" },
+      { "item": "Per term, half day", "detail": "Four payments in advance, 5% discount", "amount": "R9 120" },
+      { "item": "Per term, full day", "detail": "Four payments in advance, 5% discount", "amount": "R9 975" },
+      { "item": "Annual, half day", "detail": "One payment in advance, 10% discount", "amount": "R34 560" },
+      { "item": "Annual, full day", "detail": "One payment in advance, 10% discount", "amount": "R37 800" },
+      { "item": "Sibling discount", "detail": "The first child pays full rates", "amount": "R300" },
+      { "item": "Late collection", "detail": "Per 10 minutes after 17:30", "amount": "R70" }
+    ],
+    "defect": "The source lists the full day as 06:30–17:30 in one row and 06:30–18:00 in three others. The closing time is shown as an open question rather than guessed. The school's current Class Routine poster ends the day with \"16:15–17:30 Outdoor Play and Departure\", which points at 17:30 — but that is a different document from a different year and does not settle the fee table."
+  },
+  "stationery": {
+    "rows": [
+      { "ages": "3 – 12 months", "amount": "R800" },
+      { "ages": "1 – 2 years", "amount": "R800" },
+      { "ages": "2 – 3 years", "amount": "{{TODO_CONFIRM: 2–3 years stationery list and fee}}" },
+      { "ages": "3 – 4 years", "amount": "R900" },
+      { "ages": "4 – 6 years", "amount": "R1 000" }
+    ],
+    "listsTodo": "{{TODO_CONFIRM: the per-age stationery item lists — the archive held full item tables but they are not recoverable from the two captures available}}"
+  },
+  "contactCopy": {
+    "invite": "Submit your information below and we'll send you an email soon. We're excited to meet you!",
+    "reassurance": "At Little Caterpillars we are always available for you."
+  }
+}

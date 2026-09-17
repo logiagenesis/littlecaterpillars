@@ -1,0 +1,33 @@
+{
+  "name": "Little Caterpillars",
+  "legalName": "Little Caterpillars Day Care",
+  "tagline": "Their Future, Our Passion.",
+  "ages": "3 months – 6 years",
+  "origin": "https://www.littlecaterpillars.co.za",
+  "locale": "en-ZA",
+  "themeColor": "#b2c633",
+  "gtmId": "{{TODO_CONFIRM: GTM container ID}}",
+  "meta": {
+    "title": "Welcome To Little Caterpillars | 3 Months – 6 Years | Little Caterpillars",
+    "description": "Little Caterpillars is a home away from home, all in one Nursery School | Creche | Preschool, catering from 3 months all the way to 6 Years old."
+  },
+  "contact": {
+    "phoneDisplay": "064 756 0657",
+    "phoneE164": "+27647560657",
+    "phoneNote": "The 2022 capture lists 064 756 0657; the 2019 capture lists 084 806 7652. One number is used sitewide pending confirmation.",
+    "phoneTodo": "{{TODO_CONFIRM: which phone number is current — 064 756 0657 (2022) or 084 806 7652 (2019)}}",
+    "whatsappTodo": "{{TODO_CONFIRM: WhatsApp number in E.164}}",
+    "email": "admin@littlecaterpillars.co.za",
+    "facebook": "https://www.facebook.com/littlecaterpillarsschool/",
+    "street": "24 Kwartel",
+    "streetTodo": "{{TODO_CONFIRM: street suffix — the site says \"24 Kwartel\"; public directory listings say \"24 Kwartel St\"}}",
+    "suburb": "Midrand",
+    "province": "Gauteng",
+    "country": "South Africa",
+    "postalCodeTodo": "{{TODO_CONFIRM: postal code — the old site says 1684; public directory listings say Vorna Valley 1685}}",
+    "geoTodo": "{{TODO_CONFIRM: latitude and longitude for the LocalBusiness schema}}",
+    "hoursTodo": "{{TODO_CONFIRM: operating days and public-holiday policy}}",
+    "areaServed": ["Midrand", "Vorna Valley", "Kyalami", "Halfway House", "Noordwyk", "Carlswald"]
+  },
+  "campusesTodo": "{{TODO_CONFIRM: current number of campuses — the 2019 site had two Midrand branches, the 2022 site had one}}"
+}

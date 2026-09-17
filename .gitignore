@@ -1,0 +1,13 @@
+node_modules/
+dist/
+
+# Source photography is NEVER committed.
+# These are photographs of children at a registered childcare centre. The
+# repository is public; POPIA and the image-consent gate in tools/images.js
+# both apply. The school supplies the originals out of band; `npm run images`
+# reads them from here and writes derivatives into dist/, which is also
+# ignored. See README.md § Photography.
+source-images/
+
+.DS_Store
+*.log

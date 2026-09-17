@@ -1,0 +1,87 @@
+{
+  "_source": "Transcribed from the school's own Class Routine, Weekly Program and Menu posters, supplied by admin@littlecaterpillars.co.za in September 2026. These are NOT from the Wayback captures — they are current documents and they resolve part of the brief's \"DOWNLOADS ... none are recoverable\" gap. Obvious spelling slips in the posters are corrected here and listed in TODO_CONFIRM.md.",
+  "routine": {
+    "title": "Our day",
+    "kicker": "Learn · Play · Grow",
+    "note": "Times are taken from the school's Class Routine poster dated 16 September 2026.",
+    "defect": "{{TODO_CONFIRM: the routine poster overlaps itself — \"Teacher's Lunch Time 13:00–14:00\" runs across Sleep Time (12:00–13:30), Wake Up (13:30–13:45) and Afternoon Snack (13:45–14:00), and there is an unexplained gap between 11:20 and 11:30. Reproduced as printed rather than silently corrected.}}",
+    "rows": [
+      { "time": "06:30 – 08:00", "activity": "Arrival", "detail": "Children have free play." },
+      { "time": "08:00 – 08:30", "activity": "Tidy up, breakfast and toilet routine", "detail": "" },
+      { "time": "08:30 – 08:45", "activity": "Ring time", "detail": "Register, alphabet and number learning, and a look at the lesson for the day." },
+      { "time": "08:45 – 10:00", "activity": "Indoor activity", "detail": "Class work, gross or fine motor activities." },
+      { "time": "10:00 – 10:30", "activity": "Snack and extra-murals", "detail": "Toilet and hand wash." },
+      { "time": "10:30 – 11:15", "activity": "Outdoor play", "detail": "Children are free to play outside." },
+      { "time": "11:15 – 11:20", "activity": "Hand wash, sit down for lunch", "detail": "" },
+      { "time": "11:30 – 11:45", "activity": "Lunch time", "detail": "" },
+      { "time": "11:45 – 12:00", "activity": "Toilet routine", "detail": "" },
+      { "time": "12:00 – 13:30", "activity": "Sleep time", "detail": "Children rest. Teacher's quiet time." },
+      { "time": "13:00 – 14:00", "activity": "Teacher's lunch time", "detail": "" },
+      { "time": "13:30 – 13:45", "activity": "Wake up", "detail": "Children wake up, beds get tidied up, toilet routine." },
+      { "time": "13:45 – 14:00", "activity": "Afternoon snack", "detail": "Children have their afternoon snack." },
+      { "time": "14:00 – 16:00", "activity": "Afternoon activity", "detail": "" },
+      { "time": "16:00 – 16:15", "activity": "Last snack", "detail": "Children have their last snack of the day." },
+      { "time": "16:15 – 17:30", "activity": "Outdoor play and departure", "detail": "Children play and wait for parents." }
+    ]
+  },
+  "weeklyProgrammes": [
+    {
+      "id": "a",
+      "title": "Weekly programme A",
+      "kicker": "Learn · Play · Grow · Together",
+      "classTodo": "{{TODO_CONFIRM: which class this weekly programme belongs to}}",
+      "days": [
+        { "day": "Monday", "items": ["Introduction of the letter and number of the week.", "Names — practice writing their names.", "Patterns.", "News of the weekend."] },
+        { "day": "Tuesday", "items": ["Cutting and pasting.", "Story."] },
+        { "day": "Wednesday", "items": ["Names: practice writing names.", "Opposites, differences and so on.", "Worksheets.", "Singing and rhymes."] },
+        { "day": "Thursday", "items": ["Names: practice writing names.", "Colour and shape.", "Maths worksheet.", "Story."] },
+        { "day": "Friday", "items": ["Bakerman.", "Playdough and similar."] }
+      ],
+      "footer": "Every day is a new adventure!"
+    },
+    {
+      "id": "b",
+      "title": "Weekly programme B",
+      "kicker": "Learn · Play · Grow · Together",
+      "classTodo": "{{TODO_CONFIRM: which class this weekly programme belongs to}}",
+      "days": [
+        { "day": "Monday", "items": ["Introduction to the letter and number of the week.", "Fun full-body exercises.", "News of the weekend."] },
+        { "day": "Tuesday", "items": ["Fine motor activity — playdough, threading, cutting.", "Singing and rhymes.", "Learning the shape of the week."] },
+        { "day": "Wednesday", "items": ["Practice our letter and number of the week.", "Story time.", "Gross motor activities — animal walks, ball games, running games."] },
+        { "day": "Thursday", "items": ["Fine motor activities — cutting skills, tearing.", "Puzzles.", "Practice our letter, number, shape and colour of the week."] },
+        { "day": "Friday", "items": ["Bakerman.", "Dancing and singing.", "Fun Day Friday."] }
+      ],
+      "footer": "Let's learn together and have fun together"
+    }
+  ],
+  "menus": [
+    {
+      "id": "baby",
+      "title": "Baby menu",
+      "ages": "3 – 7 months",
+      "footer": "Nutrition for a healthy start!",
+      "slots": [
+        { "slot": "Breakfast", "time": "08:00", "days": ["Cerelac", "Cerelac", "Cerelac", "Cerelac", "Cerelac"] },
+        { "slot": "Snack", "time": "10:00", "days": ["Puree fruit — pear", "Puree fruit — apple", "Puree fruit — banana", "Puree fruit — pear", "Puree fruit — apple"] },
+        { "slot": "Lunch", "time": "12:00", "days": ["Puree veg — butternut", "Puree veg — gemsquash", "Puree veg — carrots", "Puree veg — pumpkin", "Puree veg — green beans"] },
+        { "slot": "Snack", "time": "14:00", "days": ["Finger biscuit", "Finger biscuit", "Finger biscuit", "Finger biscuit", "Finger biscuit"] },
+        { "slot": "Snack", "time": "16:00", "days": ["Squish", "Squish", "Squish", "Squish", "Squish"] }
+      ]
+    },
+    {
+      "id": "general",
+      "title": "Menu",
+      "ages": "7 months – {{TODO_CONFIRM: the menu poster reads \"7 months – 9 years\", but the school caters to 6 years}}",
+      "footer": "",
+      "slots": [
+        { "slot": "Breakfast", "time": "08:00", "days": ["Jungle Oats", "Chocolate porridge", "Maize porridge", "French toast", "Coco Pops"] },
+        { "slot": "Snack", "time": "10:00", "days": ["Fruit and juice", "Fruit and juice", "Fruit and juice", "Fruit and juice", "Fruit and juice"] },
+        { "slot": "Lunch", "time": "12:00", "days": ["Spaghetti bolognaise", "Chicken à la King", "Macaroni and cheese", "Savoury mince and rice", "Hot dogs"] },
+        { "slot": "Snack", "time": "14:00", "days": ["Sandwich and juice", "Sandwich and juice", "Sandwich and juice", "Sandwich and juice", "Bakerman"] },
+        { "slot": "Snack", "time": "16:00", "days": ["Cheese curls", "Yoghurt", "Biscuits", "Muffins", "Biscuits"] }
+      ]
+    }
+  ],
+  "menusTodo": "{{TODO_CONFIRM: the old site listed a Summer Menu and a Winter Menu as separate downloads. What the school supplied in 2026 is one general menu and one baby menu, with no seasonal split. Confirm whether the seasonal menus still exist.}}",
+  "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+}
