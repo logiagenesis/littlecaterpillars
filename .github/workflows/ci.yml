@@ -1,0 +1,40 @@
+name: CI
+
+# Verification runs before merge, not after. pages.yml only fires on push to
+# main, so until this existed nothing in the repository was checked until it
+# had already landed — and landing on main is what deploys it.
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      # Kept as its own step so a consent failure is legible in the checks list
+      # rather than buried inside a general build. This is the only hard consent
+      # gate in the repository: `npm run build` warns and exits 0.
+      - name: Grid law and child-image consent gate
+        run: npm test
+      - name: Build, HTML, SEO and redirect checks
+        run: npm run check
+      # tools/audit.mjs is deliberately NOT run here. It needs the school's
+      # photographs, which are git-ignored and never present in CI, so every
+      # gallery derivative 404s and the run exits 1 on absent files alone. It
+      # stays a local command until the image pipeline can run in CI.

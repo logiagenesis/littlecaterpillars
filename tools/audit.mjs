@@ -33,15 +33,28 @@ const ROUTES = ['/', '/about/', '/classes/', '/teachers/', '/gallery/', '/fees/'
 const WIDTHS = [360, 390, 768, 1024, 1280, 1440, 1920]
 const TYPES = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.avif': 'image/avif', '.woff2': 'font/woff2', '.xml': 'application/xml', '.txt': 'text/plain', '.webmanifest': 'application/manifest+json' }
 
+// Every path the audit asked for and dist/ could not supply. A 404 the browser
+// swallows silently is still a broken page, so it is reported, not ignored.
+const missingAssets = new Set()
+
 const server = createServer(async (req, res) => {
   const url = decodeURIComponent(req.url.split('?')[0])
   let file = path.join(DIST, url)
   try { if ((await stat(file)).isDirectory()) file = path.join(file, 'index.html') }
   catch { if (!path.extname(file)) file = path.join(DIST, url, 'index.html') }
+  // Read the body BEFORE sending headers. Writing a 200 first and only then
+  // awaiting the file meant a missing asset threw ERR_HTTP_HEADERS_SENT out of
+  // the catch and killed the whole run — so the audit could not complete in any
+  // checkout without source-images/, which is every clean one.
   try {
+    const body = await rf(file)
     res.writeHead(200, { 'content-type': TYPES[path.extname(file)] ?? 'application/octet-stream' })
-    res.end(await rf(file))
-  } catch { res.writeHead(404); res.end('not found') }
+    res.end(body)
+  } catch {
+    missingAssets.add(url)
+    res.writeHead(404, { 'content-type': 'text/plain; charset=utf-8' })
+    res.end('not found')
+  }
 })
 await new Promise(r => server.listen(PORT, r))
 
@@ -473,6 +486,20 @@ for (const [route, budgetKb] of [['/', 900], ['/gallery/', 1200]]) {
 
 await browser.close()
 server.close()
+
+// --- 9. assets the built site asked for and dist/ could not supply ----------
+if (missingAssets.size) {
+  const byPrefix = new Map()
+  for (const u of missingAssets) {
+    const key = '/' + (u.split('/')[1] ?? '')
+    byPrefix.set(key, (byPrefix.get(key) ?? 0) + 1)
+  }
+  for (const [prefix, n] of [...byPrefix].sort((a, b) => b[1] - a[1])) {
+    note('(assets)', 'fail', `${n} request${n === 1 ? '' : 's'} under ${prefix}/ returned 404 — the built pages reference files dist/ does not contain`)
+  }
+} else {
+  note('(assets)', 'pass', 'every asset the pages requested was served by dist/')
+}
 
 const fails = findings.filter(f => f.level === 'fail')
 const warns = findings.filter(f => f.level === 'warn')

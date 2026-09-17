@@ -27,11 +27,20 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
+      # The consent gate only fails the build from assert-grid.js, and `npm run
+      # build` merely warns and withholds. Without this step a published image
+      # that lost its consentRef would deploy green and silent.
+      - name: Grid law and child-image consent gate
+        run: npm test
       - name: Build site
         run: npm run build
         env:
           BASE_PATH: /littlecaterpillars
-          LC_ALLOW_PENDING_CONSENT: '1'
+          # LC_ALLOW_PENDING_CONSENT is deliberately NOT set here. It bypasses the
+          # child-image consent gate and README.md § Photography says never to set
+          # it in CI or on a deploy. With every published entry carrying a
+          # consentRef the build is unaffected; if one ever loses its reference,
+          # the gate must be the thing that stops the deploy.
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
