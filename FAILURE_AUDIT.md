@@ -661,3 +661,79 @@ now reads as a finished system rather than a template is a judgement, and it
 is not mine to declare. The other nine failures have all been fixed since the
 rejection, several of them substantially — the sensible next step is to look
 at the deployed site and see whether 10 survived them at all.
+
+---
+
+# The deployed site was broken, and nothing said so — 2026-09-17
+
+Found by loading the live page for the first time, after the sixth merge. Every
+check in this repository had been green all day.
+
+## What was wrong
+
+`prefixRootPaths()` in `tools/build.js` rewrote root-absolute paths for the
+project-Pages deploy with one blunt regex over **html, css and js**: any quote,
+paren, equals, comma or space followed by a slash. It hit two things that are
+not paths.
+
+```
+css   content: "/"          ->  content: "/littlecaterpillars/"
+js    .replace(/"/g, ...)   ->  .replace(/littlecaterpillars/"/little.../g
+```
+
+The first put the base path into every breadcrumb separator on the site —
+visible on the live page as `Home /littlecaterpillars/ Classes`.
+
+The second is a **syntax error in shipped JavaScript**. `main.js` imports
+`gallery.js`, so the entire module graph failed to parse on the deployed site:
+
+- no tilt, and **no rim at all** — `has-edge` is added by script
+- no lightbox, no category tabs, no gallery grid
+- no client-side form validation
+- **no consent banner, and no Consent Mode defaults pushed**
+
+The last one matters most. The banner rebuilt earlier today was never reaching
+a visitor, and neither were the `denied` defaults that are supposed to be set
+before anything else touches the dataLayer.
+
+## Why nothing caught it
+
+`npm test`, `npm run check` and `tools/audit.mjs` all build with **no
+`BASE_PATH`**. Only `pages.yml` sets one. The rewrite only runs when it is set,
+so the artefact that actually deploys had never been checked by anything.
+
+Every green tick today was earned on a build shape that is not the one served.
+
+## The fix
+
+- **Scripts are no longer rewritten.** The one script that needed a prefix, the POPIA link in the consent banner, now reads a `data-base` attribute off `<html>` instead. That attribute is published without a leading slash so the html rewrite cannot double-prefix it.
+- **The path regex no longer treats a slash before a quote or paren as a path.** `content: "/"` and a regex delimiter both look like that.
+- **`tools/assert-basepath.mjs`** builds the way the deploy builds and checks the result: no doubled segment, no base path inside a CSS `content` string, and every shipped script still parses. It runs from `npm test`, which both `ci.yml` and `pages.yml` already call, so the deployed shape is now gated on both paths.
+
+Verified the way a fix like this has to be — the check was run against the old
+code first, and it reproduces both faults exactly:
+
+```
+$ node tools/assert-basepath.mjs          (with the original rewrite restored)
+2 failures:
+  - assets/site.css: base path written into a CSS content string
+  - assets/gallery.js: does not parse — SyntaxError: missing ) after argument list
+
+$ node tools/assert-basepath.mjs          (with the fix)
+deployed shape is clean
+```
+
+`npm test`, `npm run check` and `tools/audit.mjs` are otherwise unchanged: the
+same 8 absent-photograph failures, 0 warnings, 23 explicit passes.
+
+## What this says about the rest of the audit
+
+Every measurement recorded in this file — tilt angles, rim opacity, rAF counts,
+axe, CLS, the banner's viewport share — was taken against a local build with no
+`BASE_PATH`. They are all still true of that build, and of what CI checks. They
+were **not** true of the deployed site, because on the deployed site none of
+the JavaScript ran at all.
+
+The fix closes the gap. But the general lesson is the one that keeps recurring
+in this audit: a check that does not run against the artefact you ship is not
+evidence about the thing you ship.

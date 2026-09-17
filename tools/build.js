@@ -132,17 +132,38 @@ async function bundleCss () {
   return parts.join('\n')
 }
 
+/**
+ * Prefix root-absolute paths for a project Pages deploy.
+ *
+ * This used to be one blunt regex over html, css AND js, matching any quote,
+ * paren, equals, comma or space followed by a slash. It shipped two live bugs:
+ *
+ *   css   content: "/"          ->  content: "/littlecaterpillars/"
+ *   js    .replace(/"/g, ...)   ->  .replace(/littlecaterpillars/"/little.../g
+ *
+ * The second is a syntax error. gallery.js is imported by main.js, so the whole
+ * module graph failed to parse on the deployed site: no tilt, no rim (the
+ * has-edge class is added by script), no lightbox, no form validation and no
+ * consent banner. None of it was caught, because every check runs a build
+ * WITHOUT BASE_PATH and only the deploy sets it.
+ *
+ * Two changes. Scripts are no longer rewritten at all — the one script that
+ * needed a prefix now reads it from the document instead (see consent.js). And
+ * a slash immediately followed by a quote or a paren is not a path, so it is
+ * left alone; that is what `content: "/"` and a regex delimiter both look like.
+ */
 function prefixRootPaths (text) {
   if (!BASE_PREFIX) return text
   return text
-    .replace(/([("'=\s,])\/(?=(?:["')]|[A-Za-z0-9_.#?~-]))/g, `$1${BASE_PREFIX}/`)
+    .replace(/([("'=\s,])\/(?=[A-Za-z0-9_])/g, `$1${BASE_PREFIX}/`)
     .replace(/url\(\s*\/(?=[A-Za-z0-9_.])/g, `url(${BASE_PREFIX}/`)
 }
 
 async function rewriteGeneratedPaths () {
   if (!BASE_PREFIX) return
   const files = (await readdir(DIST, { recursive: true }))
-    .filter(file => /\.(?:html|css|js|json)$/.test(file))
+    // .js is deliberately absent: see prefixRootPaths().
+    .filter(file => /\.(?:html|css|json)$/.test(file))
   for (const file of files) {
     const target = path.join(DIST, file)
     const source = await readFile(target, 'utf8')
