@@ -7,7 +7,7 @@
   "scripts": {
     "build": "node tools/build.js",
     "images": "node tools/images.js",
-    "test": "node tools/assert-grid.js",
+    "test": "node tools/assert-grid.js && node tools/assert-basepath.mjs",
     "check": "node tools/assert-grid.js && node tools/build.js --check",
     "dev": "node tools/build.js --watch --serve",
     "serve": "node tools/serve.js"

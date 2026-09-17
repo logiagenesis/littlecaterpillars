@@ -45,7 +45,7 @@ export function layout (page, ctx) {
   const waNumber = /^\+\d+$/.test(site.contact.whatsappTodo) ? site.contact.whatsappTodo : null
 
   return `<!doctype html>
-<html lang="en-ZA" class="no-js" data-gtm="${esc(site.gtmId.startsWith('{{') ? '' : site.gtmId)}">
+<html lang="en-ZA" class="no-js" data-gtm="${esc(site.gtmId.startsWith('{{') ? '' : site.gtmId)}" data-base="${esc(basePath.replace(/^\//, ''))}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">

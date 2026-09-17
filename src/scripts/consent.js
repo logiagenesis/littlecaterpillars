@@ -10,6 +10,12 @@ const read = () => { try { return JSON.parse(localStorage.getItem(KEY)) } catch 
 const write = v => { try { localStorage.setItem(KEY, JSON.stringify(v)) } catch { /* private mode */ } }
 
 export function initConsent (gtmId) {
+  // The build no longer rewrites scripts — rewriting them broke a regex
+  // literal in gallery.js and took the whole module graph down on the deployed
+  // site. A project-Pages base path therefore has to come from the document.
+  const seg = document.documentElement.dataset.base
+  const base = seg ? `/${seg}` : ''
+
   window.dataLayer = window.dataLayer || []
   const gtag = (...args) => window.dataLayer.push(args)
 
@@ -57,7 +63,7 @@ export function initConsent (gtmId) {
     el.innerHTML = `
       <p class="consent-banner__copy">We use cookies to see how the site is used and to measure our
         adverts. Nothing is set until you choose. Read our
-        <a href="/popia/">POPIA notice</a>.</p>
+        <a href="${base}/popia/">POPIA notice</a>.</p>
       <div class="consent-banner__actions">
         <button type="button" class="btn btn--sm btn--ghost" data-consent="decline">Only essentials</button>
         <button type="button" class="btn btn--sm btn--primary" data-consent="accept">Accept all</button>
