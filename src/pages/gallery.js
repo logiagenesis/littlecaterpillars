@@ -64,7 +64,7 @@ ${section({ body: `<div class="prose">
   </div>
 </section>
 
-${section({ body: `<ul class="tile-grid plain covers-grid" data-cols="4" style="--cols:1">
+${section({ body: `<ul class="tile-grid plain covers-grid" data-cols="4">
   ${covers.map(c => `<li>${c}</li>`).join('\n  ')}
 </ul>` })}
 
@@ -82,9 +82,13 @@ ${section({ body: `<ul class="tile-grid plain covers-grid" data-cols="4" style="
       ${gallery.categories.map(c => `
         <h3>${esc(c.title)}</h3>
         <ul class="gallery-grid plain">
-          ${c.images.map(im => `<li class="gallery-cell"><img src="${esc(im.src)}" srcset="${esc(im.srcset)}"
-            sizes="(min-width:64em) 33vw, (min-width:40em) 50vw, 100vw"
-            width="${im.width}" height="${im.height}" alt="${esc(im.alt)}" loading="lazy" decoding="async"></li>`).join('')}
+          ${c.images.map(im => `<li class="gallery-cell"><picture>
+            <source type="image/avif" srcset="${esc(im.avif)}" sizes="(min-width:64em) 33vw, (min-width:40em) 50vw, 100vw">
+            <source type="image/webp" srcset="${esc(im.webp)}" sizes="(min-width:64em) 33vw, (min-width:40em) 50vw, 100vw">
+            <img src="${esc(im.src)}" srcset="${esc(im.srcset)}"
+              sizes="(min-width:64em) 33vw, (min-width:40em) 50vw, 100vw"
+              width="${im.width}" height="${im.height}" alt="${esc(im.alt)}" loading="lazy" decoding="async">
+          </picture></li>`).join('')}
         </ul>`).join('')}
     </noscript>
   </div>

@@ -1,0 +1,2023 @@
+{
+  "generated": "2026-09-17T08:01:38.088Z",
+  "sourceCount": 103,
+  "uniqueCount": 102,
+  "widths": [
+    400,
+    800,
+    1200,
+    1600
+  ],
+  "categories": [
+    {
+      "slug": "baby-centre",
+      "title": "Baby Centre",
+      "blurb": "The Butterfly Class — our three-month-olds up."
+    },
+    {
+      "slug": "messy-play",
+      "title": "Messy & Sensory Play",
+      "blurb": "Foam, paint, water and a great deal of coloured spaghetti."
+    },
+    {
+      "slug": "outdoors",
+      "title": "Outdoors & Playground",
+      "blurb": "Slides, sand, ride-ons and the run of the garden."
+    },
+    {
+      "slug": "learning",
+      "title": "Everyday Learning & Creating",
+      "blurb": "Letters, books, crayons and finished work held up proudly."
+    },
+    {
+      "slug": "celebrations",
+      "title": "Celebrations & Dress-Up",
+      "blurb": "Valentine’s, Easter, Heritage Day, Shavathon and every excuse for a costume."
+    },
+    {
+      "slug": "sport",
+      "title": "Sports, Swimming & Movement",
+      "blurb": "Swimming lessons, ball skills and getting the wiggles out."
+    },
+    {
+      "slug": "paint-your-principal",
+      "title": "Paint Your Principal Day",
+      "blurb": "Exactly what it sounds like. She was a very good sport."
+    },
+    {
+      "slug": "our-spaces",
+      "title": "Our Spaces",
+      "blurb": "The classrooms, the play areas and the garden they belong to."
+    }
+  ],
+  "dropped": [
+    {
+      "file": "IMG-20260916-WA0101_1.jpg",
+      "reason": "Byte-identical to IMG-20260916-WA0101.jpg (same MD5); the attachment is listed twice in email batch 2."
+    }
+  ],
+  "entries": [
+    {
+      "n": 1,
+      "file": "316135.jpg",
+      "disposition": "published",
+      "stem": "lc-001",
+      "category": "celebrations",
+      "alt": "A boy in a red shirt and a paper crown in front of a Happy Valentine’s Day wall display",
+      "consentRef": "LC-CONSENT-2026-001",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-001-full.jpg",
+        "width": 754,
+        "height": 1024
+      },
+      "source": {
+        "width": 754,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRsgAAABXRUJQVlA4ILwAAABwBQCdASoUABkAPu1ur1IppiQiqAgBMB2JZwDIIBEF01eW+vXbuW3G+sFY3SmnhQ18eEgAAP7TU41pgyLgBAcc5NNoL2CdCjasFibiTDCo4JVszdMM9rNyGwl6As5HD+pQ5TcnxAazT1zWrfIwzJzL5ozAdFYOXCVaAp3CAhGHiGT9JkB+iZTlMFjNaBordrE+hpZRgAMpqAy0zdx3iQfH68ZNVJYHNkOpuah0a9SUGlqA2foCtJPbRalYAA=="
+    },
+    {
+      "n": 2,
+      "file": "316136.jpg",
+      "disposition": "cut",
+      "reason": "Second frame of the same Valentine’s wall display as #1 — near-duplicate subject, weaker of the two."
+    },
+    {
+      "n": 3,
+      "file": "316137.jpg",
+      "disposition": "published",
+      "stem": "lc-003",
+      "category": "outdoors",
+      "alt": "A toddler lies along the top of the green slide, grinning down at the camera",
+      "consentRef": "LC-CONSENT-2026-002",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-003-full.jpg",
+        "width": 725,
+        "height": 1600
+      },
+      "source": {
+        "width": 725,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRt4AAABXRUJQVlA4INIAAADQBQCdASoUABkAPu1urlIppiQiqAgBMB2JaQDL5rSLRyMJAjTBX+8I9VcCw9VQeuhaUdCe1lMAAP7me3Ju3mAz5nY6ik3+TOf0V8sDB66Yo9SIwb6OGdbUgRUdRCVr72TFz1XAY5Yad3KNVL9eF0U0VGRIyY3OSQtaAy3nzbv137kuunbHrcAURv4fuFfKqXYfU6bYiSD2vQPEHnAw6KkejEYis7Qx2TKpzSuch16xrT4gFRqkftzJAQaPkSs1H9PGemV3zFMHxuVmsjZbK5AAAAA="
+    },
+    {
+      "n": 4,
+      "file": "316138.jpg",
+      "disposition": "published",
+      "stem": "lc-004",
+      "category": "celebrations",
+      "alt": "A child in sunglasses stands between two large Easter bunnies under a Happy Easter banner",
+      "consentRef": "LC-CONSENT-2026-003",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-004-full.jpg",
+        "width": 521,
+        "height": 1156
+      },
+      "source": {
+        "width": 521,
+        "height": 1156
+      },
+      "lqip": "data:image/webp;base64,UklGRv4AAABXRUJQVlA4IPIAAABwBQCdASoUABkAPu1sqlEppaOiqAqpMB2JaQDMWdwLeCJOrulVNX/7AEho31z9GPfd5rGAAP6DbcmZ887Ob6Hf83k6BzB00AYa8BU45659gRm1hlhlv3qebXWOF0JOFFxDmD7kWgrIWj6ULC5bKfKLvqrdhGsclBNbmHjO9n3x/Du1uwfgi/BvKFkp44HxvZDc2XRn111G081R+r1mbIM/H95lWkzS6BTEHUjxSWFQ9YerV58M12YR9b86x5E8mIaJUcyTWftHQHKPtBwSUDhJXFhbxL7ORg7akvdz0Jk158bTvavtX7HNF4fL3Pi2ABgAAA=="
+    },
+    {
+      "n": 5,
+      "file": "316139.jpg",
+      "disposition": "published",
+      "stem": "lc-005",
+      "category": "outdoors",
+      "alt": "A boy sits on the jungle gym deck with a water bottle in both hands",
+      "consentRef": "LC-CONSENT-2026-004",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-005-full.jpg",
+        "width": 1060,
+        "height": 1596
+      },
+      "source": {
+        "width": 1060,
+        "height": 1596
+      },
+      "lqip": "data:image/webp;base64,UklGRuoAAABXRUJQVlA4IN4AAACQBQCdASoUABkAPu1ur1IppiQiqAgBMB2JaQDJEdzrg2KKhpYYXd653+FmJ6YvUSyqSlcaAADJF4cg43C7iXw/fDyJsuEvmqYlXvTzBvuOe/RWQ1ns419FvxXvu2PiYQCf25o1WAy4YK+AAHT1U1SfgrAc51UvE9CfWODp9nL1NSsdxFrQQcAgr3zpoWy1w8eb7DzbRGerSJo9ilDufzvyg0Wg1njndH/tN/1pNIOd8vO4+I4NqB2ntVyD9gtfMb2H/8K4WB/l62Si/H4h/cQZpFNJ/zuCs8LUZAq0AAA="
+    },
+    {
+      "n": 6,
+      "file": "316140.jpg",
+      "disposition": "published",
+      "stem": "lc-006",
+      "category": "outdoors",
+      "alt": "A girl kneels in the sandpit, scooping sand with a yellow spade",
+      "consentRef": "LC-CONSENT-2026-005",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-006-full.jpg",
+        "width": 867,
+        "height": 1156
+      },
+      "source": {
+        "width": 867,
+        "height": 1156
+      },
+      "lqip": "data:image/webp;base64,UklGRsIAAABXRUJQVlA4ILYAAADwBACdASoUABkAPu1wsFIppiSiqAgBMB2JaQDC/AgAsYewnCIyC0IY1tscx2+bnjAA/r6K2y23VdSCcgD+eTEctXDM8zUVGk2u2C2wmj8fFCayhm8HAJieuGpM1EAUCrgwLmMgYdr7+88+fe3PpQf2Drh6au9hKhCsujFYvFgfR2xvF1XtwAWqRv6ujEWjhGklRSyoMHYS7XkR356iTJAIc2XA5HF8m+44RHs71buEeA+d9SAAAA=="
+    },
+    {
+      "n": 7,
+      "file": "316141.jpg",
+      "disposition": "published",
+      "stem": "lc-007",
+      "category": "outdoors",
+      "alt": "A girl crouches in the corner of the sandpit with a red scoop and a blue spade",
+      "consentRef": "LC-CONSENT-2026-006",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-007-full.jpg",
+        "width": 867,
+        "height": 1156
+      },
+      "source": {
+        "width": 867,
+        "height": 1156
+      },
+      "lqip": "data:image/webp;base64,UklGRswAAABXRUJQVlA4IMAAAAAwBQCdASoUABkAPu1ur1KppiQiqAgBMB2JaQDLaA6yf0Ndr/cjSzr11BDZAJM9RAmXgAD+7CQhF95dGtyWyR+UNTJslCHMvzX0lH/0jVQmVzrS6cWT8nU5ZgBWYn1HQDONj6UGPpCMuZkmSCOKwpuUjZfOdSBApJT3ZGZsRhF5eh6Zdu7qStDldVQGZ82gaezVxbGMj0Ar5ZqBCWtvj3W3n991aFwi9emYNwGhIno4RAEJ1TEFiOj8qzZlVSAAAAA="
+    },
+    {
+      "n": 8,
+      "file": "316142.jpg",
+      "disposition": "published",
+      "stem": "lc-008",
+      "category": "baby-centre",
+      "alt": "A baby stands at a glass door, waving, beside a wall decal of a Dr Seuss quote",
+      "consentRef": "LC-CONSENT-2026-007",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-008-full.jpg",
+        "width": 1222,
+        "height": 1600
+      },
+      "source": {
+        "width": 1222,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRtYAAABXRUJQVlA4IMoAAABwBQCdASoUABkAPu1ur1IppiQiqAgBMB2JaQAD5nj/fZ3jAEekeg3QhIonD7yIZZ5seuUAAPugtREO83jGk7MWWX50eNZw3yLzgOcWdu0F8SvtGzOew5910McYGtHUnYwvNWGXZ7ej5SrSn0gznfQ45J6O2kr53lOOWZdWUQtQnJoQBYSnTYRRbLA85u3FQ8FIYkv2JUFuE/nlkwt1kvz3EngcTUswJ9Gz68FPFPoAWENsaNIiFLsSLm5UKGgqThF2ILO4xogrgAAA"
+    },
+    {
+      "n": 9,
+      "file": "316143.jpg",
+      "disposition": "published",
+      "stem": "lc-009",
+      "category": "messy-play",
+      "alt": "A baby sits in a tray of orange and green cooked spaghetti, pulling a strand up to look at it",
+      "consentRef": "LC-CONSENT-2026-008",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-009-full.jpg",
+        "width": 850,
+        "height": 1024
+      },
+      "source": {
+        "width": 850,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRuIAAABXRUJQVlA4INYAAABQBQCdASoUABkAPu1ur1IppiQiqAgBMB2JaQDOdYyoUwp6o45lod6oOfTC4mUh5KD1IQAA/tKiyG24/Kjc43JY0vDpLR8NDrkN5zTbC596Isf4TsxuZTCiPzLj67gttvadGH3a4+DhXzaJuuc1JD2RbyWGsyHSuzYZHCfow4bWqGq2NR03J1aqFrMHcPvP0upX0OeY5Upr3zmgZRWsT4ycXI0KxMJP6StpfzKbQy3UhRFNIXFGp6v+kasW26Us9O+WQ+goZx2ZQ2sH64Ew3jpbDjf8EAAA"
+    },
+    {
+      "n": 10,
+      "file": "316144.jpg",
+      "disposition": "published",
+      "stem": "lc-010",
+      "category": "learning",
+      "alt": "A boy sits on the grass beside an open lunch box, sorting through it",
+      "consentRef": "LC-CONSENT-2026-009",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-010-full.jpg",
+        "width": 901,
+        "height": 1600
+      },
+      "source": {
+        "width": 901,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRswAAABXRUJQVlA4IMAAAABwBQCdASoUABkAPu1sqlEppaOiqAqpMB2JZwDOOYxia4h0HnyCByppj1oy6p4eXncoBanwAP5YicsynlYcGoIvLvAHTsps4tqSCijLZKEqzFJhLfoA/rqe8FdXYzUMQCVJfIOLciGlB3dBSD27XljG0yTnLpyMiW4r2uS08kfjyqQDl/8hd7BSzEQynS9rb9kA7puYT+VkZhaClvfN+P9DygUAacCfe6Ag19iphRFM9ln8pZwxqHhJohE2VvX8AAA="
+    },
+    {
+      "n": 11,
+      "file": "316145.jpg",
+      "disposition": "published",
+      "stem": "lc-011",
+      "category": "outdoors",
+      "alt": "A girl balances on the outdoor climbing frame with the palms behind her",
+      "consentRef": "LC-CONSENT-2026-010",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-011-full.jpg",
+        "width": 1001,
+        "height": 1600
+      },
+      "source": {
+        "width": 1001,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRvAAAABXRUJQVlA4IOQAAADwBQCdASoUABkAPu1ur1IppiQiqAgBMB2JZwDO7d3Le0LzEP94biTvFW4AUffWj91L/AJTq6VmAAD+xutHmt7T3apvegCKMBJveoAIDZtonohrGeQ5VtaQMNaLtn2AzYxd2jR/gRGgPQ+AhRPK5LVvtBA0I6JydsIfRc6Jbxm0OhZDEfU/zXaNcWC4aFU7seH+DOec02kSg8y//TCnhEX4tTZjWO/lYCb9oKaWOyQpulWbcVSYKwfKYOQlMVf4gshIAoALmFzQdZ0vlqstfmeAy4swgeCOAJpGQF2rNnHSyzJAAAA="
+    },
+    {
+      "n": 12,
+      "file": "316146.jpg",
+      "disposition": "published",
+      "stem": "lc-012",
+      "category": "outdoors",
+      "alt": "Two girls lie side by side on the lawn, heads together over their toys",
+      "consentRef": "LC-CONSENT-2026-011",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-012-full.jpg",
+        "width": 901,
+        "height": 1600
+      },
+      "source": {
+        "width": 901,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAAAQBQCdASoUABkAPu1qqVAppaOiqA1RMB2JaQDJTYvWPhzgkfpbdIT6hdZddT+sx8gAAP6qUapimqsDhrBwyW9YNfuoDHG0WfGwY5UGzGPoYXxyCUk7UGyJY4k87MlJvGfEd5UjS4NfDmNroXJykgwDshqejgvEhj1udPYD9WVcQXhDad0HDYIvteHGUb291onw/rcoz1fSdhJXA9E3vvgJtkqY1TAKMWqxbTbKFZ9gAA=="
+    },
+    {
+      "n": 13,
+      "file": "316147.jpg",
+      "disposition": "published",
+      "stem": "lc-013",
+      "category": "learning",
+      "alt": "A toddler sits on a purple mat with a picture book open across both knees",
+      "consentRef": "LC-CONSENT-2026-012",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-013-full.jpg",
+        "width": 651,
+        "height": 1156
+      },
+      "source": {
+        "width": 651,
+        "height": 1156
+      },
+      "lqip": "data:image/webp;base64,UklGRtoAAABXRUJQVlA4IM4AAADwBACdASoUABkAPu1sqlGppaOiqAqpMB2JaQAD5dC5fIavnwQlvOqE8wsUnkTLxMAA/uv+yVzCGGeJkXoGPzKt99TkitUGRzL65z4RNpWTrn4HMfiaQSs9bL24n0r76uiX5ohw2Erme9nq873rz/PMAuJOeU2p6jUahn3pcAWy6JppeR4kq7BQcIR5o1wNMRfxfzIK+aN9kqn29XjUn/yPfyBEyuW9yPFGweEwwHriXhBiKTouHHT1Rtui/otfQGIlo1GmVvheogTOH/QAAA=="
+    },
+    {
+      "n": 14,
+      "file": "316148.jpg",
+      "disposition": "published",
+      "stem": "lc-014",
+      "category": "learning",
+      "alt": "A toddler kneels on the mat turning the pages of a large activity book",
+      "consentRef": "LC-CONSENT-2026-013",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-014-full.jpg",
+        "width": 651,
+        "height": 1156
+      },
+      "source": {
+        "width": 651,
+        "height": 1156
+      },
+      "lqip": "data:image/webp;base64,UklGRsoAAABXRUJQVlA4IL4AAADQBQCdASoUABkAPu1urlIppiQiqAgBMB2JZwALACJzCxQw4dT9vMJjiP5a3ydKaGy8PG3/3BfAAP7o35+RUTrJnOrTSSdhiyfPipSmMv8IH0BSmvL4lIxFJrTKeF0NvREBAlDLzAM7iQwwikwa3YfCqdp1XYNMJ1IfrwAZfCY/s5j2XtcMC+ZTBHcMaWyaiKaLVDcmeoY0Nkym2r20yv9Zt379Nago7Z5OKcIaTopbaa8y/Hd+4h7yaC/JgAAA"
+    },
+    {
+      "n": 15,
+      "file": "316149.jpg",
+      "disposition": "published",
+      "stem": "lc-015",
+      "category": "learning",
+      "alt": "A child in a woolly hat and gown reads a Jungle IQ book on the mat",
+      "consentRef": "LC-CONSENT-2026-014",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-015-full.jpg",
+        "width": 651,
+        "height": 1156
+      },
+      "source": {
+        "width": 651,
+        "height": 1156
+      },
+      "lqip": "data:image/webp;base64,UklGRs4AAABXRUJQVlA4IMIAAACQBQCdASoUABkAPu1ur1IppiQiqAgBMB2JaQDKtYyeTE4FfxL4MFfSQFaGVWumAvoS3JMAAADJA+qq+OTfnz0WnV74T8HBuiZCsedMOsQMIa5RNesUbQGWihqDs9ABsK7fU9gf5kzUJvk7j65VF2cgXw5T/sbBy4Wf5ZnVBCTzLiSVWDyGAMNZm45K0kYDzMThWKNVDmvo2j4lTzdIoMJLvbdygdh+sQTQKMZCqycD1sHmRmVMas6YLgyA72lxpUwAAA=="
+    },
+    {
+      "n": 16,
+      "file": "316150.jpg",
+      "disposition": "published",
+      "stem": "lc-016",
+      "category": "celebrations",
+      "alt": "A child peers through a pair of star-shaped novelty glasses",
+      "consentRef": "LC-CONSENT-2026-015",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-016-full.jpg",
+        "width": 651,
+        "height": 1156
+      },
+      "source": {
+        "width": 651,
+        "height": 1156
+      },
+      "lqip": "data:image/webp;base64,UklGRsoAAABXRUJQVlA4IL4AAAAwBQCdASoUABkAPu1ur1IppiQiqAgBMB2JaQDE2YxiddBhV61B2hmTVC2VSuhvUnY0AAD+7FQD9CnklEDu6SqV+ml7Zy0u73S7Kfcj2zXYs7JakMKIc05BpCPl/NdXkFTn2iOY90N/gXIfqqt8x/rm3cyUvOgenWtdAsZXS843CRiAAT3Xk09QZqrr3mVLasC6TuEPD/nvOhqsDcv2pczDpvaW6ovjuAjzvOA8wBNdTKNWgTiRPCfn5QCWgAAA"
+    },
+    {
+      "n": 17,
+      "file": "316152.jpg",
+      "disposition": "published",
+      "stem": "lc-017",
+      "category": "outdoors",
+      "alt": "A toddler pushes a green ride-on toy across the artificial grass",
+      "consentRef": "LC-CONSENT-2026-016",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-017-full.jpg",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "width": 768,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRt4AAABXRUJQVlA4INIAAACQBQCdASoUABkAPu1ur1IppiQiqAgBMB2JaQDKAdz5gnNe362n69o6PFUt7Prl2uozXJhCAADfqHxQAJR5VwgRNzG+c9EGd2AedhONG1QN5VXiMTCYpCnMzO6En+jHrxLw5dOIILLBepeyreemkvBE1IAso4BwxxpjZtNd0YXv0Gs859RgUeut8IFDXBUmopreF6PvW2/czhzcMHQVCWKLVTLi4ua+HE7Gl1FnS1eKRa9kCsk63UGLkPZyNpZIqMt64T0pKURMDRN6Qjyv4FbrDAA="
+    },
+    {
+      "n": 18,
+      "file": "316153.jpg",
+      "disposition": "published",
+      "stem": "lc-018",
+      "category": "baby-centre",
+      "alt": "A baby in a blue knitted suit crawls across the lawn beside the play structure",
+      "consentRef": "LC-CONSENT-2026-017",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-018-full.jpg",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "width": 768,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRsAAAABXRUJQVlA4ILQAAAAwBQCdASoUABkAPu1sqVGppaOiqAqpMB2JaQDO7Yy8TuqHgYRQlcxk2BsUwAyDOef+AAD974a5NgV+pU3IIqZfWLhqk++TZZuaYc5t/g4+wAx/D8VbY1kJRgM+Qbf2pDsKgrHCf96Vfh62P08y/MjmzwUgWcJy6uDNdq5ZoCOzFBM0BPGVi9aaWjIOtbve8NnRMBp7BDuGWng3c/PiatL8DkDg/d04UyF3MtnXZz6thNAAAAA="
+    },
+    {
+      "n": 19,
+      "file": "316154.jpg",
+      "disposition": "published",
+      "stem": "lc-019",
+      "category": "baby-centre",
+      "alt": "A baby laughs through the window of the plastic playhouse",
+      "consentRef": "LC-CONSENT-2026-018",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-019-full.jpg",
+        "width": 636,
+        "height": 1024
+      },
+      "source": {
+        "width": 636,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRt4AAABXRUJQVlA4INIAAACQBACdASoUABkAPu1ur1IppiQiqAgBMB2JaQAALhBN68cx5/D/SeaH/du52mAA/hk5/8YNmAKeZ4Zc2acdEjzXfDhTuO5YMmaiZEkPN1xkPHAArZa7eGxxn5fkH8tVXbkdqEDK90fumo7r7YFcjrG4Jbgj+svKCUjOksFhHI51GMBPlfMB2eNg5Di5dJPnsk0GNxyn1lJ1spbT/nSeWUWaxOLw9H7y+d2VFdusA4CiL5Re4ECNdNqIL+z4AcHd/eQU5eu4Ts0dJkVUeUEaLtZgAAA="
+    },
+    {
+      "n": 20,
+      "file": "316157.jpg",
+      "disposition": "published",
+      "stem": "lc-020",
+      "category": "learning",
+      "alt": "A girl holds up her open drawing book to show a page of pink and green crayon work",
+      "consentRef": "LC-CONSENT-2026-019",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-020-full.jpg",
+        "width": 651,
+        "height": 1156
+      },
+      "source": {
+        "width": 651,
+        "height": 1156
+      },
+      "lqip": "data:image/webp;base64,UklGRtAAAABXRUJQVlA4IMQAAAAwBQCdASoUABkAPu1ur1IppiQiqAgBMB2JaQDM0AuiuOKP9xbiTw1wZLNps81yYQr0AAD+cy6q91SCgsPl5Gj87vcQ0egIapWgpLx2y0hqfW80MRkazqANowL/DV4CFv/dFnA1PxPbTtwBI7vpgNLerOPqKbiRumlb8cXlBaF0v1Hb5ya0rvKq/J9SsSHesQ3hM+hMNB17bwICMK+y51+J2NFl9nIU2ZrSfcqyA67VKLQ9KrUMTGzrBpP2860g978sCAAA"
+    },
+    {
+      "n": 21,
+      "file": "316158.jpg",
+      "disposition": "published",
+      "stem": "lc-021",
+      "category": "messy-play",
+      "alt": "A boy grins over a tray of white shaving foam, hands and cheeks covered",
+      "consentRef": "LC-CONSENT-2026-020",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-021-full.jpg",
+        "width": 721,
+        "height": 1600
+      },
+      "source": {
+        "width": 721,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRr4AAABXRUJQVlA4ILIAAADwBACdASoUABkAPu1wsFIppiSiqAgBMB2JaQDGCAgR4AH/9/axJw3rDdzy8rOhsAAA/ttsxeP1FouuG1x8h3D/4MpQrNhOwoQCcLSdfdvTq9GeGkN0qmohZWiZZfYbflXnV458L3N64o8PnYOioXHcJ/LW4HZu7zubNeOOPeswzVIs/MyCsrr9F+pDOXixPsRUqtV3Y0GVihghPQEqGDgBkuHpR4mGO7lHpWlRLwEFAAAA"
+    },
+    {
+      "n": 22,
+      "file": "316159.jpg",
+      "disposition": "published",
+      "stem": "lc-022",
+      "category": "messy-play",
+      "alt": "A toddler kneels on the grass and reaches into a tray of purple water play",
+      "consentRef": "LC-CONSENT-2026-021",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-022-full.jpg",
+        "width": 660,
+        "height": 1024
+      },
+      "source": {
+        "width": 660,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRtoAAABXRUJQVlA4IM4AAACwBQCdASoUABkAPu1sqlEppaOiqAqpMB2JaQDOA3gGznH9rhWayHs4BUVA2xSYPue1xTKAHAAA/PVcSxaZmYTqSQk1f837ZdRWHVoUha+0Dy+e271fejSz6LQKicA1rceq3UGrO0e0Y85rXt+Cj7gmAX1fNfgoctKiE3m2AtpxfCodqoaBNdMtfsR5nkKDPZH3bm69TDrs65nJ7xfufhi8tnO5oGf6/NBcrkzn6iEfusPw2E2Ay6jE959CujP27SwRw6rPo1irV7cUWNAAAA=="
+    },
+    {
+      "n": 23,
+      "file": "316160.jpg",
+      "disposition": "published",
+      "stem": "lc-023",
+      "category": "baby-centre",
+      "alt": "A baby in a red cardigan crawls across the patterned indoor mat",
+      "consentRef": "LC-CONSENT-2026-022",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-023-full.jpg",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "width": 768,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAABwBQCdASoUABkAPu1sqlEppaOiqAqpMB2JaQDLaYyya3rs1UJYI+HQFeYxZve6aRrKoFYAAP62ln0xXXn0RyeE+3gwSCLt99imNtpVE5nOvYMGPRPV3ALkdDDU2Z6NzDanWKZIpBwLSpkmhHB3F97J8Jlmb9YYheEuH4PgVVkDhykMbKMwRvxyCO8r8JE22QFlHeMrBBfUoAcZKvO3L5Gx4NaTZ9AMkXnz1oyAAAA="
+    },
+    {
+      "n": 24,
+      "file": "316161.jpg",
+      "disposition": "published",
+      "stem": "lc-024",
+      "category": "messy-play",
+      "alt": "A toddler in a turquoise smock, green paint across both cheeks, mid-laugh",
+      "consentRef": "LC-CONSENT-2026-023",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-024-full.jpg",
+        "width": 934,
+        "height": 1024
+      },
+      "source": {
+        "width": 934,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRugAAABXRUJQVlA4INwAAAAwBgCdASoUABkAPu1ur1IppiQiqAgBMB2JZwDHMd3LhoJuSwRu00SRjsJ3HL2jxnpUC9JNw0WPn7AAAP7gpxhNTTfG2HX2Hfxg7E9BAfA0PZtBgeVF9fM7ttIMRN4WIStZpEKtoojO+bMkhE65u6jihokL7IAZ+1Y5qW9FmxXHbrz0FL0A4CldsJoh5sueepr+r6rI/rn9lPnlQnI2Y7giX1N7XjZ4lHCb9WEt8Fx2LhXIYPZk10pm7Q8cK40Q6bfkd7423YkIHR7JHkL5377RHrhLiJYqeJHD1AAA"
+    },
+    {
+      "n": 25,
+      "file": "316162.jpg",
+      "disposition": "published",
+      "stem": "lc-025",
+      "category": "messy-play",
+      "alt": "A toddler at the water table holds up a hand covered in green paint from the mixing bowls",
+      "consentRef": "LC-CONSENT-2026-024",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-025-full.jpg",
+        "width": 812,
+        "height": 1024
+      },
+      "source": {
+        "width": 812,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRuIAAABXRUJQVlA4INYAAACwBQCdASoUABkAPu1ur1IppiQiqAgBMB2JaQDNhmwHXqEMv4D9qYwku9VMtK9HI2ocDlmHFSAA99wDisnthojqEYPRsmwkL/41g5cBA/pam/7Ca3SABUjQw1zHVgZ6rD2udxAiXaxHFPnJSngMlzmDJAR+5tNdhP5dgdKHtf2qW98qAFRG2eC8XhetlELdoxAmNbaRE01Q3FCF14SSw2V1fskENC7V+z3GEWMnHP9Or5Fokjb+8/UbIvb7O9or9C7Ef7IQmWpW9OQ5I3HvZmeI9xgAAAAA"
+    },
+    {
+      "n": 26,
+      "file": "316163.jpg",
+      "disposition": "published",
+      "stem": "lc-026",
+      "category": "messy-play",
+      "alt": "A toddler in dungarees pushes green paint across the surface of the water table",
+      "consentRef": "LC-CONSENT-2026-025",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-026-full.jpg",
+        "width": 879,
+        "height": 1022
+      },
+      "source": {
+        "width": 879,
+        "height": 1022
+      },
+      "lqip": "data:image/webp;base64,UklGRtAAAABXRUJQVlA4IMQAAAAwBQCdASoUABkAPu1ur1IppiQiqAgBMB2JaQDN/ywAa8OWXHJQM4U9CYJrAPk+wRF4AAD8tLDD82QSAyUlxiqmSz8/fT0I434uLsneXonm6uN+U1D+aOluiToMcmsZfAXJJl/E10m/nvJKN/OR8L0iK7jLFVGNI7gRfBSbtrqT3j5KHYIewNeu8dQ9VHySjx5EuuDntUBdAHY+/TcQ8+s3brBfGniaC94RTnHroHN0tux8NHcgAbnmhKRnoCjO8Mxw8AAA"
+    },
+    {
+      "n": 27,
+      "file": "316164.jpg",
+      "disposition": "published",
+      "stem": "lc-027",
+      "category": "outdoors",
+      "alt": "A boy reaches the bottom of the yellow slide, arms out",
+      "consentRef": "LC-CONSENT-2026-026",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-027-full.jpg",
+        "width": 721,
+        "height": 1600
+      },
+      "source": {
+        "width": 721,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRtYAAABXRUJQVlA4IMoAAACwBQCdASoUABkAPu1urlIppiQiqAgBMB2JZwDMWA/i4qFlQVm6gI/gN524G/vdygHxNIOOqYAAzj+TL+JgTxbMcq/vlrGrF6BFxtFZU0geuhkuipWtjZ6gx4RrcbiIDF3dw9xgQLdg4PKlID+AioWgb/GJNUiRRwZxWSUGv8x8RzD+KZvnEHn8kgkF80PfoYmqj7eQ7K1VfREvgvP9XHjSy9dd1Bejrjx16OChyVmFcYz0ng6TE8W4LcDZUj5aTEjX6g4oiZsEvAAA"
+    },
+    {
+      "n": 28,
+      "file": "316165.jpg",
+      "disposition": "published",
+      "stem": "lc-028",
+      "category": "learning",
+      "alt": "A child holds up a drawn-and-decorated Easter egg dotted with green pom-poms",
+      "consentRef": "LC-CONSENT-2026-027",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-028-full.jpg",
+        "width": 721,
+        "height": 1600
+      },
+      "source": {
+        "width": 721,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRuIAAABXRUJQVlA4INYAAABwBQCdASoUABkAPu1ur1IppiQiqAgBMB2JaQDH5YyUYRWMQTQVDrRMuwJ6OyP6Uw4HqCIAAP5gvWv/vw+eYMp24loE94AC2IPxvnFZCuqQGrru2rjaM3T2Z2TnrcCPGK/DeVwd1CIkMyeG+tWy7vtZCvz6Vf58oIxq5Ju2z1ymP2lCCX4r9rxoKWbCFcC8ZHXLjdLvIb456P9DaPpeyZXDANEOQKW92eDN6PjnszTzwMneRLu9OtrO84qR/90FYv5VLORt4k7vZhwRjv6ax1wHvb6u5AAA"
+    },
+    {
+      "n": 29,
+      "file": "316166.jpg",
+      "disposition": "published",
+      "stem": "lc-029",
+      "category": "sport",
+      "alt": "A girl bounces across the lawn on a pogo hopper",
+      "consentRef": "LC-CONSENT-2026-028",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-029-full.jpg",
+        "width": 1200,
+        "height": 1600
+      },
+      "source": {
+        "width": 1200,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRsIAAABXRUJQVlA4ILYAAAAQBQCdASoUABkAPu1srlIppaQzKAgCYB2JaQDM0YwwdBPwtqdwXYXw0IFGUX+hKgGAAM1wZJYw4bQdufRgRefrD5T1HENOFcgyJ6aeAYjp+pF9243UMYFdtblMJlXrKIE1knWk+WCKmBuBtk5thCIigl5Bwma53OPEt5hPwOS6ihALdz/rgHjzULpFKrNKFv2nAPwV/mHgp8C+DH3o4ct6R+/++TZHBep4JSsiftcJ3u5egq8AAA=="
+    },
+    {
+      "n": 30,
+      "file": "316167.jpg",
+      "disposition": "published",
+      "stem": "lc-030",
+      "category": "outdoors",
+      "alt": "A girl rides the orange seesaw beside the sandpit wall",
+      "consentRef": "LC-CONSENT-2026-029",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-030-full.jpg",
+        "width": 1200,
+        "height": 1600
+      },
+      "source": {
+        "width": 1200,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAACQBQCdASoUABkAPu1ur1KppiQiqAgBMB2JZwDOdYyePeCsBIXOZ5OJ5yIZAex+p72sHz1R4AD92FMfOOGBRDY62mGjlRmfXNVSPcU+m9+iiFjj5Du1jOuwZOVgDOJ2Sy4F7/AJhCWd+IrVAefUKDx5hxLpopZbbBrZpgEnPi7EqrmWmKcY5pDWwh1JY+2lilG6xRwggBcS0EzN0wVelw/ln5ZmJO8OKmAAAA=="
+    },
+    {
+      "n": 31,
+      "file": "316168.jpg",
+      "disposition": "published",
+      "stem": "lc-031",
+      "category": "outdoors",
+      "alt": "Three children stacked on the green slide, all three mid-laugh",
+      "consentRef": "LC-CONSENT-2026-030",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-031-full.jpg",
+        "width": 1200,
+        "height": 1600
+      },
+      "source": {
+        "width": 1200,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRuwAAABXRUJQVlA4IOAAAADwBACdASoUABkAPu1ur1IppiQiqAgBMB2JaQDNhYyeYSjvXO3rWMjUsIgAFGbuORAA9r84dRKJD33psXqlXL8jPW9/JJGOzpBtcwslonGFdDEkQTQNbE2Oe0AXOjEHUu4J1LIpcmJuF7WrmYeehFR/fi7soVJYj0zHnjT6IppX2+T4FRGsw1D0FQmZ6XQXpUyexcttt7lb2WqSM7bPWWbV+mR5bnbsGF2eusMvMgX3vpwDfc01dZ+HI9emXEmMA2bLDGmWdtu95kuunDAI5odwusdu5pntVLE6jtLmT6KwAA=="
+    },
+    {
+      "n": 32,
+      "file": "316169.jpg",
+      "disposition": "published",
+      "stem": "lc-032",
+      "category": "celebrations",
+      "alt": "A baby in sequinned bunny ears smiles up from the classroom mat",
+      "consentRef": "LC-CONSENT-2026-031",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-032-full.jpg",
+        "width": 733,
+        "height": 1024
+      },
+      "source": {
+        "width": 733,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRtoAAABXRUJQVlA4IM4AAADwBQCdASoUABkAPu1ur1IppiQiqAgBMB2JaQDOdd5lgdKrtHuPCmq1ZC32ZqmpSwA+tRRcMIMJAAD+iVqeM6xEbKo/iKB732i3Q8wiTRNfov7sc1IfmgPbPaa//VTtDVcVHEwDvMK16tY+2qDwyH3IqAxmJO4woY1l3vnog9PuLmsFnCBsiq430zmZBve21HWK/gnwTxzJ8Q49EqsxXu9Iujv64n4ztHUelHMYFDJowXWsVIoWzrsuJt1WfpyrCV05SlqDgr+w3ls4YAAAAA=="
+    },
+    {
+      "n": 33,
+      "file": "316170.jpg",
+      "disposition": "published",
+      "stem": "lc-033",
+      "category": "celebrations",
+      "alt": "A girl models an Easter bonnet loaded with eggs, carrots and a small rabbit",
+      "consentRef": "LC-CONSENT-2026-032",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-033-full.jpg",
+        "width": 867,
+        "height": 1156
+      },
+      "source": {
+        "width": 867,
+        "height": 1156
+      },
+      "lqip": "data:image/webp;base64,UklGRtwAAABXRUJQVlA4INAAAABQBQCdASoUABkAPu1ur1IppiQiqAgBMB2JaQDOdd0VfNNMofU/NdLQL/hwR5BDAF71wgAA8p73LWteVfrHuLLFxjMLVL3QCH9niZL3rpPZ1D8VQi7+8apsYvB5kJbPRJIFxYpcVwdwT0FEaAPCF0blakfhdPVJBGPrbdrlIiVzsYaKHN2vSuwU4LGyPJhKSiON9X3aNx08CzEekGThbvC9hIpzJTZwtGTjCiQqXykggaldLEL9L8qenPldXMOs+dygS7AIoMCvYoA7tGQAAAAA"
+    },
+    {
+      "n": 34,
+      "file": "316171.jpg",
+      "disposition": "published",
+      "stem": "lc-034",
+      "category": "sport",
+      "alt": "A boy runs the ball down the lawn, shadow stretched out beside him",
+      "consentRef": "LC-CONSENT-2026-033",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-034-full.jpg",
+        "width": 1200,
+        "height": 1600
+      },
+      "source": {
+        "width": 1200,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRtwAAABXRUJQVlA4INAAAAAQBQCdASoUABkAPu1ur1IppiQiqAgBMB2JaQAD5aCdw6a1F6zDlEH6ssbrFthrooPAAPyACHMJpQKYCWLxYM+HsvL18JQavOIHoYPxdkYDnl4NGrpCK5UPbztaNZ0lxrU/GhvTLwygCKzOaR5Skkdlno3zYREeCL1oERWuR+uadj7tKdT/swI7+jhOi7Hbh2c2WQMdlUSB5dilP6q03ztSjg6lkqMvUWBRCfcP4MgmkJHgM91M2iEY0V+czja7QLfF4udp0CI6iq5mF5CqAAAA"
+    },
+    {
+      "n": 35,
+      "file": "316172.jpg",
+      "disposition": "published",
+      "stem": "lc-035",
+      "category": "celebrations",
+      "alt": "A boy with spray-dyed green hair holds a baby in front of a Shavathon banner",
+      "consentRef": "LC-CONSENT-2026-034",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-035-full.jpg",
+        "width": 693,
+        "height": 1024
+      },
+      "source": {
+        "width": 693,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRugAAABXRUJQVlA4INwAAABQBQCdASoUABkAPu1ur1KppiQiqAgBMB2JZwAD5UDYzoBcayHPzFO3zvbXZptgOOUH7gAA/odkbCUHhDPfF8rVVtQwrWcrM+U1k77pcWnIctlinwtzsHMYqpfa3lJ1ES988w3ZcqxtydWzqKNevQz3Y6JZJ8n24GAL4DHve7hNBld4668pLxkZCuHIV8nT5AczLOMMy5SqW6utlRN8zt1rGzUIkrp5HQ/M+CLG+qecefsz5I2xmuxPjH0TebUGUDi4tGNm3l3ckfRafOx/bYadLQo4JPC8es9gAAAA"
+    },
+    {
+      "n": 36,
+      "file": "316173.jpg",
+      "disposition": "published",
+      "stem": "lc-036",
+      "category": "baby-centre",
+      "alt": "A baby in a patterned romper sits up in a travel cot",
+      "consentRef": "LC-CONSENT-2026-035",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-036-full.jpg",
+        "width": 602,
+        "height": 1024
+      },
+      "source": {
+        "width": 602,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRugAAABXRUJQVlA4INwAAABQBQCdASoUABkAPu1sq1EppaOiqAqpMB2JaQDKtYw6Z8SrQc3Pzecp5uqeltrZ3WRxLgAA/sBf4+ud39BUD5NOtCMkl8UqSPMbHq8tB1SYIvyOgYwjyivYJCsnfiL9A+yOWospAm5j8/Iz97JN/vEGH1hx/IWkmN59Nk9ko1OVj9cj5KJbH6UrVUeoXAINoNcDLIGuHHaYYTCPHaXxfqUJV0eEIWRXqZo5e/61nGel/qkOiMfXqBCAeh//xpipHTcUw6dJWNv72YmDBY8+fZwtnSTTnWc3MwzhgAAA"
+    },
+    {
+      "n": 37,
+      "file": "316174.jpg",
+      "disposition": "published",
+      "stem": "lc-037",
+      "category": "celebrations",
+      "alt": "A baby in a striped party hat, both hands at their mouth, mid-giggle",
+      "consentRef": "LC-CONSENT-2026-036",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-037-full.jpg",
+        "width": 911,
+        "height": 1024
+      },
+      "source": {
+        "width": 911,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRuIAAABXRUJQVlA4INYAAABwBQCdASoUABkAPu1ur1IppiQiqAgBMB2JaQDOdYxYa8Hl2hAwWdunA52oInkloj7yz/QAAP7RswrkkJ14OvlVVVL4H4f/Qcm1a8RLetRN2Qr3UqtWvbZkCX2xkRYQxwqyXovABU9rOWCta9bCD0APF+LYVb/y0OM3iCdnfByuW7dLBnIJl421/8WR697xIeiwWsvatr/ke9UT4v5rY1E2IRlptCyAEmXNRyGcDlzm98Do8BtV10RkpCDRyIsHpdVs5HoMeO+FfrYt/rUpgFhPWHagAAAA"
+    },
+    {
+      "n": 38,
+      "file": "316175.jpg",
+      "disposition": "published",
+      "stem": "lc-038",
+      "category": "messy-play",
+      "alt": "A boy pours from a plastic jug into a bubble-filled water table on the playground",
+      "consentRef": "LC-CONSENT-2026-037",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-038-full.jpg",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "width": 768,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRuAAAABXRUJQVlA4INQAAACwBQCdASoUABkAPu1ur1IppiQiqAgBMB2JaQDD6ywYYJoAGyX/48O5N1+ZONAYJv6bR/U85sAA/sCnFEJpWSjGqbfv40YQrwYpS/wIAMVcCg3Qx3u5t/wKYEmOwdngrZ6vPMeTnpS2mtOKcRVAbKbY32SM69tZfRe9TIJjIVq5mFIY8MroBk5qA6WW8ChXIXVDXk1oOYPWvWLD/5S3F7/uWOBEJLpMJigKFSp41pxHtjppv9db+JKq+XxHPpAPOKGb3kytAbTIgUHQoIG2t6bKP5PAAA=="
+    },
+    {
+      "n": 39,
+      "file": "316176.jpg",
+      "disposition": "published",
+      "stem": "lc-039",
+      "category": "messy-play",
+      "alt": "A toddler stands on the lawn with foam down the front of a red T-shirt",
+      "consentRef": "LC-CONSENT-2026-038",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-039-full.jpg",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "width": 768,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRu4AAABXRUJQVlA4IOIAAADwBQCdASoUABkAPu1sqlEppaOiqAqpMB2JaQDLpdzdgTKq/ZsU7Iab5oWMwlAOvp9XjAnI/FMKAAD7/rNWFqGktvJxzayDQIVFSDxwbYb4CEgPzjWOKASce9w1iy2GS6jFZNZ3xxSHrLZeqsCfoYGW+mhMlXVVr2q3TfMzn52qmG16YIok2K10Jimr1Hx48HNMGH8cnBwx1GlndVMaMdvTyOrsJEWqbTM/Ss2NPUsZ5pha//HmxqLh/SoRLwc+S9+poeGgMJHZBZnVnB0dG+FU1QOMvKKIEeYUodO80VjjgAAA"
+    },
+    {
+      "n": 40,
+      "file": "316177.jpg",
+      "disposition": "published",
+      "stem": "lc-040",
+      "category": "messy-play",
+      "alt": "A toddler tips a yellow beaker of water back into the play table",
+      "consentRef": "LC-CONSENT-2026-039",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-040-full.jpg",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "width": 768,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRswAAABXRUJQVlA4IMAAAADQBACdASoUABkAPu1ur1IppiQiqAgBMB2JZwDFyA8oS4AMB5ymQkY85tXpdE22wAD+43Ua8lAMD/0ijUbJJLJ+7pf2BuNGBYruaML7l+BmZKZjMJ+SNfc0s/+DCmgGYBSx2cuIClsq5ijBVOCut+D16sBkmpVDENkn/ES5jVxNtTKFpQ2xBkvy6xHGUBLyyUjcOzj5xhphRWnuu7mDZLmst3r7VFSnn9LJSh6h/x21AYu/vHUdUXkj1IcvD4DXgAA="
+    },
+    {
+      "n": 41,
+      "file": "316178.jpg",
+      "disposition": "published",
+      "stem": "lc-041",
+      "category": "messy-play",
+      "alt": "A girl leans over a tray of shaving foam, arms buried past the elbow",
+      "consentRef": "LC-CONSENT-2026-040",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-041-full.jpg",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "width": 768,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRvAAAABXRUJQVlA4IOQAAACQBgCdASoUABkAPu1ur1IppiQiqAgBMB2JaQDBl3gSIF0BSI2QHvbE7rwqp/1C0AI7rNepuoNQJcP4AJ9AAP62AatIGlWz1Qy2oB6vN/GWcczMLXMId809yM5Eaxdkf2ZOhOwUE1q4GO99kUZaGKoK80LMhxmMBa54O3Qg7oNcAzAY85FPX5SrNKgmMvvYOhT8bK4o/eC5fkclYqSrRvdLR+IEPY8YwLuXYaQJVMGQv8/FW9wKhBv6NHlmk1kXeGAIwhva7IZBJ8HskSE5k/KHllNuL8zp6qiUMFipj2+mBkrIAAA="
+    },
+    {
+      "n": 42,
+      "file": "316179.jpg",
+      "disposition": "published",
+      "stem": "lc-042",
+      "category": "messy-play",
+      "alt": "A girl holds up two handfuls of shaving foam from a blue tray on the grass",
+      "consentRef": "LC-CONSENT-2026-041",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-042-full.jpg",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "width": 768,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRvIAAABXRUJQVlA4IOYAAACQBQCdASoUABkAPu1ur1IppiQiqAgBMB2JZwDKAdwLgnMK8iwZMIpgK4PSKv9e+t8LC0CJAAD+0puU5+2c9hwH3VPG0ribnD55EbypOWoPIXlU2WPYMCu/znZ0BuKnnbleVkgr3yQ4kIUp+A+hIo2ghcV3DK9+YjnUm0iFn6vrY8/UWZAAHW7xTysnZR8Lsh0LUWNTl+YuH/bmkU3T/pZcHc1WQVyIf0oNgizSfLLsMEsesy1arRDmdUu6umDHP4EnjqztGq6oFaznpRnSKb01wzsl2nldhZicl1OawNP0kl13/QAAAA=="
+    },
+    {
+      "n": 43,
+      "file": "316180.jpg",
+      "disposition": "published",
+      "stem": "lc-043",
+      "category": "messy-play",
+      "alt": "A boy stands on the play mat with both hands on his head, coloured spaghetti around his feet",
+      "consentRef": "LC-CONSENT-2026-042",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-043-full.jpg",
+        "width": 595,
+        "height": 1024
+      },
+      "source": {
+        "width": 595,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRvQAAABXRUJQVlA4IOgAAACwBQCdASoUABkAPu1ur1IppiQiqAgBMB2JaQDJTYvCcZF18UivalnOCDxdceAd+BDuZ2WflcAA/svu1ozraLSUcTlmXLzbn1B1jYPCuYmb0z3Dqcs/99nyqev5wNkgYA2zBOa+DbTMjCDBQ1xBBtoD93pl3UqEtSQA054RhUSwHBNZpON8V+4AklLl0bPs+E/W8vP1PsjeJghPxy9iV+8rM9T6NJsBeckc3btb2/xMuVYOm/eIlISAem/lJ945NiHjVYOd1talJaGKk882+5mj4X0pW68khIeQaNmI8zPTYdmo1XEKxAAA"
+    },
+    {
+      "n": 44,
+      "file": "316181.jpg",
+      "disposition": "published",
+      "stem": "lc-044",
+      "category": "messy-play",
+      "alt": "A baby on the road-print play mat lifts a fistful of green spaghetti towards their mouth",
+      "consentRef": "LC-CONSENT-2026-043",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-044-full.jpg",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "width": 768,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRuwAAABXRUJQVlA4IOAAAACwBQCdASoUABkAPu1urlIppiQiqAgBMB2JaQDLay7AdxnwELN5n0I9WcHGJ5y0I1Z/ZNo8KAAA/TFHDarn6+eKTx5GeGZyjT8cDc0gCgfzGpJHrkn7Po7j2hTS5gfqMto9iQpJweEcqbSEyYxsqUHFnRMehr+eLM+6cbewwKkZRpGP/lCIkxyPaNJJmVh/b22foTGRFp2Uvn3ZHN9jI4Zf8peAYcUrwXITUumR1/4vQSbg3rYo+owF2n71npyF846lTergzrf0w5eJ3XrpZHYYXj918y1SfJEnrkRdfE/EAA=="
+    },
+    {
+      "n": 45,
+      "file": "316182.jpg",
+      "disposition": "published",
+      "stem": "lc-045",
+      "category": "messy-play",
+      "alt": "A baby sits inside a tyre filled with coloured spaghetti in front of the Little Caterpillars banner",
+      "consentRef": "LC-CONSENT-2026-044",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-045-full.jpg",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "width": 768,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRt4AAABXRUJQVlA4INIAAADQBQCdASoUABkAPu1sq1EppaOiqAqpMB2JZwDKAYyKTFm0Qek1JY2jicWhYEvYCFyUq3KhND0AAP6x4hF61OBZVyP+3Rjqb8JSdi5v4PzR3PI8Uh9HwS2sENzIa7sUrvZN2/5aUNdFnIbj2Jyv1wtcLoGKaBEIf5Lk5E7l4vuZ0sFeiBkROgYH61uGnpsL72oqpPKM6zxWOUn9aj+TxRM9RoIY3SXUhd5KSPFfNgzDTL1rXXHHrJrxZD+s0Y1cDMFCXwchtmd5Zexc91aovp4AAAA="
+    },
+    {
+      "n": 46,
+      "file": "316183.jpg",
+      "disposition": "published",
+      "stem": "lc-046",
+      "category": "messy-play",
+      "alt": "A toddler sits cross-legged on the play mat, working through a pile of orange and green spaghetti",
+      "consentRef": "LC-CONSENT-2026-045",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-046-full.jpg",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "width": 768,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRugAAABXRUJQVlA4INwAAACQBQCdASoUABkAPu1ur1IppiQiqAgBMB2JaQDO8AgOV6N5mQ2A2IGjIIH5xZPdgIiNn9C0AAD+1d2ISNscxz3u7dEMBrlyrURkaeODu1qkbe7KL7VhGJxUpbHZRZcM2+IKSoRfOClmGP9DUDNAWBON1hKVaoqjxZy8j1p+Cvfv3hGDR3Yju+mVy0Ic6n/fFbNOPNErDrifHqgh4xLU/Ol4JakuOlIEtppIMnV30Z+3zHT+LydE9t7Y8+wdHca9ezQwE+3ZyyYZ2XxzJu2RIj/XlOAZest5bqmC0gAA"
+    },
+    {
+      "n": 47,
+      "file": "316184.jpg",
+      "disposition": "published",
+      "stem": "lc-047",
+      "category": "messy-play",
+      "alt": "A baby in a spotted bib kneels over a spread of green spaghetti on the play mat",
+      "consentRef": "LC-CONSENT-2026-046",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-047-full.jpg",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "width": 768,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRu4AAABXRUJQVlA4IOIAAABwBgCdASoUABkAPu1sqlEppaOiqAqpMB2JaQDJU3gYoJR7IBrTxi8jwmyjmSCo8bbf5eD/OfLBZgZXbQAA+XwN7AYNY/XFjX5LndS/nIE42wD6hEyL/CtC+LZ+Z0dlbCHwPm09jtRXpKtXHtTh3JKLbRLkegnWce+BU4EOPsmevFIRAzDqL+ZlvVQBvggr0Xewwu247KrjA+o1GBGkC+b5vK4Oi9GfUtGPCzWFT1pKnii2tUuEX1U4R6VDeLZ+FQ57uHbHOiJ0pyR927+NPFDTXY3/lEa8JphGL4+Yn/byAAAA"
+    },
+    {
+      "n": 48,
+      "file": "316185.jpg",
+      "disposition": "published",
+      "stem": "lc-048",
+      "category": "celebrations",
+      "alt": "A baby dressed as a chef in a checked headscarf and white jacket",
+      "consentRef": "LC-CONSENT-2026-047",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-048-full.jpg",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "width": 768,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRuIAAABXRUJQVlA4INYAAACQBQCdASoUABkAPu1ur1IppiQiqAgBMB2JaQDE2y67o4YrgnPood0KMGuI/4VTBp+1WQkZMgD+1qombHYDaBZZaJPfz8vyQZt4BoR8fviHeaQwLAgAcrm817q/FC26buxpID22ekzNton0hsbULxcQrKUhUPlIPbQ1eevKnYmz+19t2HPrP8usKvPJw93tt8zap5VdyO4EQCVjSU/3Y/u3ZXnjwHK7Jf/MDuyEv/KYn2cVXcP9/0lnSPzoXSsQvJafaP+JpnfpmS/BG8eNeZB1cwmbHkAA"
+    },
+    {
+      "n": 49,
+      "file": "316186.jpg",
+      "disposition": "published",
+      "stem": "lc-049",
+      "category": "learning",
+      "alt": "A boy laughs as he holds up a small paper craft he has just finished",
+      "consentRef": "LC-CONSENT-2026-048",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-049-full.jpg",
+        "width": 737,
+        "height": 1600
+      },
+      "source": {
+        "width": 737,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAAAwBQCdASoUABkAPu1mrE+ppaQiMBgIATAdiWkAygGMsmS9PR5g1SxPq2u4pMrRuM+0AAD+07TqF3N+shaxqhyh5zvu5q02rznH3IuMwg2h9rtvNfZ6LWSxMvkHwyDeL0BcnnF2IVL3r/IfEzylNYDb2i5YRC1RwYfyoJI/bzQ1p5zLMYGq5ueDsQ0BuRNQ29MVLqyCqagM74H3xWB0dgAA"
+    },
+    {
+      "n": 50,
+      "file": "316187.jpg",
+      "disposition": "published",
+      "stem": "lc-050",
+      "category": "celebrations",
+      "alt": "A boy in an astronaut suit and a girl in a dress-up gown pose together in the garden",
+      "consentRef": "LC-CONSENT-2026-049",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-050-full.jpg",
+        "width": 721,
+        "height": 1600
+      },
+      "source": {
+        "width": 1874,
+        "height": 4160
+      },
+      "lqip": "data:image/webp;base64,UklGRtgAAABXRUJQVlA4IMwAAABQBQCdASoUABkAPu1ur1IppiQiqAgBMB2JaQDKuaxSBIVyVApmiIQlukxKUfEajEuYZjgA++w5f4dYMNG9MMQHrZbf2lImCNFTIlJBN+cn3GMlMmhYOmZiQkFM9jiB0pwamqm+VD3OxpucP/WjLmfJysHZOot9SQrODGpK7hCqeNX8KMtqsHUA1w/i//C9OJhBHK/GvaH9O2w27u/ZbbfiJlGCqQGvwr911rPrcooi6IKVIFJQPiFA66D/on8R0B76gk9ZnDWT6gAkkAA="
+    },
+    {
+      "n": 51,
+      "file": "316188.jpg",
+      "disposition": "published",
+      "stem": "lc-051",
+      "category": "celebrations",
+      "alt": "Two girls hug, one in a bear mask and one in a cat mask",
+      "consentRef": "LC-CONSENT-2026-050",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-051-full.jpg",
+        "width": 721,
+        "height": 1600
+      },
+      "source": {
+        "width": 721,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRuYAAABXRUJQVlA4INoAAABQBQCdASoUABkAPu1urlIppiQiqAgBMB2JaQDJUagR+IZW+Cj1Mcqyuz1TgHiZG7Lw20AA/onYt5U3+Y9/66CHFWoB/IbQ5akJs+ekgxBlu+HcfEUFiRot1JWrKlsE1X80XUvgwva9WrxKqS8pkkRlDobXPRw2UorOtIwft89Yk23Nje98+1z/pOkk68kJHi8VdR2RAERgV3sd2AbWZMGtqefLdchkZsgobsgb3srIZk+lEwBbB/WZxrllFjAzK77lLHj/1lvy+yq5YWC2kAOFQ+Z3pM1iAAAAAA=="
+    },
+    {
+      "n": 52,
+      "file": "316189.jpg",
+      "disposition": "published",
+      "stem": "lc-052",
+      "category": "learning",
+      "alt": "A child holds up a worksheet showing the letter A drawn as a sliced apple",
+      "consentRef": "LC-CONSENT-2026-051",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-052-full.jpg",
+        "width": 866,
+        "height": 1600
+      },
+      "source": {
+        "width": 2082,
+        "height": 3848
+      },
+      "lqip": "data:image/webp;base64,UklGRtIAAABXRUJQVlA4IMYAAABQBQCdASoUABkAPu1urlIppiQiqAgBMB2JaQDH5dwLhAIrzvqEcLxnFbmXUYSzLheUgAAA/vGBiXxa331v8v084QIVkPGIvha+h2TwElPXfk/DCMYBZj/ah5khOgLZK6jJJp/LRj3wK9xBl1Ndf1c4RwGPJp4F/OJuKKS84gH18raEXdJZV1GiQMcocf5KuJ2FVpSNrNhSqesAwhMVYo/r5QtSgLTU1nPN60e1RAm8Y6QAec6o/OcR0vQ/gxI/J/qM/iBUIAA="
+    },
+    {
+      "n": 53,
+      "file": "316193.jpg",
+      "disposition": "published",
+      "stem": "lc-053",
+      "category": "outdoors",
+      "alt": "A boy in a flat cap steers a scooter across the lawn",
+      "consentRef": "LC-CONSENT-2026-052",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-053-full.jpg",
+        "width": 861,
+        "height": 1600
+      },
+      "source": {
+        "width": 861,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRsoAAABXRUJQVlA4IL4AAADwBACdASoUABkAPu1ur1IppiQiqAgBMB2JaQDG9YyAZdIn4xhCu2zXvb4yaxlw4kAA/rcHx9i5xvZdcOPIWXFz3Zjjphnv5Td2biiYPRYuWjHUQ+CfxYNhaM5owCLp54jaET+nl9zobaZaS5MWwWoTLDhER8NZWEl/ddR8zolANOnBoUGlctP8rQVLiWwhD3zPoX4sxVP4JIo7h7EJg40bTYnP1ne9f8pPhsejFeUE2t7GvTu+Fesjey2hgAAA"
+    },
+    {
+      "n": 54,
+      "file": "316194.jpg",
+      "disposition": "published",
+      "stem": "lc-054",
+      "category": "learning",
+      "alt": "A boy with a gold star on his forehead holds up a completed spelling worksheet",
+      "consentRef": "LC-CONSENT-2026-053",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-054-full.jpg",
+        "width": 1142,
+        "height": 1600
+      },
+      "source": {
+        "width": 2040,
+        "height": 2858
+      },
+      "lqip": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAAAwBQCdASoUABkAPu1ur1KppiQiqAgBMB2JZwAAKsSFzW8Ay+eOJmGEAmiaSpQfx/WcAAD47WZyJY87GmJSyl5jaZrsMcR3zLun/Av6CpXUh8lYkZ0n2ELNF5NQfJ9DW4EvFKsUC68PDFFiwPnM+PROn/CBSrDf2hszzJ2Ynmbv77EjKnraLziIcrYzUFfLOthzc9TR9AB/v/XcZY3JYe8PoBC4b8AAAAA="
+    },
+    {
+      "n": 55,
+      "file": "316195.jpg",
+      "disposition": "published",
+      "stem": "lc-055",
+      "category": "sport",
+      "alt": "A girl in a swimming costume sits on the pool edge with both feet in the water",
+      "consentRef": "LC-CONSENT-2026-054",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-055-full.jpg",
+        "width": 1039,
+        "height": 1600
+      },
+      "source": {
+        "width": 1039,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAAAQBQCdASoUABkAPu1oqVAppiOiqA1RMB2JaQDPoAg/GFBVFELdaZRFxI9dou3lxZYAAP0gWWcCLVCqXx3nGh1U+J879w5XoJyPMv22IipcwhYqNe2yWvOurfnWinA4s/IC7A0X9b/YoOKfPlrKLoh4dHM1Qiu/CjSgQpmKJOaQOObYdr1W0M7qJPp4L3dOXtyVSzohmKEdjGHLWlBit5NkbaOW3SeAoW2eQAAA"
+    },
+    {
+      "n": 56,
+      "file": "316196.jpg",
+      "disposition": "published",
+      "stem": "lc-056",
+      "category": "sport",
+      "alt": "A girl kicks up a sheet of spray from the side of the pool",
+      "consentRef": "LC-CONSENT-2026-055",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-056-full.jpg",
+        "width": 849,
+        "height": 1600
+      },
+      "source": {
+        "width": 849,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAAAQBQCdASoUABkAPu1sq1EppaOiqAqpMB2JZwDMWApXuYrGlLxPRPRFKZ+iSigXO3QAAP66BQaPz3yFeUcNrqOqXRGD3XQBeqBiXO7T0owYkLA8sv0lYy0Jyr/uUzrZFy05cY+Oh9ZFbI3xXxWCo5m5vnt6/A0xMo1MZ+8QzyFvAqu/tgeEhCunDOePWYGJ8ZbT8krR2mMhnk5yuGRQ5lXw9eKQQAAA"
+    },
+    {
+      "n": 57,
+      "file": "316197.jpg",
+      "disposition": "published",
+      "stem": "lc-057",
+      "category": "sport",
+      "alt": "A girl in a swimming cap holds a blue pool noodle in front of her",
+      "consentRef": "LC-CONSENT-2026-056",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-057-full.jpg",
+        "width": 738,
+        "height": 1600
+      },
+      "source": {
+        "width": 738,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAABwBQCdASoUABkAPu1wr1IppiQiqAgBMB2JZwDKABEdsOqlOQZwt5TeBCQ3Lt/6YZ9+cTQAAP7DhplJ85Q+sdOu1NVr9YWh3Tz+yxJ37yQ2Tenay60KduI8GTYgYwfTbLJeMffaHyUmnoIaPK2t7avsS3YK2MqJCLJdH/IbGqqPBJVEm4KSQVFxR37UP2aeROiYTVMqq+4oqk587RU9TqRP5lccWbmgAAA="
+    },
+    {
+      "n": 58,
+      "file": "316198.jpg",
+      "disposition": "published",
+      "stem": "lc-058",
+      "category": "sport",
+      "alt": "A girl works across the pool on a noodle while the swimming teacher stays alongside",
+      "consentRef": "LC-CONSENT-2026-057",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-058-full.jpg",
+        "width": 738,
+        "height": 1600
+      },
+      "source": {
+        "width": 738,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAADwBACdASoUABkAPu1ur1IppiQiqAgBMB2JaQAAIv+w9BLQLg9l3fR7xMtWfBP0xAAA/lWSrfOrjR0AfguzBsQjs6JBK1X+sjWslL5ldQwSPIpFP7UTObsd1I1TLBF+QUITnaK/hXox3TE6DDmPHH/FVbIN4R9x71rR4N1onKVo1E06uLNkZtRCTFuqcnjifjnRWXjYobQYSHMPKo/EOGbjolxbCAAA"
+    },
+    {
+      "n": 59,
+      "file": "316199.jpg",
+      "disposition": "published",
+      "stem": "lc-059",
+      "category": "messy-play",
+      "alt": "A child paints broad strokes of blue across a sheet of newspaper with a long brush",
+      "consentRef": "LC-CONSENT-2026-058",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-059-full.jpg",
+        "width": 611,
+        "height": 1280
+      },
+      "source": {
+        "width": 611,
+        "height": 1280
+      },
+      "lqip": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAAAQBQCdASoUABkAPu1qrFEppaQiqAqpMB2JZwDKtAlPWqK2eGlVQxk75J0+mzX6/gAAAP7SJapsRJhcqBh1O1P1lT5YNN+AOkij+pWtw5QpV/E4NNKCJ6MJBLl5a+0CiMHGEFmn1YmW1SsvMwrM1N4mXbuGHZ6rbOgpVjq4NrDZrp0+SVa/as3vRW6fMtuiAmYeUynmtnx01JNe1QLITTbUCm+8RmDVQAA="
+    },
+    {
+      "n": 60,
+      "file": "316200.jpg",
+      "disposition": "published",
+      "stem": "lc-060",
+      "category": "outdoors",
+      "alt": "A girl looks up from under the bars of the climbing frame",
+      "consentRef": "LC-CONSENT-2026-059",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-060-full.jpg",
+        "width": 960,
+        "height": 1280
+      },
+      "source": {
+        "width": 960,
+        "height": 1280
+      },
+      "lqip": "data:image/webp;base64,UklGRtQAAABXRUJQVlA4IMgAAACwBQCdASoUABkAPu1sq1EppaOiqAqpMB2JaQDPpa+A1YtjZmze+cz1zeUioAPsP3D8V2aGwAAA/tPGmBktwvp3nameUX3bTvObj+XaHBN/R6iX3IJVyDAO7YA2k+BKV9385Lxk9pCO5XFiAVtwACSoEmPA/EoMvrX8OVBuhXfhRCzk2yuGq2IuBf/MPL4LHgZH/da0rIFnJRZnqKXf5koD4vqZmmRXEyRu5jm32hgd0ikEyL569IOlEQrFbzWuQE/k3wfiSAAAAA=="
+    },
+    {
+      "n": 61,
+      "file": "316201.jpg",
+      "disposition": "published",
+      "stem": "lc-061",
+      "category": "baby-centre",
+      "alt": "A baby sits in a low red chair turning a stacking peg over in both hands",
+      "consentRef": "LC-CONSENT-2026-060",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-061-full.jpg",
+        "width": 725,
+        "height": 1600
+      },
+      "source": {
+        "width": 725,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAACwBACdASoUABkAPu1srFEppaQiqAqpMB2JaQDCCA9rGBF9RxpZ7ZwZXUC+IK0AAP5j9QwSLaYLq1ArlWFwH70DMuqCdg1MTvYBEZvkkhTaR6x+N0P2W81q+nU4ihd183Jn5OBCQ+8lQ7LNyP+p0XNFEZB+gissl/tZOeGjnzpi36Lr1nc9o9bfAfnErejPv8j5eE2qFS/OLuQjA8B35oAA"
+    },
+    {
+      "n": 62,
+      "file": "316202.jpg",
+      "disposition": "published",
+      "stem": "lc-062",
+      "category": "celebrations",
+      "alt": "A girl in traditional beaded dress and a yellow pleated skirt for Heritage Day",
+      "consentRef": "LC-CONSENT-2026-061",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-062-full.jpg",
+        "width": 721,
+        "height": 1600
+      },
+      "source": {
+        "width": 1874,
+        "height": 4160
+      },
+      "lqip": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAAAQBQCdASoUABkAPu1srVCppaQiqAqpMB2JaQAAMAYyCvH5NicC3g+6+k996IAxayyAAP3SQUimMovqqAQfcL/0qlbTfDt35RBGgFVChoLQYxMt+2AbdKkgiP5Zs8ntWQ8aWmLuU2/kz6e7vjhmwqdyIurm7mZZ9NFil09IO9IDOCW1zXMCcL6EnDszUM/8Xqh5X0or2nKq1e8lq30Z+t5aG5eabHUAAAA="
+    },
+    {
+      "n": 63,
+      "file": "316203.jpg",
+      "disposition": "published",
+      "stem": "lc-063",
+      "category": "messy-play",
+      "alt": "A girl in a bucket hat, face and arms covered in shaving foam, laughing",
+      "consentRef": "LC-CONSENT-2026-062",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-063-full.jpg",
+        "width": 1200,
+        "height": 1600
+      },
+      "source": {
+        "width": 1200,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRsAAAABXRUJQVlA4ILQAAADwBACdASoUABkAPu1wsFIppiSiqAgBMB2JaQAD5gDskqs6fT/a+ACzkT6q+QOgpgAA9iDhucPuhdlyEd2lFZddVQeYlcFDFf/jPnvHbMFF16rnk/Il5gBM7X/ziVrALy5HGNgNiv+4uY91V6XPKmZHRWoPOqxTrX5/THCAejcRCP9bAgZGHDg+WSrWzfWbRmKWpaMkOVIvq81xVj6x1t7W3YWkDU5+iyVH/G+EF0a5OGAAAAA="
+    },
+    {
+      "n": 64,
+      "file": "316204.jpg",
+      "disposition": "cut",
+      "reason": "Two toddlers seated indoors; flat light and no activity in frame. Weakest of the everyday set."
+    },
+    {
+      "n": 65,
+      "file": "316205.jpg",
+      "disposition": "cut",
+      "reason": "Two babies asleep in bouncers. Cut on judgement: sleeping children are the least appropriate frame to publish."
+    },
+    {
+      "n": 66,
+      "file": "316206.jpg",
+      "disposition": "published",
+      "stem": "lc-066",
+      "category": "celebrations",
+      "alt": "A girl in a bright pink tutu holds the skirt wide",
+      "consentRef": "LC-CONSENT-2026-063",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-066-full.jpg",
+        "width": 768,
+        "height": 1280
+      },
+      "source": {
+        "width": 768,
+        "height": 1280
+      },
+      "lqip": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAACQBQCdASoUABkAPu1ur1KppiQiqAgBMB2JZwDE2YyyZfjD3x7jl7VsHOPJ0urWxtKX2EAIAAD9/fx/rMpa8eJE85+TqGUdiLnEKLWoBO0yTJgRWsBx/RJTuO4q18CtOaIIzAPokWQ7CifQdfOZpqgzrKZrCPKBWKUyENhhzyC6Chq3xsu7KCBabHBG9TtZytTfTXFhV1NZHQMMm+W9QgPVMt2e1/8QEoEKLOUqaWwAAA=="
+    },
+    {
+      "n": 67,
+      "file": "316207.jpg",
+      "disposition": "cut",
+      "reason": "Studio-backdrop portrait with no activity; the same backdrop is already represented by #62 and #66."
+    },
+    {
+      "n": 68,
+      "file": "316208.jpg",
+      "disposition": "published",
+      "stem": "lc-068",
+      "category": "learning",
+      "alt": "A pair of hands turns a green-painted craft over a sheet of paint-covered newspaper",
+      "consentRef": "LC-CONSENT-2026-064",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-068-full.jpg",
+        "width": 725,
+        "height": 1600
+      },
+      "source": {
+        "width": 725,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRtgAAABXRUJQVlA4IMwAAACQBQCdASoUABkAPu1urlIppiQiqAgBMB2JaQDGBmwHW0GyhLDbqppKMmcJVo+bRkYgNLzpgAD+5qahRjwuVRkYw5WPtPQ07wAi6cOxNjSGPPkVSNcwYrCvVhZPaekoQOunJO3vkcOv4uvbw30Bkt4vS4FVSrr0IUX6e/cByyUre6VXmqi1QR2uh5UGaOi41NMioAh8WYdWYogR1e1+R5FM7rz1pYR8A8AHGmCWf0Cu6F9I+mXnK6KFT+lrML1fC4J5ch5ASr0cDAAAAAA="
+    },
+    {
+      "n": 69,
+      "file": "316209.jpg",
+      "disposition": "published",
+      "stem": "lc-069",
+      "category": "learning",
+      "alt": "A child paints an egg-carton caterpillar green, brush held in a careful grip",
+      "consentRef": "LC-CONSENT-2026-065",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-069-full.jpg",
+        "width": 725,
+        "height": 1600
+      },
+      "source": {
+        "width": 725,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRuAAAABXRUJQVlA4INQAAAAQBgCdASoUABkAPu1sqlEppaOiqAqpMB2JaQDIYHaYxmGbLyJNwj9eWh1TOZZUZR+fa7wlg6piBTwAyO732TLHfDCHKvkBzqF55Y4egpXjzdrULxvCiYrYpRoMclaOUcBdzk8xQHew0QV1kYe7F175qxPQ372DgDl0k2QzWSLptVWfk+ZGALkzMUVYp4qDkPwy0M8tkcxo0VMp54IJBJosXEYBr4dpPGfa6HxwVAwJqaP8lR5IWHrF4oVeWvOzdqTdOHUZHZCqzSJMaanKHMgh+W4AAA=="
+    },
+    {
+      "n": 70,
+      "file": "316210.jpg",
+      "disposition": "published",
+      "stem": "lc-070",
+      "category": "learning",
+      "alt": "A boy holds up a whiteboard of three-letter words marked “well done”",
+      "consentRef": "LC-CONSENT-2026-066",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-070-full.jpg",
+        "width": 576,
+        "height": 1280
+      },
+      "source": {
+        "width": 576,
+        "height": 1280
+      },
+      "lqip": "data:image/webp;base64,UklGRsQAAABXRUJQVlA4ILgAAADQBACdASoUABkAPu1srlIppaQiqAgBMB2JaQDImBGZaLDJXC4iZyN7ZcrgbMKwAAD+xd4xFH8CX4FDTZXnV5M853pixr30pADs073Bikd1JaO57CTLmymsX2sH1/tL5d69zLnUpuwFUdqIMcNmWhKW0XDQOzCFTzolpDEOw/V0fO9Vk9iXJCW+hmXk7YTDK6N+V5cvloJBEYtdpTtrMXMdoHS5kRLL1Dl9L9NPAAUC3l3q/n2XsQAA"
+    },
+    {
+      "n": 71,
+      "file": "316216.jpg",
+      "disposition": "published",
+      "stem": "lc-071",
+      "category": "paint-your-principal",
+      "alt": "The principal sits on the lawn in a paint-covered shirt and leggings, laughing",
+      "consentRef": "LC-CONSENT-2026-067",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-071-full.jpg",
+        "width": 590,
+        "height": 1280
+      },
+      "source": {
+        "width": 590,
+        "height": 1280
+      },
+      "lqip": "data:image/webp;base64,UklGRuoAAABXRUJQVlA4IN4AAABQBQCdASoUABkAPu1qq1EppaOiqAqpMB2JZwDNhYwwcDzM3qiEK3pPq1w/Q3XrQ8LRagAA/uvf6FEuCl8a81XVJ4VXZmURXpOAKs05kfXWuLWWhNb/4n7mgimQDPDTi/o/yYyui/sePC8d0vPHpXOeALH33ZURK73dketlpdpe0qp23rduN67N8YhcXwlcuFo4t9zk6K2J5CIpj+wSuKR07iMEqXib3YbrC6TOHZNig0M7+gmkzqHXGNGN8bV7XMHyUCGqfPu1lA8osMAp8pQaXmWVfTUhgzcoRLYAAAA="
+    },
+    {
+      "n": 72,
+      "file": "316217.jpg",
+      "disposition": "published",
+      "stem": "lc-072",
+      "category": "paint-your-principal",
+      "alt": "The principal, covered head to toe in paint, sits on the grass with two children",
+      "consentRef": "LC-CONSENT-2026-068",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-072-full.jpg",
+        "width": 1019,
+        "height": 1280
+      },
+      "source": {
+        "width": 1019,
+        "height": 1280
+      },
+      "lqip": "data:image/webp;base64,UklGRsoAAABXRUJQVlA4IL4AAACwBQCdASoUABkAPu1ur1IppiQiqAgBMB2JZwDE2YvqcLeTHRpGNLo8HedTpmFGRIPsbB8MgAAA/vDYe2QaJg89idIQ0wHbjjcD6+OY3SAANaspwciqxfOhmpAmRxqys3/NMT+RShux7y8RcIZd8rBOBkeOU3YId07t3NVbTTumq4Dyd2smymII0abKfnOFDDFuCYdWYvKKzUFWBzaX2o6yd1Z7Jf74y3LuuStNr8lSAaQYEv9NZ+6OK7qYSWAA"
+    },
+    {
+      "n": 73,
+      "file": "316218.jpg",
+      "disposition": "cut",
+      "reason": "Wide group shot of Paint Your Principal Day, subjects small and partly cropped at the frame edge."
+    },
+    {
+      "n": 74,
+      "file": "316219.jpg",
+      "disposition": "cut",
+      "reason": "Paint Your Principal Day from behind — the activity is legible but no faces and no focal point."
+    },
+    {
+      "n": 75,
+      "file": "316220.jpg",
+      "disposition": "published",
+      "stem": "lc-075",
+      "category": "paint-your-principal",
+      "alt": "Children crowd around the principal with paint pots, adding handprints to her shirt",
+      "consentRef": "LC-CONSENT-2026-069",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-075-full.jpg",
+        "width": 1018,
+        "height": 1280
+      },
+      "source": {
+        "width": 1018,
+        "height": 1280
+      },
+      "lqip": "data:image/webp;base64,UklGRvYAAABXRUJQVlA4IOoAAACwBQCdASoUABkAPu1sqlEppaOiqAqpMB2JZwDM1rRm4IvQMTb2C7m5l/8vKa2tQzADKQYh1QAA/r5uvw3Bgqar0NBK6GU6QGbWMt2vDmrojJsnV02xt5vg3Sf8YE1N/+X8DgMWdl03ENI9u9cPVkVpgwnfKUZaKkdVe0oCWlCL3VB4XTwpOZJFHd17j6OGnzmss0IvV8JY5HozmSB72prJL79X0wlfeaN2bPJJp7wf+xAoqNkUHt0G/auQGvWxdeBpZoNUlSoH8rN2ayxNy2IiVzDT6CrFhtgxlSB07pMUCHSJ3CVsyn29MAA="
+    },
+    {
+      "n": 76,
+      "file": "316221.jpg",
+      "disposition": "cut",
+      "reason": "Paint Your Principal Day; the foreground child is cropped through the head."
+    },
+    {
+      "n": 77,
+      "file": "316222.jpg",
+      "disposition": "cut",
+      "reason": "Near-duplicate of #78 — same signed shirt, less of the writing readable."
+    },
+    {
+      "n": 78,
+      "file": "316223.jpg",
+      "disposition": "published",
+      "stem": "lc-078",
+      "category": "paint-your-principal",
+      "alt": "The back of the principal’s shirt, signed by the children with “Best Teacher” and “I love you”",
+      "consentRef": "LC-CONSENT-2026-070",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-078-full.jpg",
+        "width": 852,
+        "height": 1600
+      },
+      "source": {
+        "width": 852,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRtQAAABXRUJQVlA4IMgAAAAQBQCdASoUABkAPu1ur1IppiQiqAgBMB2JaQDMWYyyYy3aICbKZfZkov9P5pdhpAAAAP7pqsrm2CFIgyiBe4y1xUaEQPBwCbUtEcL3chxGvUdsP98LTKsM0M9FuKRyPwSCQuBRnwQBK4PX39EvZT4QbXIQDYyXPvOt89DjNsQwGI50QeDyVdB+mpYQ/a/Und4r3SRj2gZm5lQTqjpLdYFp/oCFFgraOr+9bm2KVBicdGPA1d1k/v0g73gq3jpYhZ+5KP0mxQAAAA=="
+    },
+    {
+      "n": 79,
+      "file": "316224.jpg",
+      "disposition": "published",
+      "stem": "lc-079",
+      "category": "paint-your-principal",
+      "alt": "The principal and a child pull a face for the camera, both faces painted",
+      "consentRef": "LC-CONSENT-2026-071",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-079-full.jpg",
+        "width": 1195,
+        "height": 1600
+      },
+      "source": {
+        "width": 1530,
+        "height": 2048
+      },
+      "lqip": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAADwBACdASoUABkAPu1urlIppiQiqAgBMB2JZwDLaArAqx7ble5jzC8f1OTMjwdNJIAA+i7B2BUKHs4hw4PsdkeGBeCQ5tFcLcWwJdoCJ8uoXdqvzIO7EbQIMGwxq1Bo24Z/848Imw2LnKtZVgN8XqlpTWBymrauaa3mYhVnY8UsXCQ/uPVWDt5MvlV6TfSTzitrpu0kRinjthLxw0A1yGpBLQ/FAAAA"
+    },
+    {
+      "n": 80,
+      "file": "316225.jpg",
+      "disposition": "published",
+      "stem": "lc-080",
+      "category": "paint-your-principal",
+      "alt": "The principal squeezes in between two children for a paint-covered photograph",
+      "consentRef": "LC-CONSENT-2026-072",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-080-full.jpg",
+        "width": 1195,
+        "height": 1600
+      },
+      "source": {
+        "width": 1530,
+        "height": 2048
+      },
+      "lqip": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAAAQBQCdASoUABkAPu1sq1EppaOiqAqpMB2JaQDO7A8YQc9w7R0ELtyQ/r58kil71WVgAP7yufkwySAYEd2fY9VnKPN+g52EFvaFwFyY7Es8WGuIIMt35xTMPGIoZcKbZ8FNGzKqAs7/CuGgw1Q/syXI7YRimXgLwIKboLxb217nq+hDq8CZjYvdZRfNLBtXaGkiqUVudK2h89cOhEYn1YZ8/PKnzqV95YH2Q/pt8AAAAA=="
+    },
+    {
+      "n": 81,
+      "file": "316226.jpg",
+      "disposition": "cut",
+      "reason": "Third selfie in the same series as #79 and #80; the set is already represented."
+    },
+    {
+      "n": 82,
+      "file": "IMG-20230506-WA0005.jpg",
+      "disposition": "published",
+      "stem": "lc-082",
+      "category": "our-spaces",
+      "alt": "A classroom of low tables and primary-coloured chairs, work pinned along the wall",
+      "consentRef": "LC-CONSENT-2026-073",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-082-full.jpg",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "width": 768,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAADwBACdASoUABkAPu1iq1AppSOisBgIATAdiWkAAB42BHIW2RKRObpHQXNnI139iAAAqXGV4y4YuECyE1Vn6Ie8QJKraRGOxVGnkcqAiJtZeXO3SXxQC/QT+aqHHBw63mfKWVf/UVt8Bo2GpXzhwsBOaXX4+X/kw6qdhClPr6cGDK5AA95qRCZ1tUK3IqLiTzdkgvwloqccpcf+hfKUr8BAbEBTcOc3e4nIdizSlsMAAA=="
+    },
+    {
+      "n": 83,
+      "file": "IMG-20230506-WA0013.jpg",
+      "disposition": "published",
+      "stem": "lc-083",
+      "category": "our-spaces",
+      "alt": "Two backlit wall panels, a butterfly and a ladybird, above a low display board",
+      "consentRef": "LC-CONSENT-2026-074",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-083-full.jpg",
+        "width": 1024,
+        "height": 768
+      },
+      "source": {
+        "width": 1024,
+        "height": 768
+      },
+      "lqip": "data:image/webp;base64,UklGRtAAAABXRUJQVlA4IMQAAABQBQCdASoUABkAPu1sqlEppaOiqAqpMB2JaQDN/Y0MaHLpq4/G0z70PEI2aN6EFh7gBtAA/nGvTjEZ3FNNe256+YH1EQbqS9hkF+c4jIkCufpq62AoPauijwzW2iqKIFeEvjwpJ/GBFby+SgWx7m97Kkr/zNfoUZqMP0ZhYx18TMpK0ADG7qCT0K+c0DvX2qJI8wx7CCg8GUe7hlaSNT1pt74++scXSHpIHk7700yuBqKGRA4ExMRrocupVcDwJonEAAAA"
+    },
+    {
+      "n": 84,
+      "file": "IMG-20230506-WA0018.jpg",
+      "disposition": "published",
+      "stem": "lc-084",
+      "category": "our-spaces",
+      "alt": "A bright classroom with tables set out and a wall of trailing greenery",
+      "consentRef": "LC-CONSENT-2026-075",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-084-full.jpg",
+        "width": 1024,
+        "height": 768
+      },
+      "source": {
+        "width": 1024,
+        "height": 768
+      },
+      "lqip": "data:image/webp;base64,UklGRuAAAABXRUJQVlA4INQAAAAwBQCdASoUABkAPu1ur1KppiQiqAgBMB2JaQDMWYz4W3UJmUxCSiQlQX15o7Z++AmSAAD82LmQ4SuBYaCuwkHEy0mGAuU0WzBgwchpTy5Q27iJdFV21wFSWvfDxvpP/kAf2Vh0+QTKNehB8lkW5g2IByWNrxl2ER1bQ+fjVqh0lEka+WjIR7y2Yx7ya6TvJOGTJQXEEN4P3J9NPkZ4YyFTi4Ytsigw2pW8TDX8ZrUsaO2pbE8HedkJmo4RQ/ivf78ZcaEkJJtx7LiFRMeVOdjeXYAAAA=="
+    },
+    {
+      "n": 85,
+      "file": "IMG-20230506-WA0021.jpg",
+      "disposition": "published",
+      "stem": "lc-085",
+      "category": "our-spaces",
+      "alt": "A classroom looking out to the playground, stacked mats along the far wall",
+      "consentRef": "LC-CONSENT-2026-076",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-085-full.jpg",
+        "width": 1024,
+        "height": 768
+      },
+      "source": {
+        "width": 1024,
+        "height": 768
+      },
+      "lqip": "data:image/webp;base64,UklGRsoAAABXRUJQVlA4IL4AAAAwBQCdASoUABkAPu1ur1IppiQiqAgBMB2JaQDG9Yw6Wzvc2DPP4M2j96b4NCNWzm8zAAD+ayzyc0Z2OvJa5TwdpvzxNaaqojK4Xje9V+xs+j0bQorrdP2vz+v5YBt60putj7PiySkKh6UW8GwaJfByYa1WGqMKYpbolqDszLy4pP3zI3bpv42siyHRR4cVZ8J3Y+XbStLgRRiBuxgcDuD6ZR7oUd9hyq7mL54dWx9UsnbnpZiZ9UbBYyATWAAA"
+    },
+    {
+      "n": 86,
+      "file": "IMG-20230506-WA0022.jpg",
+      "disposition": "published",
+      "stem": "lc-086",
+      "category": "our-spaces",
+      "alt": "A brick wall of paper bees counting up to twenty, beside a chalkboard",
+      "consentRef": "LC-CONSENT-2026-077",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-086-full.jpg",
+        "width": 1024,
+        "height": 768
+      },
+      "source": {
+        "width": 1024,
+        "height": 768
+      },
+      "lqip": "data:image/webp;base64,UklGRtIAAABXRUJQVlA4IMYAAABQBQCdASoUABkAPu1sqlEppaOiqAqpMB2JaQAD5GkLhUwpgwpEHmCupBSNZebZf1SOuAAA38153L2QoL5kTvnfqYijEZdOp94SFkDxpibJtiEiZt57o5ecS4ds43y5vacwPZab0fNwKMr5voj1n+6H0xc9xHtYB1DGJvXJLadCZ0z9AK9CJijmqEzF6XJcLtvqP0c1qeUshsE3gjxpOEOVUqlqaj1vfvw/3MDQJUAazAfA3cExa5O6XnkZVhZQh8vsdIN4AAA="
+    },
+    {
+      "n": 87,
+      "file": "IMG-20230506-WA0041.jpg",
+      "disposition": "published",
+      "stem": "lc-087",
+      "category": "our-spaces",
+      "alt": "The classroom doorway under an alphabet frieze, tables set out beyond it",
+      "consentRef": "LC-CONSENT-2026-078",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-087-full.jpg",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "width": 768,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRswAAABXRUJQVlA4IMAAAADQBQCdASoUABkAPu1ur1KppiQiqAgBMB2JaQDLbaglAQkASxjHYc05zfJnm56XPzrSsO/M3D8AAP5nXrgfATANVrbWFZtI27xBxAWzUqsMGrom8lTp9IuWd3so/QQ+adhvh6bYDovPSyXU2Pi+UNbbaE9sqffRwXll8EgEWG6gvnguiNCzhjmpCdwiX581JtXkeC04ICxBBW9vdkWPlGRdcl6+CIizDCqcpbhElF5JA91tD9lQ57UOj2mvfEAAAAA="
+    },
+    {
+      "n": 88,
+      "file": "IMG-20230506-WA0044.jpg",
+      "disposition": "published",
+      "stem": "lc-088",
+      "category": "our-spaces",
+      "alt": "The sandpit, freshly raked, with a bucket and a sifter left on the ledge",
+      "consentRef": "LC-CONSENT-2026-079",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-088-full.jpg",
+        "width": 1024,
+        "height": 482
+      },
+      "source": {
+        "width": 1024,
+        "height": 482
+      },
+      "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAADQBACdASoUABkAPu1ur1KppiQiqAgBMB2JaQDJEA27nNlrw4aOm6kdd3q4QDKFwAD+dMHXAbv5Tz4VUyIHtQBfrlW9sOngc5TaZDBiwaIz8iQE3A4Yg0Cm+IUAAupvw0YEESPX2irRUNzHlkIsHzU4QTqx4kNjh4C4hzxdv2j7so7MIVttQEKH0iDawEhbJIFcDnaAAAA="
+    },
+    {
+      "n": 89,
+      "file": "IMG-20230506-WA0052.jpg",
+      "disposition": "cut",
+      "reason": "Rack of ride-on toys against the wall. Storage, not a space children use."
+    },
+    {
+      "n": 90,
+      "file": "IMG-20230506-WA0064.jpg",
+      "disposition": "cut",
+      "reason": "Garden wide shot dominated by a neighbouring roofline rather than the school."
+    },
+    {
+      "n": 91,
+      "file": "IMG-20230506-WA0073.jpg",
+      "disposition": "published",
+      "stem": "lc-091",
+      "category": "our-spaces",
+      "alt": "A shaded play area with a rocker and a raised planter along the back fence",
+      "consentRef": "LC-CONSENT-2026-080",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-091-full.jpg",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "width": 768,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAABQBQCdASoUABkAPu1ur1IppiQiqAgBMB2JaQDOdBGgRoOuf3ow/gaBeSuLfYAJ8aLPfAAA/u/UPm0Z7zr/hVBqXMPCCbZAbPQC9kxzbC8JBaUTJ7HYTpVad9TSoQAYj8pU+hPNNINimSWxzTF+bKhkHC6grwhB54NlwpdbV2MbLzTm6lNpA9H6EMp/TScyYGYcBikxnX4oxGQAAAA="
+    },
+    {
+      "n": 92,
+      "file": "IMG-20230506-WA0074.jpg",
+      "disposition": "published",
+      "stem": "lc-092",
+      "category": "our-spaces",
+      "alt": "The main play structure with its slide, swings and a nest swing under the trees",
+      "consentRef": "LC-CONSENT-2026-081",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-092-full.jpg",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "width": 768,
+        "height": 1024
+      },
+      "lqip": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAAAQBQCdASoUABkAPu1usFIppiSiqAgBMB2JaQDL4BI/eAL57fEJSPm4x/bHVs5r55sAAP7iVfrG42uGvQU1tKw+KbPWZLYqddIZspdLLylWkO2R9JFDGyq0RQ2IEnAMlh4uyHo38lgVgiynlm6j0LhV1VBjPc1zTUeptmpRr9+kVmcR0F52oRM8oeInPj0+k3iwsDK2CClxJyX95W/AAAAA"
+    },
+    {
+      "n": 93,
+      "file": "IMG-20230506-WA0094.jpg",
+      "disposition": "published",
+      "stem": "lc-093",
+      "category": "our-spaces",
+      "alt": "A classroom with a whiteboard, book corner and labelled storage cubbies",
+      "consentRef": "LC-CONSENT-2026-082",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-093-full.jpg",
+        "width": 1200,
+        "height": 1600
+      },
+      "source": {
+        "width": 1200,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRt4AAABXRUJQVlA4INIAAAAwBQCdASoUABkAPu1qrVEppaQiqAqpMB2JaQDG9YwmcBO/0p49iQMLzsloGat83y8cAAD+sXorbBuX/R+s/u+tCAish9n7+quCyJtpM3ZxP76OurXVzL1dh6upCqJ5ZRteDHcMUr6m6KiYRu7f+o+egrt5GNn8R6Uh9DtLOT/RJ5GLOyGpDRmFt5m8jWKJfKe26NINar+q8WM5zSK+396brB8MDOkNEfQgfFxR5cJ0I1pjQshj0nFCEoWMeSGFgVBjKnsZsaaT4e4wg2VNSnKMAAA="
+    },
+    {
+      "n": 94,
+      "file": "IMG-20230506-WA0096.jpg",
+      "disposition": "published",
+      "stem": "lc-094",
+      "category": "our-spaces",
+      "alt": "The Butterfly Class room, tables set out in front of the door to the garden",
+      "consentRef": "LC-CONSENT-2026-083",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-094-full.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      "source": {
+        "width": 1600,
+        "height": 1200
+      },
+      "lqip": "data:image/webp;base64,UklGRsgAAABXRUJQVlA4ILwAAAAQBQCdASoUABkAPu1ur1IppiQiqAgBMB2JZwDLaBEu+UXr0qq1FTpOtGGvZyC3E+OAAPzZNI9R/9rP4ipUqmOSU1cnCh6sj2w5PU+ZBDee+RKj6vjj6nZCg0aIDBo/p+R9UYw7ZVZM0oGJFMBiJZELLGgQ0CoxcAh0MdRFqpdZUQk/21gUEHR5XiEe4FJNF2dTxv6I2ffEKtvTSmhLPTCxODubtZ5SCYduC46XzDfdS7X1Q3BQTq/Hw7YAAA=="
+    },
+    {
+      "n": 95,
+      "file": "IMG-20230506-WA0097.jpg",
+      "disposition": "published",
+      "stem": "lc-095",
+      "category": "our-spaces",
+      "alt": "The entrance arch into the Butterfly Class, notices pinned on either side",
+      "consentRef": "LC-CONSENT-2026-084",
+      "aspect": "4:5",
+      "width": 1200,
+      "height": 1500,
+      "full": {
+        "src": "/gallery/lc-095-full.jpg",
+        "width": 1200,
+        "height": 1600
+      },
+      "source": {
+        "width": 1200,
+        "height": 1600
+      },
+      "lqip": "data:image/webp;base64,UklGRswAAABXRUJQVlA4IMAAAABwBQCdASoUABkAPu1qq1EppaOiqAqpMB2JaQDJTYzQTbiZU7cNK6NOycdkgyzMclTDGpgAAPulfWv31CBbRf7M/mstvmhDkpAAV1J1Aq2A3Dt6Ac+eSm07dEvU+I/zhiZDvKhbp8QNIzEvj5ctLrwqvpx4XslSsMjN1FCGux51MeokZ+NXq8a/OYBJ/SQGWFN7BxcMegJYkmIMNU59j+isYV0Hte/Nqlhh5zZpMJUkZyOLy4CSFcmn/QjXbULAAAA="
+    },
+    {
+      "n": 96,
+      "file": "IMG-20230707-WA0288.jpg",
+      "disposition": "cut",
+      "reason": "Playhouse corner; overlaps #91 and #92 and adds nothing they do not already show."
+    },
+    {
+      "n": 97,
+      "file": "IMG-20260729-WA0078.jpg",
+      "disposition": "document",
+      "use": "routine",
+      "reason": "Class Routine poster (earlier variant). Superseded by #102; times differ."
+    },
+    {
+      "n": 98,
+      "file": "IMG-20260729-WA0087.jpg",
+      "disposition": "document",
+      "use": "weekly-b",
+      "reason": "Weekly Program poster — the variant transcribed as Weekly programme B."
+    },
+    {
+      "n": 99,
+      "file": "IMG-20260803-WA0142.jpg",
+      "disposition": "document",
+      "use": "weekly-a",
+      "reason": "Weekly Program poster — the variant transcribed as Weekly programme A."
+    },
+    {
+      "n": 100,
+      "file": "IMG-20260908-WA0176(1).jpg",
+      "disposition": "document",
+      "use": "menu-baby",
+      "reason": "Baby Menu poster, 3–7 months."
+    },
+    {
+      "n": 101,
+      "file": "IMG-20260908-WA0177(1).jpg",
+      "disposition": "document",
+      "use": "menu-general",
+      "reason": "Menu poster, 7 months upward."
+    },
+    {
+      "n": 102,
+      "file": "IMG-20260916-WA0101.jpg",
+      "disposition": "document",
+      "use": "routine",
+      "reason": "Class Routine poster dated 16 September 2026. Canonical version of the daily routine."
+    }
+  ]
+}

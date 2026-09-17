@@ -75,7 +75,7 @@ the tokens disappear from the build.
 ## Documents and downloads
 
 - [ ] **the indemnity wording from the school’s signed swimming form — it is not recoverable from the archive and must not be drafted for them**
-  <br><sub>src/pages/admissions.js:137</sub>
+  <br><sub>src/pages/admissions.js:138</sub>
 - [ ] **the name and contact details of the appointed Information Officer, as registered with the Information Regulator**
   <br><sub>src/pages/legal.js:30</sub>
 

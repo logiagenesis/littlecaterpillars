@@ -32,7 +32,7 @@ ${section({ body: `<ol class="steps plain">
   <li><span class="steps__n">3</span><div><h2>Pay the enrolment fee</h2><p>Once-off and non-refundable. No application is processed until proof of payment is received. <a href="/fees/">See the fees</a>.</p></div></li>
 </ol>` })}
 
-${section({ kind: 'section--sunk', body: `<ul class="tile-grid plain" data-cols="2" style="--cols:1">
+${section({ kind: 'section--sunk', body: `<ul class="tile-grid plain" data-cols="2">
   <li>${tile({ mark: icon('download'), title: 'Enrolment form', href: '/admissions/enrolment/', body: '<p>First parent, second parent, student details, medical and emergency contact.</p>' })}</li>
   <li>${tile({ mark: icon('download'), title: 'Swimming enrolment & indemnity', href: '/admissions/swimming/', body: '<p>Required before a child joins swimming lessons.</p>' })}</li>
 </ul>` })}
@@ -106,6 +106,7 @@ export function enrolment (ctx) {
     title: 'Enrolment Form | Little Caterpillars',
     description: 'The Little Caterpillars enrolment form — parent details, your child’s details, the medical section and an emergency contact.',
     jsonLd: crumbLd(site.origin, trail),
+    head: NOSCRIPT_STEPS,
     body: formPage({
       trail, heading: 'Enrolment form',
       lede: 'Five short steps. Your answers are kept in this browser as you go, so you can stop and come back.',
@@ -157,6 +158,7 @@ export function swimming (ctx) {
     title: 'Swimming Enrolment & Indemnity | Little Caterpillars',
     description: 'The swimming enrolment and indemnity form for Little Caterpillars, required before a child joins a swimming lesson.',
     jsonLd: crumbLd(site.origin, trail),
+    head: NOSCRIPT_STEPS,
     body: formPage({
       trail, heading: 'Swimming enrolment & indemnity',
       lede: 'Required before your child joins a swimming lesson.',
@@ -164,6 +166,19 @@ export function swimming (ctx) {
     })
   }
 }
+
+/**
+ * Scripting off: the five steps ship with `hidden` so a normal load never
+ * flashes all of them at once, and this un-hides them again. A <noscript>
+ * <style> is only parsed when scripting is disabled, so it costs a
+ * script-enabled visitor nothing.
+ */
+const NOSCRIPT_STEPS = `<noscript><style>
+  .form__step[hidden] { display: grid !important; }
+  .form__step + .form__step { margin-top: 2rem; border-top: 1px solid var(--rule); padding-top: 2rem; }
+  .form__nav [data-step-go] { display: none; }
+  .progress { display: none; }
+</style></noscript>`
 
 function formPage ({ trail, heading, lede, formId, steps, simpleHref }) {
   return `
@@ -188,11 +203,12 @@ function formPage ({ trail, heading, lede, formId, steps, simpleHref }) {
         <h2 tabindex="-1">${esc(s.title)}</h2>
         ${s.note ? `<p class="lede">${esc(s.note)}</p>` : ''}
         ${s.body}
+        ${i === steps.length - 1 ? `${honeypot()}${turnstile()}` : ''}
         <div class="form__nav">
           ${i > 0 ? '<button type="button" class="btn btn--ghost" data-step-go="-1">Back</button>' : ''}
           ${i < steps.length - 1
             ? '<button type="button" class="btn btn--primary" data-step-go="1">Next</button>'
-            : `${honeypot()}${turnstile()}<button type="submit" class="btn btn--primary">Submit</button>`}
+            : '<button type="submit" class="btn btn--primary">Submit</button>'}
         </div>
       </fieldset>`).join('')}
       <noscript>

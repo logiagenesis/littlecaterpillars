@@ -15,7 +15,7 @@
  * EXIF is stripped rather than edited. GPS on preschool photographs is a
  * child-safety problem before it is a POPIA one.
  */
-import { readdir, mkdir, writeFile, readFile } from 'node:fs/promises'
+import { readdir, mkdir, writeFile, readFile, stat } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
 import path from 'node:path'
 import sharp from 'sharp'
@@ -29,6 +29,9 @@ const DOCS_OUT = path.join(ROOT, 'dist', 'documents')
 const MANIFEST = path.join(ROOT, 'src', 'content', 'gallery-manifest.json')
 
 const WIDTHS = [400, 800, 1200, 1600]
+// Re-stamping the consent register should not cost a full re-encode, so an
+// output that is already newer than its source is left alone. --force rebuilds.
+const FORCE = process.argv.includes('--force')
 const ASPECT = 4 / 5
 const HAMMING_LIMIT = 6
 
@@ -85,6 +88,10 @@ async function main () {
     const assignment = PUBLISHED[n]
 
     if (DOCUMENTS[n]) {
+      const docOut = path.join(DOCS_OUT, `${DOCUMENTS[n].use}-${n}.jpg`)
+      let done = false
+      if (!FORCE) { try { done = (await stat(docOut)).mtimeMs >= (await stat(path.join(SRC, file))).mtimeMs } catch { done = false } }
+      if (done) { entries.push({ n, file, disposition: 'document', use: DOCUMENTS[n].use, reason: DOCUMENTS[n].note }); continue }
       // Documents are not gallery photographs. They are served whole, at their
       // own aspect, from /documents/.
       await sharp(path.join(SRC, file))
@@ -102,26 +109,38 @@ async function main () {
     const input = path.join(SRC, file)
     const base = sharp(input).rotate()          // honours EXIF orientation, then drops it
     const meta = await base.metadata()
+    const sourceTime = (await stat(input)).mtimeMs
+    const fresh = async rel => {
+      if (FORCE) return false
+      try { return (await stat(path.join(OUT, rel))).mtimeMs >= sourceTime } catch { return false }
+    }
 
     const normalise = s => s
-      .normalise()                               // auto-level
-      .modulate({ saturation: 1.04 })
-      .tint('#fffaf0')                           // a gentle warm grade toward the cream ground
+      .normalise()                                  // auto-level
+      .modulate({ saturation: 1.06, brightness: 1.01 })
+      // A gentle warm grade toward the cream ground: lift red, hold green, ease
+      // blue back. NOT sharp's tint(), which preserves luminance and replaces
+      // chroma — that is a monochrome toner and it greyscales the whole set.
+      .linear([1.03, 1.0, 0.96], [0, 0, 2])
 
     // Grid cell: one 4:5 portrait for every image, faces kept in frame.
     const cellHeight = w => Math.round(w / ASPECT)
     for (const w of WIDTHS) {
-      const cell = normalise(sharp(input).rotate())
+      const cell = () => normalise(sharp(input).rotate())
         .resize(w, cellHeight(w), { fit: 'cover', position: sharp.strategy.attention })
-      await cell.clone().avif({ quality: 52 }).toFile(path.join(OUT, `${stem}-${w}.avif`))
-      await cell.clone().webp({ quality: 74 }).toFile(path.join(OUT, `${stem}-${w}.webp`))
-      await cell.clone().jpeg({ quality: 78, mozjpeg: true }).toFile(path.join(OUT, `${stem}-${w}.jpg`))
+      if (!await fresh(`${stem}-${w}.avif`)) await cell().avif({ quality: 52 }).toFile(path.join(OUT, `${stem}-${w}.avif`))
+      if (!await fresh(`${stem}-${w}.webp`)) await cell().webp({ quality: 74 }).toFile(path.join(OUT, `${stem}-${w}.webp`))
+      if (!await fresh(`${stem}-${w}.jpg`)) await cell().jpeg({ quality: 78, mozjpeg: true }).toFile(path.join(OUT, `${stem}-${w}.jpg`))
     }
 
     // Lightbox: the uncropped frame, long edge 1600.
-    const full = normalise(sharp(input).rotate()).resize({ width: 1600, height: 1600, fit: 'inside', withoutEnlargement: true })
-    await full.clone().jpeg({ quality: 84, mozjpeg: true }).toFile(path.join(OUT, `${stem}-full.jpg`))
-    const fullMeta = await sharp(await full.clone().jpeg().toBuffer()).metadata()
+    const fullPath = path.join(OUT, `${stem}-full.jpg`)
+    if (!await fresh(`${stem}-full.jpg`)) {
+      await normalise(sharp(input).rotate())
+        .resize({ width: 1600, height: 1600, fit: 'inside', withoutEnlargement: true })
+        .jpeg({ quality: 84, mozjpeg: true }).toFile(fullPath)
+    }
+    const fullMeta = await sharp(fullPath).metadata()
 
     const lqip = await normalise(sharp(input).rotate())
       .resize(20, 25, { fit: 'cover', position: sharp.strategy.attention })
@@ -156,6 +175,7 @@ async function main () {
   await writeFile(MANIFEST, JSON.stringify(manifest, null, 2) + '\n')
 
   const published = entries.filter(e => e.disposition === 'published')
+  console.log(FORCE ? 're-encoded everything (--force)' : 'reused outputs that were already newer than their source; pass --force to re-encode')
   console.log(`published ${published.length} · cut ${entries.filter(e => e.disposition === 'cut').length} · documents ${entries.filter(e => e.disposition === 'document').length}`)
   console.log(`manifest written to ${path.relative(ROOT, MANIFEST)}`)
 }

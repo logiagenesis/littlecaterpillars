@@ -7,7 +7,7 @@
  */
 const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
 
-export function createLightbox (container) {
+export function createLightbox () {
   let items = []
   let index = 0
   let opener = null
@@ -101,6 +101,5 @@ export function createLightbox (container) {
     touchX = null
   }, { passive: true })
 
-  container?.appendChild
   return { open, close }
 }

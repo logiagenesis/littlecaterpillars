@@ -9,9 +9,10 @@
 import { createLightbox } from './lightbox.js'
 
 export function initGallery (root) {
-  if (!root) return
-  const data = JSON.parse(document.getElementById('gallery-data').textContent)
-  const grid = root.querySelector('.gallery-grid')
+  const payload = document.getElementById('gallery-data')
+  const grid = root?.querySelector('.gallery-grid')
+  if (!root || !payload || !grid) return
+  const data = JSON.parse(payload.textContent)
   const lightbox = createLightbox()
   let current = root.dataset.category || data.categories[0].slug
 
@@ -26,14 +27,19 @@ export function initGallery (root) {
     guardLastRow(items.length)
   }
 
+  const SIZES = '(min-width:64em) 33vw, (min-width:40em) 50vw, 100vw'
   const cell = (im, i) => `
     <li class="gallery-cell">
       <button type="button" class="gallery-cell__btn" data-index="${i}">
-        <img src="${im.src}" srcset="${im.srcset}" sizes="(min-width:64em) 33vw, (min-width:40em) 50vw, 100vw"
-             width="${im.width}" height="${im.height}" alt="${escapeAttr(im.alt)}"
-             loading="${i < 3 ? 'eager' : 'lazy'}" decoding="async"
-             style="background-image:url(${im.lqip});background-size:cover">
-        <span class="visually-hidden">View photo ${i + 1} of larger size</span>
+        <picture>
+          <source type="image/avif" srcset="${im.avif}" sizes="${SIZES}">
+          <source type="image/webp" srcset="${im.webp}" sizes="${SIZES}">
+          <img src="${im.src}" srcset="${im.srcset}" sizes="${SIZES}"
+               width="${im.width}" height="${im.height}" alt="${escapeAttr(im.alt)}"
+               loading="${i < 3 ? 'eager' : 'lazy'}" decoding="async"
+               style="background-image:url('${im.lqip}');background-size:cover">
+        </picture>
+        <span class="visually-hidden">View photo ${i + 1} at a larger size</span>
       </button>
     </li>`
 

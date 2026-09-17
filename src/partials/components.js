@@ -16,7 +16,7 @@ export function tile ({ mark, meta, title, href, body, foot, className = '', lev
 }
 
 export function grid (cols, children, className = '') {
-  return `<ul class="tile-grid plain ${className}" style="--cols:1" data-cols="${cols}">
+  return `<ul class="tile-grid plain ${className}" data-cols="${cols}">
     ${children.map(c => `<li>${c}</li>`).join('\n    ')}
   </ul>`
 }

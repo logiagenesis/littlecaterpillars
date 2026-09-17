@@ -47,7 +47,7 @@ ${section({
   heading: 'A fun and professional child day care facility',
   lede: firstSentences(copy.about.story, 2),
   body: `
-    <ul class="stats tile-grid plain" data-cols="3" style="--cols:1">
+    <ul class="stats tile-grid plain" data-cols="3">
       <li>${tile({ mark: icon('clock'), title: '3 months – 6 years', body: '<p>From the Baby Centre through to the reception year, on one campus.</p>' })}</li>
       <li>${tile({ mark: icon('caterpillar'), title: 'Five classes', body: '<p>Butterfly, Dragonfly, Ladybug, Caterpillar and Busy Bees.</p>' })}</li>
       <li>${tile({ mark: icon('pin'), title: 'Midrand', body: `<p>${esc(site.contact.street)}, ${esc(site.contact.suburb)}. ${todo(site.contact.postalCodeTodo)}</p>` })}</li>

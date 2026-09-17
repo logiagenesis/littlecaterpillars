@@ -17,41 +17,42 @@
 
 /* Classes: FIVE items. A 2+3 editorial layout with the baby class as a wide
    feature card — never 3+2 by accident, and never a short trailing row. */
-.classes-grid { --cols: 1; }
+.tile-grid.classes-grid { --cols: 1; }
 @media (min-width: 40em) {
-  .classes-grid { --cols: 2; }
-  .classes-grid > li:first-child { grid-column: 1 / -1; }
+  .tile-grid.classes-grid { --cols: 2; }
+  .tile-grid.classes-grid > li:first-child { grid-column: 1 / -1; }
 }
 @media (min-width: 64em) {
-  .classes-grid { --cols: 6; }
-  .classes-grid > li { grid-column: span 2; }
-  .classes-grid > li:first-child { grid-column: span 6; }
-  .classes-grid > li:nth-child(2) { grid-column: span 3; }
-  .classes-grid > li:nth-child(3) { grid-column: span 3; }
+  .tile-grid.classes-grid { --cols: 6; }
+  /* 6 = 6 / 3+3 / 3+3. One wide feature card, then two full rows of two.
+     Never 3+2, and never a trailing hole. */
+  .tile-grid.classes-grid > li { grid-column: span 3; }
+  .tile-grid.classes-grid > li:first-child { grid-column: span 6; }
 }
-.classes-grid > li:first-child lc-tile {
+.tile-grid.classes-grid > li:first-child lc-tile {
   background-image: linear-gradient(120deg,
     color-mix(in oklch, var(--lc-lime) 26%, var(--lc-white)),
     color-mix(in oklch, var(--lc-white) 70%, transparent));
 }
 
 /* Teachers: SIX items, a perfect 3x2 with no padding needed. */
-.teachers-grid { --cols: 1; }
-@media (min-width: 40em) { .teachers-grid { --cols: 2; } }
-@media (min-width: 64em) { .teachers-grid { --cols: 3; } }
+.tile-grid.teachers-grid { --cols: 1; }
+@media (min-width: 40em) { .tile-grid.teachers-grid { --cols: 2; } }
+@media (min-width: 64em) { .tile-grid.teachers-grid { --cols: 3; } }
 
 /* Gallery covers: EIGHT items — 2x4 tablet, 4x2 desktop. Both rectangles. */
-.covers-grid { --cols: 1; }
-@media (min-width: 40em) { .covers-grid { --cols: 2; } }
-@media (min-width: 64em) { .covers-grid { --cols: 4; } }
+.tile-grid.covers-grid { --cols: 1; }
+@media (min-width: 40em) { .tile-grid.covers-grid { --cols: 2; } }
+@media (min-width: 64em) { .tile-grid.covers-grid { --cols: 4; } }
 
-.downloads-grid { --cols: 1; }
-@media (min-width: 40em) { .downloads-grid { --cols: 2; } }
-@media (min-width: 64em) { .downloads-grid { --cols: 3; } }
+/* EIGHT items: 2x4 tablet, 4x2 desktop. Both perfect rectangles. */
+.tile-grid.downloads-grid { --cols: 1; }
+@media (min-width: 40em) { .tile-grid.downloads-grid { --cols: 2; } }
+@media (min-width: 64em) { .tile-grid.downloads-grid { --cols: 4; } }
 .downloads-grid .is-pending { opacity: 0.86; }
 
-.stats { --cols: 1; }
-@media (min-width: 40em) { .stats { --cols: 3; } }
+.tile-grid.stats { --cols: 1; }
+@media (min-width: 40em) { .tile-grid.stats { --cols: 3; } }
 
 /* Gallery grid: 3 desktop / 2 tablet / 1 mobile. Cells are a uniform 4:5. */
 .gallery-grid {
@@ -90,6 +91,7 @@
 
 /* Home day strip ------------------------------------------------------------ */
 .day-strip { display: grid; gap: var(--sp-3); margin-block: var(--sp-5); }
+.day-strip > li { min-width: 0; overflow-wrap: break-word; }
 @media (min-width: 64em) { .day-strip { grid-template-columns: repeat(7, 1fr); } }
 .day-strip li {
   border-top: 3px solid var(--lc-lime); padding-top: var(--sp-3);
@@ -100,8 +102,10 @@
 
 /* Steps, FAQ, tables -------------------------------------------------------- */
 .steps { display: grid; gap: var(--sp-5); counter-reset: step; }
+.steps > li { min-width: 0; overflow-wrap: break-word; }
 @media (min-width: 64em) { .steps { grid-template-columns: repeat(3, 1fr); } }
 .steps li { display: flex; gap: var(--sp-4); align-items: start; }
+.steps li > div { min-width: 0; }
 .steps__n {
   flex: none; width: 44px; height: 44px; border-radius: var(--r-pill);
   display: grid; place-items: center; background: var(--lc-lime); color: var(--lc-deep);
@@ -117,7 +121,11 @@
 .menu-footer { font-family: var(--font-display); font-weight: 800; color: var(--lc-teal); }
 
 .weekly { margin-block: var(--sp-7); }
+/* FIVE days, so five columns or one — never an auto-fit count, which cannot
+   guarantee a full final row. min-width: 0 lets a 1fr track shrink below its
+   content, which is what stops the row overflowing at 200% text size. */
 .weekly__days { display: grid; gap: var(--sp-4); }
+.weekly__days > li { min-width: 0; overflow-wrap: break-word; }
 @media (min-width: 64em) { .weekly__days { grid-template-columns: repeat(5, 1fr); } }
 .weekly__days > li { background: var(--lc-white); border-radius: var(--r-md); padding: var(--sp-4); border: 1px solid var(--rule); }
 .weekly__days h4 { color: var(--lc-teal); margin-bottom: var(--sp-2); }

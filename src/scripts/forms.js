@@ -9,7 +9,9 @@
 const ERR = 'is-invalid'
 
 export function initForms () {
-  for (const form of document.querySelectorAll('form[data-validate]')) wire(form)
+  // A stepped form is wired by steps() at the end of its own setup. Wiring it
+  // here as well would attach two submit listeners and double-count the lead.
+  for (const form of document.querySelectorAll('form[data-validate]:not([data-steps])')) wire(form)
   for (const form of document.querySelectorAll('form[data-steps]')) steps(form)
 }
 

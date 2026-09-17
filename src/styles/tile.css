@@ -29,6 +29,16 @@
   align-items: stretch;
 }
 
+/* The <li> wrappers sit between the perspective host and the tile. Without
+   preserve-3d here the tilt flattens into a 2D skew and the Z-parallax on the
+   tile's contents does nothing at all. */
+.tile-grid > li {
+  display: flex;
+  transform-style: preserve-3d;
+  min-width: 0;
+}
+.tile-grid > li > lc-tile { width: 100%; }
+
 lc-tile {
   --lc-rx: 0deg;
   --lc-ry: 0deg;
@@ -56,7 +66,13 @@ lc-tile {
     var(--shadow-contact),
     var(--shadow-ambient),
     inset 0 1px 0 rgb(255 255 255 / 0.7);
+
+  /* Without these a tile refuses to shrink below its content, and at large
+     text sizes it pushes itself past the viewport edge. */
+  min-width: 0;
+  overflow-wrap: break-word;
 }
+lc-tile > * { min-width: 0; max-width: 100%; }
 
 /* No backdrop-filter (older Android WebView, Firefox with the flag off):
    fall back to an opaque tint so the tile stays legible and on-brand. */

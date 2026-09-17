@@ -18,8 +18,7 @@ export default function downloads (ctx) {
     { title: 'Weekly programme', note: 'What each day of the week holds.', file: documents?.['weekly-a'] ?? null },
     { title: 'Menu', note: 'The general menu, seven months upward.', file: documents?.['menu-general'] ?? null },
     { title: 'Baby menu', note: 'The Baby Centre menu, three to seven months.', file: documents?.['menu-baby'] ?? null },
-    { title: 'Summer menu', note: 'A separate seasonal menu listed on the old site.', file: null },
-    { title: 'Winter menu', note: 'A separate seasonal menu listed on the old site.', file: null },
+    { title: 'Seasonal menus', note: 'The summer and winter menus the old site listed separately.', file: null },
     { title: 'Year planner', note: 'Term dates and the events calendar.', file: null }
   ]
 
@@ -54,7 +53,7 @@ export default function downloads (ctx) {
     <p class="lede">Every link here opens its own file. Anything we do not have yet says so rather than pointing you at the wrong document.</p>
   </div>
 </section>
-${section({ body: `<ul class="tile-grid plain downloads-grid" data-cols="3" style="--cols:1">
+${section({ body: `<ul class="tile-grid plain downloads-grid" data-cols="4">
   ${cards.map(c => `<li>${c}</li>`).join('\n  ')}
 </ul>` })}`
   }
