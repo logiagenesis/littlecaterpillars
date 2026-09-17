@@ -59,8 +59,8 @@ export function initConsent (gtmId) {
         adverts. Nothing is set until you choose. Read our
         <a href="/popia/">POPIA notice</a>.</p>
       <div class="consent-banner__actions">
-        <button type="button" class="btn btn--ghost" data-consent="decline">Only what's needed</button>
-        <button type="button" class="btn btn--primary" data-consent="accept">Accept all</button>
+        <button type="button" class="btn btn--sm btn--ghost" data-consent="decline">Only essentials</button>
+        <button type="button" class="btn btn--sm btn--primary" data-consent="accept">Accept all</button>
       </div>`
     document.body.appendChild(el)
     el.addEventListener('click', e => {

@@ -513,3 +513,73 @@ border and more opaque fill introduced no contrast regression.
 Failures 9 and 10 — "cookie banner looks cheap", "the site still feels like a
 template" — remain visual judgements against screenshots that are not in this
 repository. Unlike failure 3, I have no measurement that decides them.
+
+---
+
+# The cookie banner — 2026-09-17
+
+Closes failure 9, *"cookie banner looks cheap and blocks the design"*. Unlike
+failure 10, most of this one could be measured rather than argued.
+
+## "Blocks the design" was a number
+
+The banner is bottom-fixed, so a full-page screenshot misplaces it — my first
+reading of one had it floating over the middle of the classes page, which was
+wrong. Measured properly, in a real viewport:
+
+| | before | after |
+|---|---|---|
+| desktop 1280×900 | 560 × 164 — **7.9%** of the viewport | 660 × 96 — **5.5%** |
+| mobile 390×844 | 358 × 242 — **26.3%** | 366 × 143 — **15.9%** |
+
+A quarter of a phone screen, and the screenshot shows what that cost: the
+banner cut the Butterfly class card in half. It no longer touches it.
+
+## Three faults, all concrete
+
+- **It was the only surface on the site outside the glass system.** Flat white, a grey hairline border and one generic shadow, sitting against tiles that are backdrop-blurred, rimmed and layered. It now carries the tile's glass fill, blur, edge tint and four-layer elevation, so the notice belongs to the system it interrupts.
+- **The two buttons did not fit one row at 390px.** They wrapped and stacked, costing about 90px of a viewport a notice has no business filling. Compact buttons (`.btn--sm`) and a shorter decline label put them on one row.
+- **The hierarchy was inverted.** "Only what's needed" was *wider* than "Accept all" purely because the label was longer, so the decline read as the dominant control while the lime fill said the opposite. Both buttons are now the same size and weight and differ only in fill.
+
+On anything wider than 34em the copy and the choices sit side by side, which is
+what halves the desktop height.
+
+## What was deliberately left alone
+
+**The copy.** "We use cookies to see how the site is used and to measure our
+adverts. Nothing is set until you choose. Read our POPIA notice." That is a
+compliance disclosure, not decoration, and trimming it to save pixels would
+trade a legal obligation for a design preference. Only the decline label
+changed, from "Only what's needed" to "Only essentials" — same meaning, and it
+is what lets both choices share a row on a phone.
+
+**Equal weight for both choices.** A consent notice that makes accept the easy
+button and decline the small one is a dark pattern. Given this site's POPIA
+posture it does not get to do that, so the two are deliberately identical in
+size and padding.
+
+## Verified
+
+```
+$ npm test          all grid-law and catalogue assertions passed        exit 0
+$ npm run check     18 pages, 1 warning (the accepted title), 0 failures exit 0
+$ node tools/audit.mjs
+                    8 failures, 0 warnings, 23 explicit passes          exit 1
+```
+
+The 8 failures are the absent photographs, as in every run. The checks this
+change could have broken all hold: **no external request is made with the
+banner untouched**, the banner is still present and still exactly one, the
+keyboard walkthrough still reaches 100% of focusable elements with no trap on
+all four routes, and axe still reports zero violations.
+
+One honest note: home CLS read **0.0025**, against 0.0007 on earlier runs and a
+0.01 budget. The entrance animation is transform and opacity on a fixed
+element, which cannot shift layout, and gallery CLS was unchanged at 0.0020, so
+this looks like run-to-run variance rather than the banner — but it moved, and
+it is recorded rather than glossed.
+
+## Still not adjudicated
+
+Failure 10, *"the site still feels like a template"*, is the last one, and it
+remains a judgement against screenshots that are not in this repository.
