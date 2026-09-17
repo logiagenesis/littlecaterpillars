@@ -431,3 +431,85 @@ Screenshots at all seven widths in `audit-out/` (git-ignored; re-run
 The home stats strip is still three plain tiles. A dial there would show a band
 covering the whole domain — a full ring, which encodes nothing — so it would be
 the decorated badge this component exists to replace. Left alone deliberately.
+
+---
+
+# The rim and the flat tiles — 2026-09-17
+
+Closes failures 1 and 3 of the first pass. I had recorded both as *cannot
+adjudicate* — visual judgements against screenshots not in the repository — and
+was asked to fix them anyway. Failure 3 turned out not to be a judgement at all.
+
+## The rim had never worked. One flag explains it.
+
+`tile.css` registered both rim properties as non-inheriting:
+
+```css
+@property --lc-edge-angle   { syntax: "<angle>";  inherits: false; initial-value: 0deg; }
+@property --lc-edge-opacity { syntax: "<number>"; inherits: false; initial-value: 0.18; }
+```
+
+Both are **set on `lc-tile`** — by the hover rule, by the `lc-edge-drift`
+keyframes, and by `tile.js` writing the pointer bearing — and both are **read on
+`lc-tile::after`**, which is where the masked conic ring lives.
+
+A registered custom property declared `inherits: false` does not reach the
+pseudo-element. `::after` fell back to the initial value every time. Measured in
+Chromium before the fix, hovering a tile:
+
+```
+--lc-edge-opacity on lc-tile   0.85      <- the rule fired
+opacity on lc-tile::after      0.18      <- the ring never heard about it
+```
+
+So the rim was frozen at 18% opacity and 0° bearing in every state on every
+tile, for the whole life of the component. It never brightened on hover, never
+drifted, and never locked to the pointer. Three of the brief's stated tile
+behaviours were dead, and nothing failed: no assertion reads a pseudo-element's
+computed opacity, and the screenshot reviewer correctly called the result "not
+visibly reflective".
+
+`inherits: true` on both, and the same measurement now reads:
+
+```
+rest     opacity 0.42   conic-gradient(from 14.574deg, ...)   <- drift is live
+hover    opacity 1      conic-gradient(from 80.113deg, ...)   <- bearing locks
+```
+
+The dial inherited the same bug — it reuses these two properties — and the same
+one-line fix repairs it.
+
+## Then the design work the brief actually asked for
+
+With the rim alive, the remaining faults were real design faults:
+
+- **The lit arc covered 150° of 360°, and the other 210° was `transparent`.** A rim that disappears over most of its perimeter is not a rim. It now has a bright key lobe, a softer fill lobe roughly opposite, and a floor between them, so the edge is defined the whole way round.
+- **1px is not a hairline, it is nothing.** 1.5px, which at 2× is three device pixels and actually visible.
+- **The border under the sheen was `--lc-mist` at 70%** — near-white on a cream ground, so a tile had no edge at all when the sheen was dim. Now a 13% tint of the brand deep.
+- **Two shadows cannot describe a pane.** Four cast layers (tight contact, two mid, broad ambient) plus an inset pair — lit along the top, shaded along the bottom — which is what gives the tile thickness instead of the look of a rectangle painted on the background.
+- **The fill was 62%/48% white over cream**, barely separated from the ground; now 74%/58%.
+- **Perspective 1100px → 900px**, so the same capped 7° reads as more depth.
+
+`dial.css` carries the identical treatment: one system, not two.
+
+## Verified
+
+```
+$ npm test          all grid-law and catalogue assertions passed        exit 0
+$ npm run check     18 pages, 1 warning (the accepted title), 0 failures exit 0
+$ node tools/audit.mjs
+                    8 failures, 0 warnings, 23 explicit passes          exit 1
+```
+
+The 8 failures are the absent photographs, identical to every run before this
+one. Specifically unchanged: **the sheen is still confined to the border** (the
+tile face carries `linear-gradient` alone in every state), tilt still peaks
+under the cap at 5.874°, still **1 concurrent rAF callback**, reduced motion
+still kills tilt and drift, and axe still reports zero violations — the darker
+border and more opaque fill introduced no contrast regression.
+
+## What is still not adjudicated
+
+Failures 9 and 10 — "cookie banner looks cheap", "the site still feels like a
+template" — remain visual judgements against screenshots that are not in this
+repository. Unlike failure 3, I have no measurement that decides them.
