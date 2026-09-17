@@ -1,15 +1,16 @@
-import { tile, grid, section, wave, icon } from '../partials/components.js'
+import { tile, grid, section, wave, icon, dial, ageBand } from '../partials/components.js'
 import { esc, rich, todo } from '../partials/layout.js'
 
 export default function home (ctx) {
   const { site, copy, hero } = ctx
 
   const classCards = copy.classes.map(c => tile({
+    mark: dial({ from: c.ageFrom, to: c.ageTo, ...ageBand(c.ageFrom, c.ageTo), size: 'sm' }),
     meta: c.ages,
     title: c.name,
     href: `/classes/#${c.slug}`,
     body: `<p>${rich(c.subtitle ? `${c.subtitle}. ${firstSentence(c.body)}` : firstSentence(c.body))}</p>`,
-    className: c.feature ? 'is-feature' : ''
+    className: `has-dial ${c.feature ? 'is-feature' : ''}`.trim()
   }))
 
   return {

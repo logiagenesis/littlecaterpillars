@@ -15,6 +15,73 @@ export function tile ({ mark, meta, title, href, body, foot, className = '', lev
 </lc-tile>`
 }
 
+/**
+ * <lc-dial> — a circular glass gauge for a band on a scale.
+ *
+ * The age range on a class card used to be `tile-meta`: uppercase text, and
+ * nothing more. A dial earns its place here because the arc carries real
+ * information — where a class sits on the 3-months-to-6-years span, and how
+ * wide its band is. Five dials side by side make the classes comparable at a
+ * glance, which "2 – 3 YEARS" in small caps never did.
+ *
+ * The geometry is computed here, at build time, so a dial is a correct static
+ * picture with JavaScript off. The script only adds tilt.
+ *
+ * Domain defaults to the span the school actually takes, which is the same
+ * 0.25–6 the JSON-LD `audience` already declares.
+ *
+ * @param from  band start, in domain units
+ * @param to    band end, in domain units
+ * @param value short text for the centre — the fact a reader gets
+ * @param label optional line under the value
+ * @param size  'sm' inside a tile's mark slot, 'md' standing on its own
+ */
+export function dial ({ from, to, value, label, min = 0.25, max = 6, size = 'md', className = '' }) {
+  const R = 44
+  const C = 2 * Math.PI * R
+  const SWEEP = 0.75                       // a 270° gauge, 90° open at the foot
+  const track = C * SWEEP
+
+  const span = max - min
+  const clamp01 = n => n < 0 ? 0 : n > 1 ? 1 : n
+  const f0 = clamp01((from - min) / span)
+  const f1 = clamp01((to - min) / span)
+  const arc = Math.max(f1 - f0, 0) * track
+
+  // A hairline of arc for a zero-width band, so a dial is never blank.
+  const len = arc > 0.5 ? arc : 0.5
+  const round = n => Math.round(n * 100) / 100
+
+  // A small dial carries the range alone. Inside a tile the unit is already in
+  // the meta line directly beneath it, and two words in a 76px circle wrap.
+  const showLabel = label && size !== 'sm'
+
+  return `<lc-dial class="${esc(`dial dial--${size} ${className}`.trim())}">
+  <svg class="dial__ring" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+    <circle class="dial__track" cx="50" cy="50" r="${R}"
+            stroke-dasharray="${round(track)} ${round(C)}" transform="rotate(135 50 50)"/>
+    <circle class="dial__arc" cx="50" cy="50" r="${R}"
+            stroke-dasharray="${round(len)} ${round(C)}"
+            stroke-dashoffset="${round(-f0 * track)}" transform="rotate(135 50 50)"/>
+  </svg>
+  <span class="dial__face">
+    <span class="dial__value">${esc(value)}</span>
+    ${showLabel ? `<span class="dial__label">${esc(label)}</span>` : ''}
+  </span>
+</lc-dial>`
+}
+
+/**
+ * Compact centre text for an age dial, built from the numbers rather than by
+ * abbreviating the prose — so a reworded `ages` string cannot change what the
+ * dial reads. Bands under a year are shown in months, as the school states them.
+ */
+export function ageBand (from, to) {
+  const months = to <= 1
+  const n = v => Number((months ? v * 12 : v).toFixed(2)).toString()
+  return { value: `${n(from)}–${n(to)}`, label: months ? 'months' : 'years' }
+}
+
 export function grid (cols, children, className = '') {
   return `<ul class="tile-grid plain ${className}" data-cols="${cols}">
     ${children.map(c => `<li>${c}</li>`).join('\n    ')}

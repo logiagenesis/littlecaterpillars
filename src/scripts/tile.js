@@ -1,5 +1,11 @@
 /**
- * lc-tile — 3D tilt with spring physics.
+ * lc-tile and lc-dial — 3D tilt with spring physics.
+ *
+ * Both components are driven from the one registry below. A dial is a smaller,
+ * rounder object, so it takes a lower tilt cap — past a few degrees a circle
+ * stops reading as tipped and starts reading as wobbling — but it shares this
+ * file's loop, listeners and observer. Adding a second rAF loop for dials would
+ * break the invariant this file exists to hold.
  *
  * Design constraints this file exists to honour:
  *   - ONE requestAnimationFrame loop for the whole page, driven from a registry.
@@ -13,6 +19,7 @@
  */
 
 const MAX_TILT = 7            // degrees, hard cap
+const MAX_TILT_DIAL = 5       // a circle reads as wobbling before it reads as tipped
 const HOVER_SCALE = 1.015
 const STIFFNESS = 170
 const DAMPING_FOLLOW = 22     // near-critical: tracks the pointer without wobble
@@ -29,8 +36,9 @@ let frame = 0
 let last = 0
 
 class Tile {
-  constructor (el) {
+  constructor (el, maxTilt = MAX_TILT) {
     this.el = el
+    this.maxTilt = maxTilt
     this.rx = 0; this.ry = 0; this.sc = 1
     this.vrx = 0; this.vry = 0; this.vsc = 0
     this.txRx = 0; this.txRy = 0; this.txSc = 1
@@ -44,8 +52,8 @@ class Tile {
     if (!r.width || !r.height) return
     const px = (clientX - r.left) / r.width          // 0..1
     const py = (clientY - r.top) / r.height          // 0..1
-    this.txRy = clamp((px - 0.5) * 2, -1, 1) * MAX_TILT
-    this.txRx = clamp((0.5 - py) * 2, -1, 1) * MAX_TILT
+    this.txRy = clamp((px - 0.5) * 2, -1, 1) * this.maxTilt
+    this.txRx = clamp((0.5 - py) * 2, -1, 1) * this.maxTilt
     this.txSc = HOVER_SCALE
     this.engaged = true
 
@@ -121,32 +129,42 @@ export function initTiles (root = document) {
     }
   }, { rootMargin: '120px' })
 
-  for (const grid of root.querySelectorAll('.tile-grid')) {
-    const tiles = grid.querySelectorAll('lc-tile')
-    if (!tiles.length) continue
+  /** Register one container's worth of elements: one listener set, not one per element. */
+  const bind = (container, elements, selector, maxTilt) => {
+    if (!elements.length) return
 
-    for (const el of tiles) {
-      el.__lcTile = new Tile(el)
+    for (const el of elements) {
+      el.__lcTile = new Tile(el, maxTilt)
       el.classList.add('has-edge')
       observer.observe(el)
     }
 
-    // One delegated listener per grid, not one per tile.
-    grid.addEventListener('pointermove', event => {
+    container.addEventListener('pointermove', event => {
       if (event.pointerType !== 'mouse') return
-      const el = event.target.closest('lc-tile')
+      const el = event.target.closest(selector)
       if (!el || !el.__lcTile || !el.__lcTile.onScreen) return
       el.__lcTile.aim(event.clientX, event.clientY)
     }, { passive: true })
 
-    grid.addEventListener('pointerleave', () => {
-      for (const el of tiles) el.__lcTile?.engaged && el.__lcTile.release()
+    container.addEventListener('pointerleave', () => {
+      for (const el of elements) el.__lcTile?.engaged && el.__lcTile.release()
     }, { passive: true })
 
-    grid.addEventListener('pointerout', event => {
-      const el = event.target.closest('lc-tile')
+    container.addEventListener('pointerout', event => {
+      const el = event.target.closest(selector)
       if (el && el.__lcTile && !el.contains(event.relatedTarget)) el.__lcTile.release()
     }, { passive: true })
+  }
+
+  for (const grid of root.querySelectorAll('.tile-grid')) {
+    bind(grid, [...grid.querySelectorAll('lc-tile')], 'lc-tile', MAX_TILT)
+  }
+
+  // Standalone dials only. One inside a tile is the tile's ornament: it
+  // parallaxes with the tile and must not rotate on its own.
+  for (const row of root.querySelectorAll('.dial-row')) {
+    const dials = [...row.querySelectorAll('lc-dial')].filter(el => !el.closest('lc-tile'))
+    bind(row, dials, 'lc-dial', MAX_TILT_DIAL)
   }
 
   // Honour a mid-session change of the motion preference.
