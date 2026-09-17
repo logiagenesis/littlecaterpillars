@@ -583,3 +583,81 @@ it is recorded rather than glossed.
 
 Failure 10, *"the site still feels like a template"*, is the last one, and it
 remains a judgement against screenshots that are not in this repository.
+
+---
+
+# The template feel — 2026-09-17
+
+Failure 10, the last one. I had recorded it as *cannot adjudicate* twice and
+advised against fixing it blind; asked again, I took the view that the
+rejection text points at something specific — *"the shared surface and
+**repeated layout**"* — and that repetition can be counted.
+
+## What the count showed
+
+Every route's band structure, from the built HTML:
+
+```
+  8 of 19 routes    a single undifferentiated `plain` section
+  1 wave            on the whole site, on the home page only
+  1 metamorphosis   on the whole site, on /about/ only
+```
+
+So the entire vocabulary of page rhythm was a background swap between cream
+and slightly darker cream. Sections butted against each other as flat
+rectangular bands, on every page, all the way down.
+
+That is a fair description of "feels like a template", and it is not a matter
+of taste.
+
+## What changed
+
+`components.js` already had a bespoke device, described in its own comment as
+*"an organic two-stop curve, not the 1000-node scallop the old theme
+shipped"*. It was used **once**. A bespoke curve used once is a decoration;
+used at every ground change it is the grammar of the page.
+
+`stitch()` now runs at build time over each finished body, finds the page's
+bands in document order, and inserts the curve wherever the ground colour
+actually changes — cream to sunk, sunk to cream, anything to the deep invert
+band. It runs in one place in `build.js`, so no page has to remember it and no
+page can forget it. Waves alternate direction, because five identical curves
+down one page is just a different template.
+
+```
+  waves across the site:  1  ->  22, across 8 routes
+```
+
+Pages that already placed a wave by hand — the home hero — are not doubled up.
+
+## What I did not do, and why
+
+**The 8 single-section routes were left alone.** They are `/popia/`,
+`/privacy/`, `/terms/`, `/contact/`, `/location/`, `/downloads/` and the two
+admissions forms. A legal notice or a form *should* be one uninterrupted
+column; adding structure there to make a count look better would be worse
+design, not better.
+
+**Nothing else was restyled.** Everything beyond this is taste, and taste
+without the rejected screenshots is guessing with someone else's site.
+
+## Verified
+
+```
+$ npm test          all grid-law and catalogue assertions passed        exit 0
+$ npm run check     18 pages, 1 warning (the accepted title), 0 failures exit 0
+$ node tools/audit.mjs
+                    8 failures, 0 warnings, 23 explicit passes          exit 1
+```
+
+The 8 failures are the absent photographs, as in every run. Waves are
+`aria-hidden` static markup, so heading order, axe, the keyboard walkthrough
+and CLS are all unchanged.
+
+## The honest limit
+
+This closes the half of failure 10 that could be measured. Whether the site
+now reads as a finished system rather than a template is a judgement, and it
+is not mine to declare. The other nine failures have all been fixed since the
+rejection, several of them substantially — the sensible next step is to look
+at the deployed site and see whether 10 survived them at all.

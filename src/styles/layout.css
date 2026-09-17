@@ -90,6 +90,9 @@
 .wave { line-height: 0; background: var(--wave-from); }
 .wave svg { width: 100%; height: clamp(40px, 6vw, 90px); display: block; }
 .wave path { fill: var(--wave-to); }
+/* Alternating direction down a page. One curve repeated five times is just a
+   different template; mirrored, the same two-stop curve reads as a rhythm. */
+.wave--flip svg { transform: scaleX(-1); }
 
 /* Page furniture ------------------------------------------------------------ */
 .page-head { padding-block: clamp(var(--sp-6), 6vw, var(--sp-8)) var(--sp-5); }

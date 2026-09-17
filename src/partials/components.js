@@ -101,12 +101,62 @@ export function section (opts) {
 }
 
 /** An organic two-stop curve, not the 1000-node scallop the old theme shipped. */
-export function wave (from = 'var(--ground)', to = 'var(--ground-sunk)') {
-  return `<div class="wave" aria-hidden="true" style="--wave-from:${from};--wave-to:${to}">
+export function wave (from = 'var(--ground)', to = 'var(--ground-sunk)', flip = false) {
+  return `<div class="wave${flip ? ' wave--flip' : ''}" aria-hidden="true" style="--wave-from:${from};--wave-to:${to}">
   <svg viewBox="0 0 1440 90" preserveAspectRatio="none" focusable="false">
     <path d="M0 46C300 92 560 4 840 26s420 62 600 34V90H0Z"/>
   </svg>
 </div>`
+}
+
+/**
+ * Stitch the page together at its ground changes.
+ *
+ * The rebuild had exactly one wave on the whole site, on the home page. Every
+ * other section boundary was a hard colour edge between cream and slightly
+ * darker cream — which is the entire vocabulary the "still feels like a
+ * template" rejection was pointing at. A bespoke curve used once is a
+ * decoration; used at every ground change it is the grammar of the page.
+ *
+ * Applied at build time to a finished body, so no page has to remember to do
+ * it and no page can forget. Waves alternate direction: five identical curves
+ * down one page would just be a different template.
+ */
+const GROUND = {
+  invert: 'var(--ground-invert)',
+  sunk: 'var(--ground-sunk)',
+  plain: 'var(--ground)'
+}
+
+const groundOf = className =>
+  /\bsection--invert\b/.test(className) ? 'invert'
+  : /\bsection--sunk\b/.test(className) ? 'sunk'
+  : 'plain'
+
+export function stitch (body) {
+  // Opening tags of the page's own bands, in document order. The hero and the
+  // lightbox are not bands and are left alone.
+  const open = /<section class="((?:section|page-head)[^"]*)"/g
+  const bands = []
+  for (let m; (m = open.exec(body));) bands.push({ at: m.index, ground: groundOf(m[1]) })
+  if (bands.length < 2) return body
+
+  const inserts = []
+  let flip = false
+  for (let i = 1; i < bands.length; i++) {
+    const from = bands[i - 1].ground
+    const to = bands[i].ground
+    if (from === to) continue
+    // Never double up where a page already placed one by hand.
+    if (/<div class="wave"[^]{0,400}$/.test(body.slice(0, bands[i].at))) continue
+    inserts.push({ at: bands[i].at, html: wave(GROUND[from], GROUND[to], flip) })
+    flip = !flip
+  }
+
+  // Back to front, so earlier offsets stay valid.
+  let out = body
+  for (const ins of inserts.reverse()) out = out.slice(0, ins.at) + ins.html + '\n' + out.slice(ins.at)
+  return out
 }
 
 export function breadcrumbs (trail) {
