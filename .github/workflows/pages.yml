@@ -35,6 +35,8 @@ jobs:
           BASE_PATH: /littlecaterpillars
       - name: Fail if photographs are not in the artefact
         run: node tools/assert-gallery-files.mjs
+      - name: Quality gate
+        run: npm run quality
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
