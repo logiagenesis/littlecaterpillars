@@ -1,11 +1,12 @@
 import { tile, section, breadcrumbs, crumbLd } from '../partials/components.js'
 import { esc, todo } from '../partials/layout.js'
+import { galleryFilesPresent } from '../../tools/gallery-files.js'
 
 export default function gallery (ctx) {
   const { site, gallery } = ctx
   const trail = [{ href: '/', label: 'Home' }, { label: 'Gallery' }]
 
-  if (!gallery) {
+  if (!gallery || !galleryFilesPresent()) {
     return {
       path: '/gallery/',
       title: 'Gallery | Little Caterpillars',
@@ -24,7 +25,8 @@ ${section({ body: `<div class="prose">
   written parental consent on file for it. The gallery is built and ready; it
   renders the moment a consent reference exists for every image.</p>
   <p>${todo('{{TODO_CONFIRM: signed image-consent register from the school}}')}</p>
-</div>` })}`
+</div>` })}
+`
     }
   }
 

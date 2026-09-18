@@ -1,8 +1,10 @@
 import { tile, grid, section, wave, icon, dial, ageBand } from '../partials/components.js'
 import { esc, rich, todo } from '../partials/layout.js'
+import { galleryFilesPresent } from '../../tools/gallery-files.js'
 
 export default function home (ctx) {
   const { site, copy, hero } = ctx
+  const showHero = Boolean(hero && galleryFilesPresent())
 
   const classCards = copy.classes.map(c => tile({
     mark: dial({ from: c.ageFrom, to: c.ageTo, ...ageBand(c.ageFrom, c.ageTo), size: 'sm' }),
@@ -21,7 +23,7 @@ export default function home (ctx) {
     body: `
 <section class="hero" data-hero>
   <div class="hero__media" data-parallax>
-    ${hero
+    ${showHero
       ? `<picture>
            <source type="image/avif" srcset="${hero.srcset.avif}" sizes="100vw">
            <source type="image/webp" srcset="${hero.srcset.webp}" sizes="100vw">
