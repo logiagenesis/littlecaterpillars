@@ -737,3 +737,116 @@ the JavaScript ran at all.
 The fix closes the gap. But the general lesson is the one that keeps recurring
 in this audit: a check that does not run against the artefact you ship is not
 evidence about the thing you ship.
+
+---
+
+# Third pass: the peach card, and a diagnosis that was half wrong
+
+## What was seen
+
+A screenshot of the deployed `/classes/` page showed the Butterfly Class
+feature card rendering **peach**. It is specified as pale green:
+
+```css
+background-image: linear-gradient(120deg,
+  color-mix(in oklch, var(--lc-lime) 26%, var(--lc-white)), …);
+```
+
+`--lc-lime` is `#b2c633`, roughly 122deg of hue in oklch. White is achromatic.
+CSS Color 4 calls white's hue *powerless* and says the mix keeps the other
+colour's hue; an engine that instead reads it as 0deg computes
+`0.26 x 122deg = 32deg`, which is peach. The arithmetic matched the pixel, so
+the mix was rewritten in srgb — nine declarations in total, the feature card
+plus four conic-gradient rim stops each in `tile.css` and `dial.css`.
+
+## The part that was wrong
+
+That was written up as "the deployed site is broken". It is not, for most
+visitors. The claim was never measured against the *other* half of the
+proposition, and it should have been before a line was changed.
+
+Rendering both formulations in one browser, and reading the painted pixel back
+through a canvas rather than trusting `getComputedStyle` (which reports the
+oklch mix as an `oklch()` string, not as RGB):
+
+| declaration | Chrome 141 | Chrome 119 |
+|---|---|---|
+| `color-mix(in oklch, lime 26%, white)` | `rgb(234,241,209)` hue 117deg — **pale green, correct** | peach |
+| `color-mix(in srgb, lime 26%, white)` | `rgb(235,240,202)` hue 68deg | same |
+
+Chrome 141 gets it right. The browser in the screenshot tool reports
+`Chrome/119.0.0.0`, and that is the one rendering peach. The page as shipped is
+correct for anyone on a current browser, and the first write-up overstated the
+blast radius.
+
+The same probe also measured the cost of the rewrite, which the first write-up
+never did: across all nine converted declarations the largest difference in
+Chrome 141 is **13/255 in RGB distance and 5deg in hue**. Invisible.
+
+The one control in the probe is the useful check: `color-mix` of lime and teal,
+two chromatic colours, differs between oklch and srgb by 49deg of hue and 79 in
+RGB distance. Polar interpolation is doing real work there, which is why the
+oklch mixes against `transparent` were left alone — alpha is premultiplied, so
+the surviving endpoint carries its own hue.
+
+## Why it is still worth changing
+
+The disagreement is documented and open, not settled: `w3c/csswg-drafts#8609`
+and `web-platform-tests/interop#1334` both record that engines handle powerless
+and missing components inconsistently across `color-mix`, relative colour
+syntax and gradients. A stylesheet cannot tell which engine a parent is
+holding, and for a preschool in Pretoria an Android device two years behind
+head is an ordinary visitor, not an edge case.
+
+So the change stands on a narrower claim than the one first made: not *this is
+broken*, but *this asks the engine a question it is allowed to answer two ways,
+for no benefit*. srgb has no hue channel to get wrong.
+
+## The fix
+
+- Nine mixes restated `in srgb`, plus five more found by sweeping the rest of the stylesheets — the no-backdrop-filter fallbacks in `tile.css` and `dial.css`, the hero lede in `layout.css`, and the footer's `deep 94%, black`. Fourteen in total.
+- **`tools/assert-colormix.mjs`**: no `color-mix` in a polar space (oklch, lch, hsl, hwb) may have one achromatic opaque endpoint and one chromatic one. Two achromatic endpoints are fine, and mixing against `transparent` is fine in any space. Wired into `npm test`, so it gates both `ci.yml` and `pages.yml`.
+
+Checked the way the last one was — against the defect first:
+
+```
+$ node tools/assert-colormix.mjs          (with the original mix restored)
+  colour law: 1 polar color-mix(es) against an achromatic colour
+  pages.css:60
+    color-mix(in oklch, var(--lc-lime) 26%, var(--lc-white))
+    "var(--lc-white)" has no hue of its own, so "in oklch" has to guess
+    what to do with "var(--lc-lime)"'s. Engines guess differently.
+exit=1
+
+$ node tools/assert-colormix.mjs          (with the fix)
+colour law: 7 stylesheets, no polar color-mix against an achromatic colour
+```
+
+`npm run check` and `tools/audit.mjs` are otherwise unchanged: the same 8
+absent-photograph failures, 0 warnings, 23 explicit passes.
+
+## One thing that was suspected and turned out to be fine
+
+The same screenshot showed the five class cards stacked one per row rather than
+in a grid, which looked like a second bug. Measured at four viewports against
+the shipped build:
+
+```
+1440px  cols: 190px x6   items: 1260 | 618 618 | 618 618
+1100px  cols: 158px x6   items: 1068 | 522 522 | 522 522
+ 768px  cols: 356px x2   items:  736 | 356 356 | 356 356
+ 390px  cols: 358px x1   items: one per row
+```
+
+That is the intended 2+3 editorial layout: a six-track grid with the baby class
+spanning all six as a wide feature card and the other four spanning three each.
+Every row is full, so grid law holds. Nothing to fix.
+
+## The lesson, restated
+
+Last pass's was *a check that does not run against the artefact you ship is not
+evidence about the thing you ship*. This pass adds the mirror image: **a
+screenshot is evidence about the browser that took it, and not automatically
+about anyone else's.** The arithmetic explaining a wrong pixel can be correct
+and the conclusion drawn from it still too broad. Render both sides in the same
+browser before deciding which one is broken.

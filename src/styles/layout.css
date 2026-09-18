@@ -83,7 +83,7 @@
   letter-spacing: 0.10em; text-transform: uppercase; color: var(--lc-lime); margin: 0 0 var(--sp-3);
 }
 .hero__title { font-size: var(--step-5); margin: 0 0 var(--sp-4); color: var(--lc-white); }
-.hero__lede { font-size: var(--step-1); max-width: 40ch; color: color-mix(in oklch, var(--lc-white) 88%, var(--lc-cream)); }
+.hero__lede { font-size: var(--step-1); max-width: 40ch; color: color-mix(in srgb, var(--lc-white) 88%, var(--lc-cream)); }
 .hero__actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); margin: 0; }
 
 /* The wave divider: a clean two-stop organic curve, not a 1000-node scallop. */
@@ -239,7 +239,7 @@ body:has(.form) .whatsapp-fab { --fab-lift: 0px; }
 body.is-locked { overflow: hidden; }
 .lightbox {
   position: fixed; inset: 0; z-index: 150;
-  background: color-mix(in oklch, var(--lc-deep) 94%, black);
+  background: color-mix(in srgb, var(--lc-deep) 94%, black);
   display: grid; grid-template-columns: auto 1fr auto; grid-template-rows: auto 1fr;
   align-items: center; gap: var(--sp-3); padding: var(--sp-4);
 }

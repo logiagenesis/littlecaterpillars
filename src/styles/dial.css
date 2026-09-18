@@ -61,8 +61,8 @@ lc-dial {
   lc-dial {
     background:
       linear-gradient(
-        color-mix(in oklch, var(--lc-white) 92%, var(--lc-cream)),
-        color-mix(in oklch, var(--lc-white) 84%, var(--lc-cream))
+        color-mix(in srgb, var(--lc-white) 92%, var(--lc-cream)),
+        color-mix(in srgb, var(--lc-white) 84%, var(--lc-cream))
       ) padding-box;
   }
 }
@@ -136,12 +136,12 @@ lc-dial {
     background: conic-gradient(
       from var(--lc-edge-angle),
       color-mix(in oklch, var(--lc-teal) 34%, transparent) 0deg,
-      color-mix(in oklch, var(--lc-lime) 94%, white) 38deg,
-      color-mix(in oklch, var(--lc-white) 88%, var(--lc-teal)) 66deg,
-      color-mix(in oklch, var(--lc-teal) 78%, white) 96deg,
+      color-mix(in srgb, var(--lc-lime) 94%, white) 38deg,
+      color-mix(in srgb, var(--lc-white) 88%, var(--lc-teal)) 66deg,
+      color-mix(in srgb, var(--lc-teal) 78%, white) 96deg,
       color-mix(in oklch, var(--lc-teal) 30%, transparent) 152deg,
       color-mix(in oklch, var(--lc-teal) 20%, transparent) 208deg,
-      color-mix(in oklch, var(--lc-lime) 58%, white) 268deg,
+      color-mix(in srgb, var(--lc-lime) 58%, white) 268deg,
       color-mix(in oklch, var(--lc-teal) 26%, transparent) 312deg,
       color-mix(in oklch, var(--lc-teal) 34%, transparent) 360deg
     );
